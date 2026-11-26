@@ -1,0 +1,897 @@
+/* =========================================
+   मानस मनुज - मास्टर डिज़ाइन फाइल (style.css)
+   थीम: क्रीम, महरून, भगवा और सुनहरा
+   ========================================= */
+
+:root {
+  --cream-bg: #FDF8EE;
+  --cream-card: #FFFDF8;
+  --cream-soft: #F4E9D2;
+  --maroon: #6B141A;
+  --maroon-dark: #480C10;
+  --saffron: #D96B16;
+  --saffron-hover: #B8550C;
+  --gold: #C89B3C;
+  --gold-light: #F8DF9C;
+  --text-dark: #2C1E18;
+  --text-muted: #5C4940;
+  --border-gold: rgba(200, 155, 60, 0.45);
+  --shadow: 0 8px 24px rgba(107, 20, 26, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  background-color: var(--cream-bg);
+  color: var(--text-dark);
+  line-height: 1.75;
+}
+
+h1, h2, h3, .brand-title {
+  font-family: 'Noto Serif Devanagari', serif;
+  color: var(--maroon);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- हेडर और नेविगेशन मेनू --- */
+header {
+  background: linear-gradient(90deg, var(--maroon-dark), var(--maroon));
+  color: var(--cream-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 3px solid var(--gold);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-container {
+  max-width: 1160px;
+  margin: auto;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--gold-light);
+  line-height: 1.2;
+}
+
+.brand-sub {
+  display: block;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 0.75rem;
+  color: var(--cream-soft);
+  font-weight: 400;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-size: 1.5rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--cream-bg);
+  padding: 0.35rem 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.25s ease;
+}
+
+nav a:hover, nav a.active {
+  color: var(--gold-light);
+  border-bottom-color: var(--saffron);
+}
+
+.nav-contact-btn {
+  background-color: var(--saffron);
+  color: #FFFFFF !important;
+  padding: 0.45rem 1rem !important;
+  border-radius: 6px;
+  font-weight: 600;
+  border-bottom: none !important;
+}
+
+.nav-contact-btn:hover {
+  background-color: var(--saffron-hover);
+}
+
+/* --- बटन स्टाइल --- */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: var(--saffron);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(217, 107, 22, 0.32);
+}
+
+.btn-primary:hover {
+  background-color: var(--saffron-hover);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #D4A23E, #B58220);
+  color: var(--maroon-dark);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(200, 155, 60, 0.35);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--maroon);
+  border: 2px solid var(--maroon);
+}
+
+.btn-outline:hover {
+  background-color: var(--maroon);
+  color: var(--cream-bg);
+}
+
+/* --- हीरो सेक्शन --- */
+.hero {
+  background: radial-gradient(circle at top, #FFF6E3 0%, var(--cream-soft) 100%);
+  border-bottom: 2px solid var(--border-gold);
+  padding: 4rem 1.25rem;
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 860px;
+  margin: auto;
+}
+
+.sacred-badge {
+  display: inline-block;
+  background-color: rgba(217, 107, 22, 0.12);
+  color: var(--saffron);
+  border: 1px solid var(--gold);
+  padding: 0.35rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4.8vw, 3.1rem);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.08rem;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0 auto 2rem;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* --- डायरेक्ट सेल हाईलाइट बॉक्स --- */
+.direct-sale-banner {
+  max-width: 1120px;
+  margin: 2.5rem auto 0;
+  background: linear-gradient(135deg, var(--maroon-dark), var(--maroon));
+  color: var(--cream-bg);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.direct-sale-banner h2 {
+  color: var(--gold-light);
+  font-size: 1.55rem;
+  margin-bottom: 0.4rem;
+}
+
+.direct-sale-banner p {
+  color: var(--cream-soft);
+  max-width: 650px;
+  font-size: 0.98rem;
+}
+
+/* --- सामान्य सेक्शन एवं कार्ड्स --- */
+section {
+  max-width: 1120px;
+  margin: auto;
+  padding: 3.8rem 1.25rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+  font-size: clamp(1.7rem, 3.5vw, 2.25rem);
+}
+
+.divider {
+  width: 90px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--maroon), var(--gold), var(--saffron));
+  margin: 0.6rem auto 0;
+  border-radius: 4px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--cream-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 14px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+}
+
+/* --- लेखक परिचय --- */
+.about-box {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2.2rem;
+  align-items: center;
+}
+
+.author-frame {
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  border: 3px solid var(--gold);
+  background: linear-gradient(145deg, var(--maroon), var(--maroon-dark));
+  color: var(--gold-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.author-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- पुस्तकें एवं प्रगति मीटर --- */
+.book-badge {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(107, 20, 26, 0.1);
+  color: var(--maroon);
+  margin-bottom: 0.8rem;
+}
+
+.book-cover {
+  height: 210px;
+  border-radius: 10px;
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, var(--maroon-dark), var(--maroon));
+  color: var(--gold-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.book-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.store-tag {
+  font-size: 0.86rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid var(--gold);
+  background: var(--cream-soft);
+  color: var(--maroon);
+  font-weight: 600;
+}
+
+.progress-wrap {
+  margin: 1rem 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: var(--cream-soft);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--saffron), var(--gold));
+  width: 75%;
+}
+
+/* --- फॉर्म स्टाइल --- */
+.form-group {
+  margin-bottom: 1.15rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--maroon);
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  background-color: var(--cream-bg);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--saffron);
+}
+
+/* --- फ्लोटिंग WhatsApp बटन --- */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1F7A3E;
+  color: #FFFFFF;
+  padding: 0.75rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+}
+
+/* --- फुटर --- */
+footer {
+  background: var(--maroon-dark);
+  color: var(--cream-soft);
+  border-top: 4px solid var(--gold);
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.footer-links a {
+  border: 1px solid var(--gold);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: var(--gold-light);
+}
+
+/* --- मोबाइल रिस्पॉन्सिव --- */
+@media (max-width: 820px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 1rem;
+    gap: 0.8rem;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+  }
+
+  .about-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .author-frame {
+    max-width: 230px;
+    margin: auto;
+  }
+}
+/* --- भाषा चयन बटन (Hindi / English) --- */
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-left: 0.5rem;
+}
+
+.lang-btn {
+  background: transparent;
+  color: var(--cream-bg);
+  border: none;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lang-btn.active {
+  background-color: var(--gold);
+  color: var(--maroon-dark);
+}
+/* --- फाइनल लेखक परिचय लेआउट (Quick Profile + Biography) --- */
+.about-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2.2rem;
+  align-items: start;
+}
+
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.quick-profile {
+  background-color: var(--cream-bg);
+  border: 1px solid var(--border-gold);
+  border-top: 3px solid var(--maroon);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.quick-profile h3 {
+  font-size: 1.15rem;
+  text-align: center;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.profile-list {
+  list-style: none;
+}
+
+.profile-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(200, 155, 60, 0.4);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.profile-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.profile-label {
+  display: block;
+  font-weight: 700;
+  color: var(--maroon);
+  font-size: 0.85rem;
+}
+
+.profile-value {
+  color: var(--text-dark);
+}
+
+.about-bio {
+  text-align: left;
+}
+
+.about-bio h3 {
+  font-size: 1.4rem;
+  padding-bottom: 0.55rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 2px solid var(--border-gold);
+}
+
+.about-bio p {
+  margin-bottom: 1.15rem;
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--text-dark);
+  text-align: justify;
+}
+
+.about-bio p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 820px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-bio p {
+    text-align: left;
+  }
+}
+/* --- पुस्तक विवरण पेज (Book Detail Page) --- */
+.book-hero-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2.2rem;
+  align-items: start;
+}
+
+.book-cover-lg {
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  border: 3px solid var(--gold);
+  background: linear-gradient(145deg, var(--maroon-dark), var(--maroon));
+  color: var(--gold-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.price-box {
+  background-color: var(--cream-bg);
+  border: 1px solid var(--gold);
+  border-left: 4px solid var(--saffron);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin: 1.2rem 0;
+}
+
+.price-old {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-right: 0.6rem;
+}
+
+.price-new {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--maroon);
+}
+
+.discount-pill {
+  display: inline-block;
+  background-color: var(--saffron);
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.spec-item {
+  background: var(--cream-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.quote-box {
+  background: linear-gradient(135deg, #FFF7E6, var(--cream-soft));
+  border: 1px solid var(--gold);
+  border-left: 5px solid var(--maroon);
+  border-radius: 12px;
+  padding: 1.6rem;
+  text-align: center;
+}
+
+.quote-verse {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--maroon);
+  line-height: 1.9;
+  margin-bottom: 0.8rem;
+}
+
+@media (max-width: 820px) {
+  .book-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-cover-lg {
+    max-width: 260px;
+    margin: auto;
+  }
+}
+
+
+/* =========================================
+   लेखक फोटो एवं 3D हार्डकवर पुस्तक इफ़ेक्ट
+   ========================================= */
+
+/* लेखक की असली फोटो का फ्रेम */
+.author-photo-frame {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 1.2rem;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 3px solid rgba(122, 28, 28, 0.18);
+  box-shadow: 0 12px 28px rgba(74, 22, 22, 0.14);
+  background: #eceae6;
+}
+
+.author-photo-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* 3D हार्डकवर पुस्तक का बैकग्राउंड स्टेज */
+.book-3d-stage {
+  background: radial-gradient(circle at center, #fdf8ef 0%, #f1e4d1 100%);
+  border: 1px solid rgba(122, 28, 28, 0.12);
+  border-radius: 14px;
+  padding: 1.8rem 1.2rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1100px;
+  overflow: hidden;
+}
+
+/* 3D पुस्तक का मुख्य डिज़ाइन */
+.book-3d {
+  position: relative;
+  display: inline-block;
+  width: 195px;
+  max-width: 78%;
+  border-radius: 3px 8px 8px 3px;
+  transform: rotateY(-14deg);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow:
+    -4px 0 0 #1f0d0d,
+    4px 2px 0 #f7f3eb,
+    7px 3px 0 #dfd6c7,
+    10px 4px 0 #f7f3eb,
+    13px 5px 0 #cbbda9,
+    18px 22px 32px rgba(35, 15, 10, 0.42);
+}
+
+.book-3d:hover {
+  transform: rotateY(-5deg) translateY(-4px);
+  box-shadow:
+    -3px 0 0 #1f0d0d,
+    3px 1px 0 #f7f3eb,
+    6px 2px 0 #dfd6c7,
+    9px 3px 0 #f7f3eb,
+    11px 4px 0 #cbbda9,
+    14px 26px 36px rgba(35, 15, 10, 0.48);
+}
+
+/* पुस्तक के बाएँ किनारे पर हार्डकवर क्रीज़ (चमक और उभार) */
+.book-3d::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(0, 0, 0, 0.35) 28%,
+    rgba(255, 255, 255, 0.2) 55%,
+    rgba(0, 0, 0, 0.08) 80%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 3px 0 0 3px;
+}
+
+.book-3d img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px 8px 8px 3px;
+}
+
+/* पुस्तक के विस्तृत पेज पर थोड़ा बड़ा 3D साइज़ */
+.book-3d.book-3d-lg {
+  width: 245px;
+  max-width: 85%;
+}
+
+/* बैक कवर पढ़ते समय सीधा स्पष्ट व्यू */
+.book-3d.flat-view {
+  transform: rotateY(0deg);
+  box-shadow: 0 14px 30px rgba(35, 15, 10, 0.32);
+}
+
+.book-3d.flat-view::before {
+  display: none;
+}
+
+/* आगे / पीछे का आवरण बदलने के बटन */
+.cover-toggle-group {
+  display: flex;
+  gap: 0.55rem;
+  margin-top: 1.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cover-toggle-btn {
+  background: #ffffff;
+  color: var(--maroon);
+  border: 1.5px solid rgba(122, 28, 28, 0.3);
+  padding: 0.42rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.25s ease;
+}
+
+.cover-toggle-btn.active {
+  background: var(--maroon);
+  color: #ffffff;
+  border-color: var(--maroon);
+}
+
+
+/* प्रीमियम स्टूडियो हार्डकवर लुक (क्लीन और प्रोफेशनल) */
+.book-3d-stage {
+  background: linear-gradient(180deg, #faf5ec 0%, #f1e6d6 100%);
+  padding: 1.6rem 1rem;
+}
+
+.book-3d {
+  width: 225px;
+  max-width: 82%;
+  transform: none;
+  border-radius: 3px 7px 7px 3px;
+  box-shadow:
+    -3px 0 6px rgba(0, 0, 0, 0.28),
+    0 18px 34px rgba(35, 18, 10, 0.30),
+    0 5px 12px rgba(35, 18, 10, 0.18);
+}
+
+.book-3d:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    -3px 0 8px rgba(0, 0, 0, 0.30),
+    0 24px 40px rgba(35, 18, 10, 0.36),
+    0 8px 16px rgba(35, 18, 10, 0.20);
+}
+
+.book-3d::before {
+  width: 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(0, 0, 0, 0.22) 55%,
+    transparent 100%
+  );
+}
+
+.book-3d.book-3d-lg {
+  width: 260px;
+  max-width: 88%;
+}
+
+
+/* आगे और पीछे के आवरण का बिल्कुल एक जैसा नाप */
+.book-3d.book-3d-lg,
+.book-3d.book-3d-lg.flat-view {
+  width: 285px !important;
+  max-width: 92% !important;
+  aspect-ratio: 2 / 3;
+  background: #050811;
+  overflow: hidden;
+  border-radius: 4px 7px 7px 4px !important;
+}
+
+.book-3d.book-3d-lg img,
+.book-3d.book-3d-lg.flat-view img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px 7px 7px 4px !important;
+}

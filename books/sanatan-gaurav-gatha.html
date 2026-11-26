@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>सनातन गौरव गाथा | मानस मनुज</title>
+  <meta name="description" content="मानस मनुज द्वारा रचित तीन-भागों की आगामी पुस्तक श्रृंखला 'सनातन गौरव गाथा: विज्ञान और अध्यात्म का महासंगम'। 18 खंड और 108 अध्यायों में सनातन विज्ञान, संस्कृति, आयुर्वेद, इतिहास और योग का विवरण।" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="brand-title">
+        <span data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</span>
+        <span class="brand-sub" data-hi="हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन" data-en="Hindi Literature • Spiritual & Sanatan Thought">हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन</span>
+      </a>
+
+      <div class="lang-switch">
+        <button type="button" id="btn-hi" class="lang-btn active" onclick="setLanguage('hi')">हिंदी</button>
+        <button type="button" id="btn-en" class="lang-btn" onclick="setLanguage('en')">English</button>
+      </div>
+
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+      <nav>
+        <ul id="navList">
+          <li><a href="../index.html" data-hi="मुख्य पृष्ठ" data-en="Home">मुख्य पृष्ठ</a></li>
+          <li><a href="../index.html#about" data-hi="लेखक परिचय" data-en="About">लेखक परिचय</a></li>
+          <li><a href="../index.html#books" class="active" data-hi="पुस्तकें" data-en="Books">पुस्तकें</a></li>
+          <li><a href="../index.html#contact" class="nav-contact-btn" data-hi="अग्रिम सूचना पाएँ" data-en="Get Release Alert">अग्रिम सूचना पाएँ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <p style="margin-bottom:1.2rem;">
+      <a href="../index.html#books" style="color:var(--maroon); font-weight:600;" data-hi="← सभी पुस्तकों पर वापस जाएँ" data-en="← Back to All Books">← सभी पुस्तकों पर वापस जाएँ</a>
+    </p>
+
+    <div class="card book-hero-grid">
+      <!-- तीनों भागों के कवर एक साथ -->
+      <div style="display:flex; flex-direction:column; justify-content:center; gap:0.7rem;">
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:0.6rem; align-items:center;">
+          <img src="../images/sanatan-gaurav-gatha-part-1.png" alt="सनातन गौरव गाथा - भाग 1" loading="lazy" style="width:100%; aspect-ratio:2/3; object-fit:cover; border-radius:6px; box-shadow:0 8px 18px rgba(0,0,0,0.22);" />
+          <img src="../images/sanatan-gaurav-gatha-part-2.png" alt="सनातन गौरव गाथा - भाग 2" loading="lazy" style="width:100%; aspect-ratio:2/3; object-fit:cover; border-radius:6px; box-shadow:0 8px 18px rgba(0,0,0,0.22);" />
+          <img src="../images/sanatan-gaurav-gatha-part-3.png" alt="सनातन गौरव गाथा - भाग 3" loading="lazy" style="width:100%; aspect-ratio:2/3; object-fit:cover; border-radius:6px; box-shadow:0 8px 18px rgba(0,0,0,0.22);" />
+        </div>
+        <small style="text-align:center; color:var(--text-muted);" data-hi="(तीनों भागों के प्रतीकात्मक आवरण चित्र)" data-en="(Representative Covers for the Trilogy)">(तीनों भागों के प्रतीकात्मक आवरण चित्र)</small>
+      </div>
+
+      <div>
+        <span class="book-badge" data-hi="आगामी पुस्तक श्रृंखला • 3 भाग | 18 खंड | 108 अध्याय" data-en="Upcoming Book Series • 3 Volumes | 18 Khands | 108 Chapters">आगामी पुस्तक श्रृंखला • 3 भाग | 18 खंड | 108 अध्याय</span>
+        <h1 style="font-size:clamp(1.8rem, 3.6vw, 2.4rem); margin-bottom:0.35rem;" data-hi="सनातन गौरव गाथा" data-en="Sanatan Gaurav Gatha">सनातन गौरव गाथा</h1>
+        <p style="font-weight:700; color:var(--saffron); font-size:1.08rem; margin-bottom:0.9rem;" data-hi="विज्ञान और अध्यात्म का महासंगम" data-en="The Grand Confluence of Science and Spirituality">विज्ञान और अध्यात्म का महासंगम</p>
+        <p style="color:var(--text-muted); margin-bottom:1.1rem;" data-hi="तीन स्वतंत्र भागों, 18 खंडों और 108 अध्यायों में नियोजित यह महाग्रंथ-श्रृंखला सनातन ज्ञान परंपरा, प्राचीन भारतीय विज्ञान, वास्तुकला, आयुर्वेद, ऐतिहासिक सत्य और उच्च योग के वैज्ञानिक आधार को आधुनिक दृष्टिकोण से प्रस्तुत करती है।" data-en="Planned across three independent volumes, 18 Khands, and 108 chapters, this book series explores Sanatan knowledge traditions, ancient Indian science, architecture, Ayurveda, historical perspectives, and higher yoga through a clear modern lens.">
+          तीन स्वतंत्र भागों, 18 खंडों और 108 अध्यायों में नियोजित यह महाग्रंथ-श्रृंखला सनातन ज्ञान परंपरा, प्राचीन भारतीय विज्ञान, वास्तुकला, आयुर्वेद, ऐतिहासिक सत्य और उच्च योग के वैज्ञानिक आधार को आधुनिक दृष्टिकोण से प्रस्तुत करती है।
+        </p>
+
+        <div class="progress-wrap" style="margin:1.2rem 0;">
+          <small style="font-weight:700; color:var(--maroon); display:block; margin-bottom:0.35rem;" data-hi="लेखन एवं प्रकाशन तैयारी प्रगति: 75%" data-en="Writing & Publication Progress: 75%">लेखन एवं प्रकाशन तैयारी प्रगति: 75%</small>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="book-links" style="margin-top:1.3rem;">
+          <a href="../index.html#contact" class="btn btn-primary" style="width:100%;" data-hi="प्रकाशन की अग्रिम सूचना के लिए पंजीकरण करें" data-en="Register for Early Release Alert">प्रकाशन की अग्रिम सूचना के लिए पंजीकरण करें</a>
+          <span class="store-tag" data-hi="आरंभिक प्रकरण: महा-मंगलाचरण एवं संकल्प" data-en="Opening: Maha-Mangalacharan & Sankalpa">आरंभिक प्रकरण: महा-मंगलाचरण एवं संकल्प</span>
+          <span class="store-tag" data-hi="प्रकाशन: शीघ्र घोषित" data-en="Release: To Be Announced">प्रकाशन: शीघ्र घोषित</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- श्रृंखला विवरण एवं परिचय -->
+  <section style="padding-top:0;">
+    <div class="section-header">
+      <h2 data-hi="श्रृंखला का संक्षिप्त विवरण" data-en="Series Overview & Structure">श्रृंखला का संक्षिप्त विवरण</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="specs-grid" style="margin-bottom:2rem;">
+      <div class="spec-item">
+        <span class="profile-label" data-hi="श्रृंखला विभाजन" data-en="Series Format">श्रृंखला विभाजन</span>
+        <span class="profile-value" data-hi="3 स्वतंत्र भाग (प्रत्येक भाग में 6 खंड)" data-en="3 Independent Volumes (6 Khands Each)">3 स्वतंत्र भाग (प्रत्येक भाग में 6 खंड)</span>
+      </div>
+      <div class="spec-item">
+        <span class="profile-label" data-hi="संपूर्ण संरचना" data-en="Total Structure">संपूर्ण संरचना</span>
+        <span class="profile-value" data-hi="महा-मंगलाचरण एवं संकल्प + 18 खंड (108 अध्याय)" data-en="Maha-Mangalacharan & Sankalpa + 18 Khands (108 Chapters)">महा-मंगलाचरण एवं संकल्प + 18 खंड (108 अध्याय)</span>
+      </div>
+      <div class="spec-item">
+        <span class="profile-label" data-hi="भाषा एवं प्रस्तुति" data-en="Language & Style">भाषा एवं प्रस्तुति</span>
+        <span class="profile-value" data-hi="सरल शुद्ध हिंदी (प्रमुख वैज्ञानिक शब्दों के अंग्रेज़ी अनुवाद सहित)" data-en="Lucid Pure Hindi (with English translations of key scientific terms)">सरल शुद्ध हिंदी (प्रमुख वैज्ञानिक शब्दों के अंग्रेज़ी अनुवाद सहित)</span>
+      </div>
+      <div class="spec-item">
+        <span class="profile-label" data-hi="मुख्य विषय" data-en="Core Themes">मुख्य विषय</span>
+        <span class="profile-value" data-hi="ब्रह्मांड विज्ञान, संस्कृति, वैदिक तकनीक, आयुर्वेद, इतिहास एवं योग" data-en="Cosmology, Culture, Vedic Technology, Ayurveda, History & Yoga">ब्रह्मांड विज्ञान, संस्कृति, वैदिक तकनीक, आयुर्वेद, इतिहास एवं योग</span>
+      </div>
+    </div>
+
+    <div class="card about-bio" style="margin-bottom:2.2rem;">
+      <h3 data-hi="ग्रंथ श्रृंखला की अवधारणा" data-en="Vision Behind the Series">ग्रंथ श्रृंखला की अवधारणा</h3>
+      <p data-hi="<strong>'सनातन गौरव गाथा'</strong> प्राचीन भारतीय ज्ञान-परंपरा को केवल आस्था के रूप में नहीं, बल्कि सुव्यवस्थित तर्क, काल-गणना, पारिस्थितिकी, चिकित्सा, गणित और चेतना के विज्ञान के रूप में प्रस्तुत करने का प्रयास है। यह श्रृंखला सरल हिंदी में लिखी जा रही है, जिसमें आधुनिक पाठकों और युवाओं की सहज समझ के लिए प्रमुख वैज्ञानिक एवं तकनीकी शब्दों का अंग्रेज़ी अनुवाद भी साथ दिया गया है।" data-en="<strong>'Sanatan Gaurav Gatha'</strong> presents ancient Indian heritage not merely as belief, but as a structured inquiry into cosmology, time-calculation, ecology, medicine, mathematics, and the science of consciousness. Written in accessible Hindi alongside English equivalents for key scientific terms, the trilogy is designed to connect modern readers with timeless Indian wisdom.">
+        <strong>'सनातन गौरव गाथा'</strong> प्राचीन भारतीय ज्ञान-परंपरा को केवल आस्था के रूप में नहीं, बल्कि सुव्यवस्थित तर्क, काल-गणना, पारिस्थितिकी, चिकित्सा, गणित और चेतना के विज्ञान के रूप में प्रस्तुत करने का प्रयास है। यह श्रृंखला सरल हिंदी में लिखी जा रही है, जिसमें आधुनिक पाठकों और युवाओं की सहज समझ के लिए प्रमुख वैज्ञानिक एवं तकनीकी शब्दों का अंग्रेज़ी अनुवाद भी साथ दिया गया है।
+      </p>
+    </div>
+    <!-- तीनों भागों की विस्तृत रूपरेखा -->
+    <div class="section-header">
+      <h2 data-hi="तीनों भागों की विषय-संरचना (18 खंड • 108 अध्याय)" data-en="Trilogy Blueprint (18 Khands • 108 Chapters)">तीनों भागों की विषय-संरचना (18 खंड • 108 अध्याय)</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:2.2rem;">
+      <!-- भाग 1 -->
+      <div class="card">
+        <img src="../images/sanatan-gaurav-gatha-part-1.png" alt="सनातन गौरव गाथा - भाग 1" loading="lazy" style="width:100%; max-width:210px; aspect-ratio:2/3; object-fit:cover; border-radius:8px; display:block; margin:0 auto 1rem; box-shadow:0 8px 18px rgba(0,0,0,0.2);" />
+        <span class="book-badge" data-hi="भाग 1 • खंड 1 से 6 (अध्याय 1–38)" data-en="Volume 1 • Khands 1–6 (Chapters 1–38)">भाग 1 • खंड 1 से 6 (अध्याय 1–38)</span>
+        <h3 style="margin-bottom:0.3rem;" data-hi="ब्रह्मांड, चेतना और संस्कृति" data-en="Cosmos, Consciousness & Culture">ब्रह्मांड, चेतना और संस्कृति</h3>
+        <p style="font-size:0.88rem; color:var(--saffron); font-weight:600; margin-bottom:0.9rem;" data-hi="सनातन गौरव गाथा: भाग 1" data-en="Sanatan Gaurav Gatha: Volume 1">सनातन गौरव गाथा: भाग 1</p>
+        <ul class="profile-list">
+          <li>
+            <span class="profile-label" data-hi="प्रथम खंड (अध्याय 1–4)" data-en="Khand 1 (Ch. 1–4)">प्रथम खंड (अध्याय 1–4)</span>
+            <span class="profile-value" data-hi="आदि-तत्व और चेतना — सिंगुलैरिटी, परब्रह्म, नाद-ब्रह्म (ॐ) एवं शिव-शक्ति संकल्प।" data-en="The Science of Consciousness — Singularity, Parabrahma, Naad-Brahma (Om), and Energy-Matter union.">आदि-तत्व और चेतना — सिंगुलैरिटी, परब्रह्म, नाद-ब्रह्म (ॐ) एवं शिव-शक्ति संकल्प।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="द्वितीय खंड (अध्याय 5–10)" data-en="Khand 2 (Ch. 5–10)">द्वितीय खंड (अध्याय 5–10)</span>
+            <span class="profile-value" data-hi="काल-विज्ञान: अनंत का पहिया — चक्रीय समय, टाइम डाइलेशन, चतुर्युग, मन्वंतर-कल्प और 33 कोटि ऊर्जाएँ।" data-en="The Infinite Time Theory — Circular time, time dilation, Chaturyuga, Manvantara-Kalpa, and 33 cosmic entities.">काल-विज्ञान: अनंत का पहिया — चक्रीय समय, टाइम डाइलेशन, चतुर्युग, मन्वंतर-कल्प और 33 कोटि ऊर्जाएँ।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="तृतीय खंड (अध्याय 11–16)" data-en="Khand 3 (Ch. 11–16)">तृतीय खंड (अध्याय 11–16)</span>
+            <span class="profile-value" data-hi="आकार का भ्रम और सूक्ष्म जगत — मल्टीवर्स, चौदह लोक, सूक्ष्म जगत, विराट पुरुष और माया का विज्ञान।" data-en="Illusion of Scale & Multiverse — Multiverse theory, 14 dimensions, atomic scale, Virat Purusha, and Maya.">आकार का भ्रम और सूक्ष्म जगत — मल्टीवर्स, चौदह लोक, सूक्ष्म जगत, विराट पुरुष और माया का विज्ञान।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="चतुर्थ खंड (अध्याय 17–24)" data-en="Khand 4 (Ch. 17–24)">चतुर्थ खंड (अध्याय 17–24)</span>
+            <span class="profile-value" data-hi="वास्तु, मंदिर और वैश्विक संपदा — 12 ज्योतिर्लिंग ग्रिड, कैलाश व कोणार्क मंदिर, प्राण-प्रतिष्ठा और गर्भ-गृह ऊर्जा।" data-en="Engineering & Wealth — 12 Jyotirlinga grid, Kailasa & Konark temples, Prana-Pratishtha, and sanctum energy.">वास्तु, मंदिर और वैश्विक संपदा — 12 ज्योतिर्लिंग ग्रिड, कैलाश व कोणार्क मंदिर, प्राण-प्रतिष्ठा और गर्भ-गृह ऊर्जा।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="पंचम खंड (अध्याय 25–32)" data-en="Khand 5 (Ch. 25–32)">पंचम खंड (अध्याय 25–32)</span>
+            <span class="profile-value" data-hi="प्रकृति और जीव पूजा — गंगाजल के बैक्टीरियोफेज, नदियाँ, गौ-माता, पीपल-तुलसी और पारिस्थितिक संतुलन।" data-en="Ecology & Divinity — Ganga bacteriophages, river conservation, sacred trees, and ecological harmony.">प्रकृति और जीव पूजा — गंगाजल के बैक्टीरियोफेज, नदियाँ, गौ-माता, पीपल-तुलसी और पारिस्थितिक संतुलन।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="षष्ठ खंड (अध्याय 33–38)" data-en="Khand 6 (Ch. 33–38)">षष्ठ खंड (अध्याय 33–38)</span>
+            <span class="profile-value" data-hi="वर्ण विधान और सामाजिक इंजीनियरिंग — गुण-कर्म व्यवस्था, संस्कार व आनुवंशिकी तथा सनातन समरसता।" data-en="Social Science & Genetics — Varna vs. caste, merit-based evolution, genetics, and social unity.">वर्ण विधान और सामाजिक इंजीनियरिंग — गुण-कर्म व्यवस्था, संस्कार व आनुवंशिकी तथा सनातन समरसता।</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- भाग 2 -->
+      <div class="card">
+        <img src="../images/sanatan-gaurav-gatha-part-2.png" alt="सनातन गौरव गाथा - भाग 2" loading="lazy" style="width:100%; max-width:210px; aspect-ratio:2/3; object-fit:cover; border-radius:8px; display:block; margin:0 auto 1rem; box-shadow:0 8px 18px rgba(0,0,0,0.2);" />
+        <span class="book-badge" data-hi="भाग 2 • खंड 7 से 12 (अध्याय 39–73)" data-en="Volume 2 • Khands 7–12 (Chapters 39–73)">भाग 2 • खंड 7 से 12 (अध्याय 39–73)</span>
+        <h3 style="margin-bottom:0.3rem;" data-hi="वैदिक विज्ञान, तकनीक और आयुर्वेद" data-en="Vedic Science, Technology & Ayurveda">वैदिक विज्ञान, तकनीक और आयुर्वेद</h3>
+        <p style="font-size:0.88rem; color:var(--saffron); font-weight:600; margin-bottom:0.9rem;" data-hi="सनातन गौरव गाथा: भाग 2" data-en="Sanatan Gaurav Gatha: Volume 2">सनातन गौरव गाथा: भाग 2</p>
+        <ul class="profile-list">
+          <li>
+            <span class="profile-label" data-hi="सप्तम खंड (अध्याय 39–44)" data-en="Khand 7 (Ch. 39–44)">सप्तम खंड (अध्याय 39–44)</span>
+            <span class="profile-value" data-hi="जैव-विकास और दशावतार — मत्स्य से कल्कि तक जीवन एवं चेतना के क्रमिक विकास का विश्लेषण।" data-en="Evolutionary Science — Dashavatara as a timeline of biological and conscious evolution.">जैव-विकास और दशावतार — मत्स्य से कल्कि तक जीवन एवं चेतना के क्रमिक विकास का विश्लेषण।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="अष्टम खंड (अध्याय 45–50)" data-en="Khand 8 (Ch. 45–50)">अष्टम खंड (अध्याय 45–50)</span>
+            <span class="profile-value" data-hi="प्राचीन शस्त्र और परमाणु विज्ञान — महर्षि कणाद का परमाणु सिद्धांत, दिव्यास्त्र और धर्मयुद्ध के नियम।" data-en="Advanced Weaponry — Maharshi Kanada's atomic theory, ancient energy weapons, and ethics of Dharmayuddha.">प्राचीन शस्त्र और परमाणु विज्ञान — महर्षि कणाद का परमाणु सिद्धांत, दिव्यास्त्र और धर्मयुद्ध के नियम।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="नवम खंड (अध्याय 51–55)" data-en="Khand 9 (Ch. 51–55)">नवम खंड (अध्याय 51–55)</span>
+            <span class="profile-value" data-hi="विमान शास्त्र और वैमानिकी — महर्षि भारद्वाज के सूत्र, प्रणोदन अवधारणाएँ और प्राचीन अंतरिक्ष चिंतन।" data-en="Ancient Aeronautics — Maharshi Bharadwaja's texts, propulsion concepts, and ancient aerospace lore.">विमान शास्त्र और वैमानिकी — महर्षि भारद्वाज के सूत्र, प्रणोदन अवधारणाएँ और प्राचीन अंतरिक्ष चिंतन।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="दशम खंड (अध्याय 56–61)" data-en="Khand 10 (Ch. 56–61)">दशम खंड (अध्याय 56–61)</span>
+            <span class="profile-value" data-hi="आयुर्वेद और शल्य क्रिया — सुश्रुत संहिता, चरक संहिता, 72,000 नाड़ियाँ, पंचकर्म और प्राणायाम विज्ञान।" data-en="Ancient Medicine & Surgery — Sushruta & Charaka Samhita, 72,000 Nadis, Panchakarma, and Pranayama.">आयुर्वेद और शल्य क्रिया — सुश्रुत संहिता, चरक संहिता, 72,000 नाड़ियाँ, पंचकर्म और प्राणायाम विज्ञान।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="एकादश खंड (अध्याय 62–68)" data-en="Khand 11 (Ch. 62–68)">एकादश खंड (अध्याय 62–68)</span>
+            <span class="profile-value" data-hi="सनातन जीवन पद्धति और हाइजीन — 'अन्नं ब्रह्म', आयुर्वेदिक आहार, धात्विक पात्र, दिनचर्या और मुद्रा-विज्ञान।" data-en="Modern Life & Hygiene — Gut-brain connection, Ayurvedic diet, metal vessels, Dinacharya, and Mudras.">सनातन जीवन पद्धति और हाइजीन — 'अन्नं ब्रह्म', आयुर्वेदिक आहार, धात्विक पात्र, दिनचर्या और मुद्रा-विज्ञान।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="द्वादश खंड (अध्याय 69–73)" data-en="Khand 12 (Ch. 69–73)">द्वादश खंड (अध्याय 69–73)</span>
+            <span class="profile-value" data-hi="गणित, शून्य और वैदिक ज्योतिष — शून्य, अनंत, शुल्ब सूत्र ज्यामिति, वैदिक गणित और खगोलीय गणना।" data-en="Mathematics & Astronomy — Zero, infinity, Shulba Sutra geometry, Vedic math, and astronomical calculations.">गणित, शून्य और वैदिक ज्योतिष — शून्य, अनंत, शुल्ब सूत्र ज्यामिति, वैदिक गणित और खगोलीय गणना।</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- भाग 3 -->
+      <div class="card">
+        <img src="../images/sanatan-gaurav-gatha-part-3.png" alt="सनातन गौरव गाथा - भाग 3" loading="lazy" style="width:100%; max-width:210px; aspect-ratio:2/3; object-fit:cover; border-radius:8px; display:block; margin:0 auto 1rem; box-shadow:0 8px 18px rgba(0,0,0,0.2);" />
+        <span class="book-badge" data-hi="भाग 3 • खंड 13 से 18 (अध्याय 74–108)" data-en="Volume 3 • Khands 13–18 (Chapters 74–108)">भाग 3 • खंड 13 से 18 (अध्याय 74–108)</span>
+        <h3 style="margin-bottom:0.3rem;" data-hi="इतिहास, योग और विश्वगुरु भारत" data-en="History, Yoga & Vishwaguru Bharat">इतिहास, योग और विश्वगुरु भारत</h3>
+        <p style="font-size:0.88rem; color:var(--saffron); font-weight:600; margin-bottom:0.9rem;" data-hi="सनातन गौरव गाथा: भाग 3" data-en="Sanatan Gaurav Gatha: Volume 3">सनातन गौरव गाथा: भाग 3</p>
+        <ul class="profile-list">
+          <li>
+            <span class="profile-label" data-hi="त्रयोदश खंड (अध्याय 74–78)" data-en="Khand 13 (Ch. 74–78)">त्रयोदश खंड (अध्याय 74–78)</span>
+            <span class="profile-value" data-hi="राजधर्म और अर्थशास्त्र — चाणक्य नीति, प्राचीन विश्व व्यापार, लोकमंगल अर्थशास्त्र और रामराज्य शासन मॉडल।" data-en="Governance & Economics — Chanakya Niti, India's historic global trade share, and dharmic governance.">राजधर्म और अर्थशास्त्र — चाणक्य नीति, प्राचीन विश्व व्यापार, लोकमंगल अर्थशास्त्र और रामराज्य शासन मॉडल।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="चतुर्दश खंड (अध्याय 79–83)" data-en="Khand 14 (Ch. 79–83)">चतुर्दश खंड (अध्याय 79–83)</span>
+            <span class="profile-value" data-hi="ध्वनि, भाषा और मंत्र विज्ञान — संस्कृत की संरचना, मंत्र फ्रीक्वेंसी, बीजाक्षर और भारतीय संगीत-राग।" data-en="Linguistics & Vibrations — Sanskrit's computational structure, mantra acoustics, Beejakshara, and Ragas.">ध्वनि, भाषा और मंत्र विज्ञान — संस्कृत की संरचना, मंत्र फ्रीक्वेंसी, बीजाक्षर और भारतीय संगीत-राग।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="पंचदश खंड (अध्याय 84–91)" data-en="Khand 15 (Ch. 84–91)">पंचदश खंड (अध्याय 84–91)</span>
+            <span class="profile-value" data-hi="ऐतिहासिक विरूपण और वैचारिक खंडन — नालंदा-तक्षशिला, मैकाले शिक्षा नीति, वैश्विक विस्तार और तथ्यपरक विश्लेषण।" data-en="History & Deconstruction — Nalanda-Takshashila, Macaulay's education policy, and global cultural footprints.">ऐतिहासिक विरूपण और वैचारिक खंडन — नालंदा-तक्षशिला, मैकाले शिक्षा नीति, वैश्विक विस्तार और तथ्यपरक विश्लेषण।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="षोडश खंड (अध्याय 92–96)" data-en="Khand 16 (Ch. 92–96)">षोडश खंड (अध्याय 92–96)</span>
+            <span class="profile-value" data-hi="नारी: शक्ति, सम्मान और सुरक्षा — गार्गी-मैत्रेयी परंपरा, नारी शक्ति स्वरूप, परिवार की धुरी और आत्मरक्षा।" data-en="Womanhood & Strength — Gargi-Maitreyi tradition, Shakti essence, family harmony, and self-reliance.">नारी: शक्ति, सम्मान और सुरक्षा — गार्गी-मैत्रेयी परंपरा, नारी शक्ति स्वरूप, परिवार की धुरी और आत्मरक्षा।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="सप्तदश खंड (अध्याय 97–102)" data-en="Khand 17 (Ch. 97–102)">सप्तदश खंड (अध्याय 97–102)</span>
+            <span class="profile-value" data-hi="योग और चेतना का विज्ञान — अष्टांग योग, कुंडलिनी, पीनियल ग्लैंड, समाधि, सात चक्र और पुनर्जन्म का तर्क।" data-en="Yoga & Higher Consciousness — Ashtanga Yoga, Kundalini, pineal gland, Samadhi, Chakras, and rebirth.">योग और चेतना का विज्ञान — अष्टांग योग, कुंडलिनी, पीनियल ग्लैंड, समाधि, सात चक्र और पुनर्जन्म का तर्क।</span>
+          </li>
+          <li>
+            <span class="profile-label" data-hi="अष्टादश खंड (अध्याय 103–108)" data-en="Khand 18 (Ch. 103–108)">अष्टादश खंड (अध्याय 103–108)</span>
+            <span class="profile-value" data-hi="भविष्य का भारत: विश्वगुरु (2050) — सनातन तकनीक, वैचारिक अखंडता, वैश्विक शांति और अजेय सनातन।" data-en="Future Vision 2050 — Sustainable Sanatan science, cultural unity, global peace, and Vishwaguru Bharat.">भविष्य का भारत: विश्वगुरु (2050) — सनातन तकनीक, वैचारिक अखंडता, वैश्विक शांति और अजेय सनातन।</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- अग्रिम सूचना बॉक्स -->
+    <div class="quote-box">
+      <div class="sacred-badge" data-hi="शीघ्र प्रकाश्य • विशेष पाठक सूचना" data-en="Coming Soon • Reader Notification">शीघ्र प्रकाश्य • विशेष पाठक सूचना</div>
+      <p class="quote-verse" data-hi="“जहाँ विज्ञान की खोज रुकती है, वहाँ से सनातन चेतना का प्रकाश प्रारंभ होता है।”" data-en="“Where material inquiry reaches its frontier, the light of Sanatan consciousness begins.”">
+        “जहाँ विज्ञान की खोज रुकती है, वहाँ से सनातन चेतना का प्रकाश प्रारंभ होता है।”
+      </p>
+      <p style="color:var(--text-muted); max-width:680px; margin:0 auto 1.4rem;" data-hi="तीनों भागों के आवरण लोकार्पण, प्रकाशन तिथि और प्रथम संस्करण की विशेष प्री-ऑर्डर छूट की सूचना सबसे पहले पाने के लिए लेखक से जुड़ें।" data-en="Connect with the author to receive priority updates on cover reveals, release dates, and first-edition pre-order discounts across all three volumes.">
+        तीनों भागों के आवरण लोकार्पण, प्रकाशन तिथि और प्रथम संस्करण की विशेष प्री-ऑर्डर छूट की सूचना सबसे पहले पाने के लिए लेखक से जुड़ें।
+      </p>
+      <a href="../index.html#contact" class="btn btn-primary" data-hi="प्रकाशन की अग्रिम सूचना पाएँ" data-en="Get Publication Alert">प्रकाशन की अग्रिम सूचना पाएँ</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brand-title" style="font-size:1.35rem;" data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</div>
+    <p style="font-size:0.88rem; margin-top:0.8rem;" data-hi="© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।" data-en="© 2026 Manas Manuj. All rights reserved.">© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    if (typeof toggleMenu !== 'function') {
+      window.toggleMenu = function() {
+        var nav = document.getElementById('navList');
+        if (nav) nav.classList.toggle('show');
+      };
+    }
+    if (typeof setLanguage !== 'function') {
+      window.setLanguage = function(lang) {
+        localStorage.setItem('siteLang', lang);
+        document.querySelectorAll('[data-hi][data-en]').forEach(function(el) {
+          el.innerHTML = el.getAttribute('data-' + lang);
+        });
+        var hiBtn = document.getElementById('btn-hi');
+        var enBtn = document.getElementById('btn-en');
+        if (hiBtn) hiBtn.classList.toggle('active', lang === 'hi');
+        if (enBtn) enBtn.classList.toggle('active', lang === 'en');
+      };
+      var savedLang = localStorage.getItem('siteLang');
+      if (savedLang) window.setLanguage(savedLang);
+    }
+  </script>
+</body>
+</html>

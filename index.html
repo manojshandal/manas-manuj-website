@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>मानस मनुज | आधिकारिक साहित्यिक वेबसाइट</title>
+
+  <!-- SEO एवं Google AdSense के लिए मेटा टैग्स -->
+  <meta name="description" content="हिंदी साहित्यकार मानस मनुज की आधिकारिक वेबसाइट। सनातन दर्शन, पौराणिक साहित्य, शिवशक्ति त्रिदेव गाथा, सनातन गौरव गाथा, साहित्यिक लेख, वीडियो और ऑटोग्राफ पुस्तक ऑर्डर।" />
+  <meta name="keywords" content="मानस मनुज, Manas Manuj, शिवशक्ति त्रिदेव गाथा, सनातन गौरव गाथा, हिंदी साहित्य, सनातन धर्म, पौराणिक साहित्य" />
+  <meta name="author" content="मानस मनुज (मनोज कुमार)" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="मानस मनुज | आधिकारिक साहित्यिक वेबसाइट" />
+  <meta property="og:description" content="सनातन दर्शन, पौराणिक साहित्य एवं भारतीय संस्कृति पर आधारित पुस्तकों और लेखों का आधिकारिक मंच।" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- हेडर एवं नेविगेशन मेनू -->
+  <header>
+    <div class="nav-container">
+      <a href="#home" class="brand-title">
+        <span data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</span>
+        <span class="brand-sub" data-hi="हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन" data-en="Hindi Literature • Spiritual & Sanatan Thought">हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन</span>
+      </a>
+
+      <div class="lang-switch">
+        <button type="button" id="btn-hi" class="lang-btn active" onclick="setLanguage('hi')">हिंदी</button>
+        <button type="button" id="btn-en" class="lang-btn" onclick="setLanguage('en')">English</button>
+      </div>
+
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+      <nav>
+        <ul id="navList">
+          <li><a href="#home" class="active" data-hi="मुख्य पृष्ठ" data-en="Home">मुख्य पृष्ठ</a></li>
+          <li><a href="#about" data-hi="लेखक परिचय" data-en="About">लेखक परिचय</a></li>
+          <li><a href="#books" data-hi="पुस्तकें" data-en="Books">पुस्तकें</a></li>
+          <li><a href="#articles" data-hi="लेख" data-en="Articles">लेख</a></li>
+          <li><a href="#videos" data-hi="वीडियो" data-en="Videos">वीडियो</a></li>
+          <li><a href="#podcast" data-hi="पॉडकास्ट" data-en="Podcast">पॉडकास्ट</a></li>
+          <li><a href="#consultation" data-hi="परामर्श" data-en="Consultation">परामर्श</a></li>
+          <li><a href="#contact" class="nav-contact-btn" data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- संक्षिप्त शीर्षक सेक्शन -->
+  <div class="hero" id="home" style="padding: 1.6rem 1.2rem 0.6rem;">
+    <div class="hero-inner" style="margin-bottom: 0;">
+      <div class="sacred-badge" data-hi="✦ सनातन साहित्य एवं भारतीय ज्ञान परंपरा ✦" data-en="✦ Sanatan Literature & Indian Knowledge Tradition ✦">✦ सनातन साहित्य एवं भारतीय ज्ञान परंपरा ✦</div>
+      <h1 style="margin-bottom: 0.4rem;" data-hi="शब्दों में संस्कृति, आस्था और तर्क का संगम" data-en="A Confluence of Culture, Faith, and Logic in Words">शब्दों में संस्कृति, आस्था और तर्क का संगम</h1>
+    </div>
+  </div>
+
+  <!-- लेखक परिचय (वेबसाइट खुलते ही सबसे पहले) -->
+  <section id="about" style="padding-top: 1.2rem;">
+    <div class="section-header">
+      <h2 data-hi="लेखक परिचय" data-en="About the Author">लेखक परिचय</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="card about-layout">
+      <div class="about-sidebar">
+        <div class="author-photo-frame">
+          <img src="images/author.jpg" alt="लेखक मानस मनुज (Manas Manuj)" loading="lazy" />
+        </div>
+
+        <div class="quick-profile">
+          <h3 data-hi="संक्षिप्त प्रोफाइल" data-en="Quick Profile">संक्षिप्त प्रोफाइल</h3>
+          <ul class="profile-list">
+            <li>
+              <span class="profile-label" data-hi="साहित्यिक नाम" data-en="Pen Name">साहित्यिक नाम</span>
+              <span class="profile-value" data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</span>
+            </li>
+            <li>
+              <span class="profile-label" data-hi="मूल नाम" data-en="Official Name">मूल नाम</span>
+              <span class="profile-value" data-hi="मनोज कुमार" data-en="Manoj Kumar">मनोज कुमार</span>
+            </li>
+            <li>
+              <span class="profile-label" data-hi="मूल संबंध" data-en="Native Place">मूल संबंध</span>
+              <span class="profile-value" data-hi="ज़िला कांगड़ा, हिमाचल प्रदेश" data-en="District Kangra, Himachal Pradesh">ज़िला कांगड़ा, हिमाचल प्रदेश</span>
+            </li>
+            <li>
+              <span class="profile-label" data-hi="वर्तमान निवास" data-en="Current Residence">वर्तमान निवास</span>
+              <span class="profile-value" data-hi="चंडीगढ़" data-en="Chandigarh">चंडीगढ़</span>
+            </li>
+            <li>
+              <span class="profile-label" data-hi="शैक्षणिक योग्यता" data-en="Education">शैक्षणिक योग्यता</span>
+              <span class="profile-value" data-hi="कला स्नातक, हिमाचल प्रदेश विश्वविद्यालय, शिमला" data-en="Bachelor of Arts (B.A.), Himachal Pradesh University, Shimla">कला स्नातक, हिमाचल प्रदेश विश्वविद्यालय, शिमला</span>
+            </li>
+            <li>
+              <span class="profile-label" data-hi="व्यावसायिक अनुभव" data-en="Professional Background">व्यावसायिक अनुभव</span>
+              <span class="profile-value" data-hi="लेखांकन एवं वित्त क्षेत्र में 15 वर्षों तक नेतृत्व (2007–2022); वर्ष 2022 से स्वतंत्र व्यवसाय एवं साहित्य साधना" data-en="15 years heading Accounts & Finance roles (2007–2022); Independent Entrepreneur & Author since 2022">लेखांकन एवं वित्त क्षेत्र में 15 वर्षों तक नेतृत्व (2007–2022); वर्ष 2022 से स्वतंत्र व्यवसाय एवं साहित्य साधना</span>
+            </li>
+            <li>
+              <span class="profile-label" data-hi="लेखन क्षेत्र" data-en="Literary Genres">लेखन क्षेत्र</span>
+              <span class="profile-value" data-hi="सनातन दर्शन, पौराणिक साहित्य, भारतीय संस्कृति एवं विरासत" data-en="Sanatan Philosophy, Pauranik Literature, Indian Culture & Heritage">सनातन दर्शन, पौराणिक साहित्य, भारतीय संस्कृति एवं विरासत</span>
+            </li>
+            <li>
+              <span class="profile-label" data-hi="प्रमुख कृतियाँ" data-en="Notable Works">प्रमुख कृतियाँ</span>
+              <span class="profile-value" data-hi="शिवशक्ति त्रिदेव गाथा (भारतीय साहित्य संग्रह), सनातन गौरव गाथा (आगामी त्रयी)" data-en="Shivshakti Tridev Gatha (Bhartiya Sahitya Sangrah), Sanatan Gaurav Gatha (Upcoming Trilogy)">शिवशक्ति त्रिदेव गाथा (भारतीय साहित्य संग्रह), सनातन गौरव गाथा (आगामी त्रयी)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="about-bio">
+        <h3 data-hi="विस्तृत लेखक परिचय" data-en="Detailed Biography">विस्तृत लेखक परिचय</h3>
+        <p data-hi="हिंदी साहित्य एवं सनातन विषयों के लेखक <strong>मानस मनुज</strong> का मूल नाम मनोज कुमार है। वे मूल रूप से हिमाचल प्रदेश के कांगड़ा ज़िले से संबंध रखते हैं और वर्तमान समय में चंडीगढ़ में निवास कर रहे हैं।" data-en="<strong>Manas Manuj</strong> (born Manoj Kumar) is a Hindi literary author and researcher of Sanatan philosophy and Pauranik literature. Originally hailing from the Kangra district of Himachal Pradesh, he currently resides in Chandigarh.">
+          हिंदी साहित्य एवं सनातन विषयों के लेखक <strong>मानस मनुज</strong> का मूल नाम मनोज कुमार है। वे मूल रूप से हिमाचल प्रदेश के कांगड़ा ज़िले से संबंध रखते हैं और वर्तमान समय में चंडीगढ़ में निवास कर रहे हैं।
+        </p>
+        <p data-hi="उन्होंने अपनी उच्च शिक्षा हिमाचल प्रदेश विश्वविद्यालय, शिमला से कला संकाय में स्नातक के रूप में पूर्ण की। वर्ष 2007 में वे अपने व्यावसायिक जीवन के लिए चंडीगढ़ आए, जहाँ उन्होंने वर्ष 2007 से 2022 तक 15 वर्षों की अवधि में लेखांकन एवं वित्त के क्षेत्र में प्रमुख पदों पर कार्य करते हुए विभाग का नेतृत्व किया। इसके पश्चात, वर्ष 2022 से वे स्वतंत्र व्यवसाय के साथ-साथ सक्रिय रूप से साहित्य साधना में संलग्न हैं।" data-en="He completed his graduation in Arts from Himachal Pradesh University, Shimla. In 2007, he moved to Chandigarh to pursue his professional career. Over a span of 15 years (2007–2022), he worked in and headed the Accounts and Finance vertical across professional organizations. Since 2022, he has been engaged in independent entrepreneurship alongside his dedicated literary pursuits.">
+          उन्होंने अपनी उच्च शिक्षा हिमाचल प्रदेश विश्वविद्यालय, शिमला से कला संकाय में स्नातक के रूप में पूर्ण की। वर्ष 2007 में वे अपने व्यावसायिक जीवन के लिए चंडीगढ़ आए, जहाँ उन्होंने वर्ष 2007 से 2022 तक 15 वर्षों की अवधि में लेखांकन एवं वित्त के क्षेत्र में प्रमुख पदों पर कार्य करते हुए विभाग का नेतृत्व किया। इसके पश्चात, वर्ष 2022 से वे स्वतंत्र व्यवसाय के साथ-साथ सक्रिय रूप से साहित्य साधना में संलग्न हैं।
+        </p>
+        <p data-hi="मानस मनुज ने वर्ष 2017 में अपने साहित्यिक लेखन की शुरुआत की। वित्त और विश्लेषण की सुदीर्घ व्यावसायिक पृष्ठभूमि होने के कारण, उन्होंने पौराणिक संदर्भों और सनातन विषयों का क्रमबद्ध एवं विश्लेषणात्मक दृष्टिकोण से अध्ययन प्रारंभ किया। वर्ष 2017 से 2023 के प्रथम चरण में उन्होंने भगवान श्री हरि विष्णु के 24 अवतारों को शुद्ध हिंदी भाषा में लिपिबद्ध करने का कार्य पूर्ण किया। इसके पश्चात, वर्ष 2023 से 2025 के द्वितीय चरण में उन्होंने सृष्टि की उत्पत्ति, त्रिदेव (ब्रह्मा, विष्णु, महेश) के कार्य-विभाजन और आदिशक्ति के मूल स्वरूप पर कार्य करते हुए आठ वर्षों (2017–2025) के निरंतर प्रयास से अपनी पहली पुस्तक <strong>'शिवशक्ति त्रिदेव गाथा'</strong> पूर्ण की। इस पुस्तक का प्रकाशन 'भारतीय साहित्य संग्रह' द्वारा किया जा रहा है।" data-en="Manas Manuj began his literary journey in 2017. Drawing upon his strong analytical background in finance, he approached Pauranik literature through a structured and research-oriented lens. In the first phase of his work (2017–2023), he documented the 24 incarnations (Avatars) of Lord Vishnu in pure Hindi. Expanding the scope of his research in the second phase (2023–2025), he explored the origins of creation, the cosmic functions of the Tridev (Brahma, Vishnu, and Mahesh), and the supreme essence of Adishakti. Culminating eight years of dedicated writing (2017–2025), his debut book, <strong>'Shivshakti Tridev Gatha'</strong>, is being published by Bhartiya Sahitya Sangrah.">
+          मानस मनुज ने वर्ष 2017 में अपने साहित्यिक लेखन की शुरुआत की। वित्त और विश्लेषण की सुदीर्घ व्यावसायिक पृष्ठभूमि होने के कारण, उन्होंने पौराणिक संदर्भों और सनातन विषयों का क्रमबद्ध एवं विश्लेषणात्मक दृष्टिकोण से अध्ययन प्रारंभ किया। वर्ष 2017 से 2023 के प्रथम चरण में उन्होंने भगवान श्री हरि विष्णु के 24 अवतारों को शुद्ध हिंदी भाषा में लिपिबद्ध करने का कार्य पूर्ण किया। इसके पश्चात, वर्ष 2023 से 2025 के द्वितीय चरण में उन्होंने सृष्टि की उत्पत्ति, त्रिदेव (ब्रह्मा, विष्णु, महेश) के कार्य-विभाजन और आदिशक्ति के मूल स्वरूप पर कार्य करते हुए आठ वर्षों (2017–2025) के निरंतर प्रयास से अपनी पहली पुस्तक <strong>'शिवशक्ति त्रिदेव गाथा'</strong> पूर्ण की। इस पुस्तक का प्रकाशन 'भारतीय साहित्य संग्रह' द्वारा किया जा रहा है।
+        </p>
+        <p data-hi="उनकी इस कृति में शुद्ध हिंदी के साथ-साथ प्रसंग की आवश्यकतानुसार अवधी और संस्कृत के संदर्भों का भी समन्वित समावेश किया गया है। उनके लेखन का मुख्य उद्देश्य पौराणिक ग्रंथों के गूढ़ विषयों को सरल, सुस्पष्ट और तथ्यपरक भाषा के माध्यम से आधुनिक पाठकों तक पहुँचाना है। वर्तमान में वे भारतीय संस्कृति, विज्ञान एवं विरासत पर आधारित तीन-भागों की आगामी पुस्तक श्रृंखला <strong>'सनातन गौरव गाथा'</strong> के लेखन कार्य में संलग्न हैं।" data-en="Written primarily in pure Hindi, the work also incorporates contextual references and verses in Awadhi and Sanskrit. His primary literary objective is to present complex Pauranik and philosophical subjects in a clear, structured, and accessible manner for contemporary readers. He is currently authoring his upcoming three-volume series, <strong>'Sanatan Gaurav Gatha'</strong>, focusing on Indian culture, Vedic science, and Sanatan heritage.">
+          उनकी इस कृति में शुद्ध हिंदी के साथ-साथ प्रसंग की आवश्यकतानुसार अवधी और संस्कृत के संदर्भों का भी समन्वित समावेश किया गया है। उनके लेखन का मुख्य उद्देश्य पौराणिक ग्रंथों के गूढ़ विषयों को सरल, सुस्पष्ट और तथ्यपरक भाषा के माध्यम से आधुनिक पाठकों तक पहुँचाना है। वर्तमान में वे भारतीय संस्कृति, विज्ञान एवं विरासत पर आधारित तीन-भागों की आगामी पुस्तक श्रृंखला <strong>'सनातन गौरव गाथा'</strong> के लेखन कार्य में संलग्न हैं।
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- पुस्तकें सेक्शन -->
+  <section id="books">
+    <div class="section-header">
+      <h2 data-hi="प्रमुख पुस्तकें" data-en="Featured Books">प्रमुख पुस्तकें</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="grid-2">
+      <!-- पुस्तक 1 -->
+      <div class="card">
+        <span class="book-badge" data-hi="हार्डकवर एवं ई-पुस्तक • भारतीय साहित्य संग्रह" data-en="Hardcover & E-Book • Bhartiya Sahitya Sangrah">हार्डकवर एवं ई-पुस्तक • भारतीय साहित्य संग्रह</span>
+        <a href="books/shivshakti-tridev-gatha.html" style="display:block; text-decoration:none;">
+          <div class="book-3d-stage">
+            <div class="book-3d">
+              <img src="images/shivshakti-front.jpg" alt="शिवशक्ति त्रिदेव गाथा - लेखक मानस मनुज" loading="lazy" />
+            </div>
+          </div>
+        </a>
+        <h3>
+          <a href="books/shivshakti-tridev-gatha.html" data-hi="शिवशक्ति त्रिदेव गाथा" data-en="ShivShakti Tridev Gatha">शिवशक्ति त्रिदेव गाथा</a>
+        </h3>
+        <p style="margin:0.7rem 0;" data-hi="महा-मंगलाचरण एवं 6 खण्डों (109 अध्याय) में रचित यह आध्यात्मिक काव्य ग्रंथ श्लोक, दोहा-चौपाई और सरल हिंदी भावार्थ के साथ सृष्टि, आदिशक्ति तथा त्रिदेवों की एकता प्रस्तुत करता है।" data-en="Structured across Maha-Mangalacharan and 6 Khands (109 Chapters), this spiritual poetic work presents Srishti, Adishakti, and the unity of the Tridev through Shlokas, Doha-Chaupai verses, and lucid Hindi explanations.">
+          महा-मंगलाचरण एवं 6 खण्डों (109 अध्याय) में रचित यह आध्यात्मिक काव्य ग्रंथ श्लोक, दोहा-चौपाई और सरल हिंदी भावार्थ के साथ सृष्टि, आदिशक्ति तथा त्रिदेवों की एकता प्रस्तुत करता है।
+        </p>
+
+        <div class="price-box" style="padding:0.75rem 1rem; margin:0.9rem 0;">
+          <span class="price-old">₹800</span>
+          <span class="price-new" style="font-size:1.35rem;">₹720</span>
+          <span class="discount-pill" data-hi="10% छूट" data-en="10% Off">10% छूट</span>
+        </div>
+
+        <div class="book-links">
+          <a href="books/shivshakti-tridev-gatha.html" class="btn btn-outline" style="width:100%;" data-hi="विस्तृत जानकारी एवं अनुक्रम पढ़ें →" data-en="Read Full Details & Contents →">विस्तृत जानकारी एवं अनुक्रम पढ़ें →</a>
+          <a href="#direct-order" class="btn btn-primary" style="width:100%;" data-hi="ऑटोग्राफ कॉपी मँगवाएँ (₹720)" data-en="Order Autographed Copy (₹720)">ऑटोग्राफ कॉपी मँगवाएँ (₹720)</a>
+          <span class="store-tag" data-hi="Pustak.org — शीघ्र उपलब्ध" data-en="Pustak.org — Coming Soon">Pustak.org — शीघ्र उपलब्ध</span>
+          <span class="store-tag" data-hi="Amazon — शीघ्र उपलब्ध" data-en="Amazon — Coming Soon">Amazon — शीघ्र उपलब्ध</span>
+          <span class="store-tag" data-hi="Flipkart — शीघ्र उपलब्ध" data-en="Flipkart — Coming Soon">Flipkart — शीघ्र उपलब्ध</span>
+        </div>
+      </div>
+
+      <!-- पुस्तक 2 (तीनों भागों के नए कवर के साथ) -->
+      <div class="card">
+        <span class="book-badge" data-hi="आगामी त्रयी • 3 भाग | 18 खंड | 108 अध्याय" data-en="Upcoming Trilogy • 3 Volumes | 18 Khands | 108 Chapters">आगामी त्रयी • 3 भाग | 18 खंड | 108 अध्याय</span>
+        <a href="books/sanatan-gaurav-gatha.html" style="display:block; text-decoration:none; margin: 1rem 0;">
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:0.6rem; align-items:center;">
+            <img src="images/sanatan-gaurav-gatha-part-1.png" alt="सनातन गौरव गाथा - भाग 1" loading="lazy" style="width:100%; aspect-ratio:2/3; object-fit:cover; border-radius:6px; box-shadow:0 6px 14px rgba(0,0,0,0.22);" />
+            <img src="images/sanatan-gaurav-gatha-part-2.png" alt="सनातन गौरव गाथा - भाग 2" loading="lazy" style="width:100%; aspect-ratio:2/3; object-fit:cover; border-radius:6px; box-shadow:0 6px 14px rgba(0,0,0,0.22);" />
+            <img src="images/sanatan-gaurav-gatha-part-3.png" alt="सनातन गौरव गाथा - भाग 3" loading="lazy" style="width:100%; aspect-ratio:2/3; object-fit:cover; border-radius:6px; box-shadow:0 6px 14px rgba(0,0,0,0.22);" />
+          </div>
+        </a>
+        <h3>
+          <a href="books/sanatan-gaurav-gatha.html" data-hi="सनातन गौरव गाथा" data-en="Sanatan Gaurav Gatha">सनातन गौरव गाथा</a>
+        </h3>
+        <p style="margin:0.7rem 0;" data-hi="<strong>तीन स्वतंत्र भागों</strong> में नियोजित महाश्रृंखला: (1) ब्रह्मांड, चेतना और संस्कृति, (2) वैदिक विज्ञान, तकनीक और आयुर्वेद, तथा (3) इतिहास, योग और विश्वगुरु भारत।" data-en="A <strong>three-volume series</strong>: (1) Cosmos, Consciousness & Culture, (2) Vedic Science, Technology & Ayurveda, and (3) History, Yoga & Vishwaguru Bharat.">
+          <strong>तीन स्वतंत्र भागों</strong> में नियोजित महाश्रृंखला: (1) ब्रह्मांड, चेतना और संस्कृति, (2) वैदिक विज्ञान, तकनीक और आयुर्वेद, तथा (3) इतिहास, योग और विश्वगुरु भारत।
+        </p>
+        <div class="progress-wrap">
+          <small style="font-weight:600; color:var(--maroon);" data-hi="लेखन एवं प्रकाशन तैयारी प्रगति: 75%" data-en="Writing & Publication Progress: 75%">लेखन एवं प्रकाशन तैयारी प्रगति: 75%</small>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+        <div class="book-links" style="margin-top:0.8rem;">
+          <a href="books/sanatan-gaurav-gatha.html" class="btn btn-outline" style="width:100%;" data-hi="तीनों भागों की विषय-संरचना देखें →" data-en="Explore Trilogy Blueprint →">तीनों भागों की विषय-संरचना देखें →</a>
+          <a href="#contact" class="btn btn-primary" style="width:100%;" data-hi="प्रकाशन की अग्रिम सूचना पाएँ" data-en="Get Publication Alert">प्रकाशन की अग्रिम सूचना पाएँ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- डायरेक्ट सेल ऑर्डर फॉर्म (विशेष पाठक सुविधा बैनर के साथ) -->
+  <section id="direct-order">
+    <div class="section-header">
+      <h2 data-hi="लेखक से सीधी पुस्तक मँगवाएँ (Direct Sale)" data-en="Order Directly from Author (Direct Sale)">लेखक से सीधी पुस्तक मँगवाएँ (Direct Sale)</h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- डायरेक्ट सेल हाईलाइट बॉक्स -->
+    <div class="direct-sale-banner" style="max-width:740px; margin:0 auto 1.4rem;">
+      <div>
+        <h2 data-hi="विशेष पाठक सुविधा: लेखक से सीधी प्रति प्राप्त करें" data-en="Special Reader Offer: Get Direct Copy from the Author">विशेष पाठक सुविधा: लेखक से सीधी प्रति प्राप्त करें</h2>
+        <p data-hi="Pustak.org, Amazon और Flipkart के अतिरिक्त आप सीधे लेखक से <strong>10% विशेष छूट (₹720)</strong> एवं <strong>लेखक के हस्ताक्षर (Autograph)</strong> सहित हार्डकवर पुस्तक मँगवा सकते हैं।" data-en="In addition to Pustak.org, Amazon, and Flipkart, you can order the hardcover copy directly from the author with a <strong>10% special discount (₹720)</strong> and the <strong>author's autograph</strong>.">
+          Pustak.org, Amazon और Flipkart के अतिरिक्त आप सीधे लेखक से <strong>10% विशेष छूट (₹720)</strong> एवं <strong>लेखक के हस्ताक्षर (Autograph)</strong> सहित हार्डकवर पुस्तक मँगवा सकते हैं।
+        </p>
+      </div>
+    </div>
+
+    <div class="card" style="max-width:740px; margin:auto;">
+      <p style="margin-bottom:1.2rem; color:var(--text-muted);" data-hi="नीचे विवरण भरें—आपका ऑर्डर सीधे लेखक के WhatsApp पर पहुँच जाएगा और आपको <strong>10% छूट (₹720) के साथ हार्डकवर हस्ताक्षरित प्रति</strong> भेजी जाएगी।" data-en="Fill in the details below—your order will go directly to the author's WhatsApp and you will receive an <strong>autographed hardcover copy with 10% discount (₹720)</strong>.">
+        नीचे विवरण भरें—आपका ऑर्डर सीधे लेखक के WhatsApp पर पहुँच जाएगा और आपको <strong>10% छूट (₹720) के साथ हार्डकवर हस्ताक्षरित प्रति</strong> भेजी जाएगी।
+      </p>
+      <div class="form-group">
+        <label for="buyerName" data-hi="आपका पूरा नाम *" data-en="Your Full Name *">आपका पूरा नाम *</label>
+        <input type="text" id="buyerName" placeholder="अपना नाम लिखें / Enter your name" />
+      </div>
+      <div class="form-group">
+        <label for="buyerPhone" data-hi="मोबाइल / WhatsApp नंबर *" data-en="Mobile / WhatsApp Number *">मोबाइल / WhatsApp नंबर *</label>
+        <input type="tel" id="buyerPhone" placeholder="10 अंकों का मोबाइल नंबर / 10-digit mobile number" />
+      </div>
+      <div class="form-group">
+        <label for="bookQty" data-hi="प्रतियों की संख्या" data-en="Number of Copies">प्रतियों की संख्या</label>
+        <select id="bookQty">
+          <option value="1 प्रति">1 प्रति / 1 Copy</option>
+          <option value="2 प्रतियाँ">2 प्रतियाँ / 2 Copies</option>
+          <option value="5 प्रतियाँ">5 प्रतियाँ / 5 Copies</option>
+          <option value="अन्य">अन्य / Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="buyerAddress" data-hi="पूरा डाक पता (पिनकोड सहित) *" data-en="Complete Postal Address (with Pincode) *">पूरा डाक पता (पिनकोड सहित) *</label>
+        <textarea id="buyerAddress" rows="3" placeholder="मकान नंबर, शहर, राज्य और पिनकोड / Full Address with Pincode"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary" style="width:100%;" onclick="sendDirectBookOrder()" data-hi="WhatsApp पर ऑर्डर भेजें" data-en="Send Order on WhatsApp">WhatsApp पर ऑर्डर भेजें</button>
+    </div>
+  </section>
+
+  <!-- साहित्यिक लेख -->
+  <section id="articles">
+    <div class="section-header">
+      <h2 data-hi="साहित्यिक लेख (Articles)" data-en="Literary Articles">साहित्यिक लेख (Articles)</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <span class="book-badge" data-hi="साहित्यिक चिंतन" data-en="Literary Reflection">साहित्यिक चिंतन</span>
+        <h3>
+          <a href="articles/chhandbaddh-kavya-chetna.html" data-hi="छंदबद्ध काव्य में आध्यात्मिक चेतना" data-en="Spiritual Consciousness in Metrical Poetry">छंदबद्ध काव्य में आध्यात्मिक चेतना</a>
+        </h3>
+        <p style="margin:0.6rem 0 1rem; color:var(--text-muted);" data-hi="दोहा और चौपाई की परंपरा किस प्रकार जटिल दर्शन को जनमानस तक सहजता से पहुँचाती है..." data-en="How the tradition of Doha and Chaupai effortlessly brings complex philosophy to the masses...">दोहा और चौपाई की परंपरा किस प्रकार जटिल दर्शन को जनमानस तक सहजता से पहुँचाती है...</p>
+        <a href="articles/chhandbaddh-kavya-chetna.html" style="color:var(--maroon); font-weight:700;" data-hi="पूरा लेख पढ़ें →" data-en="Read Full Article →">पूरा लेख पढ़ें →</a>
+      </div>
+
+      <div class="card">
+        <span class="book-badge" data-hi="भारतीय ज्ञान परंपरा" data-en="Indian Knowledge">भारतीय ज्ञान परंपरा</span>
+        <h3>
+          <a href="articles/prachin-bhartiya-vigyan.html" data-hi="प्राचीन भारतीय विज्ञान और गौरव" data-en="Ancient Indian Science and Pride">प्राचीन भारतीय विज्ञान और गौरव</a>
+        </h3>
+        <p style="margin:0.6rem 0 1rem; color:var(--text-muted);" data-hi="सनातन परंपरा के गणितीय, खगोलीय, वास्तुकला और चिकित्सा ज्ञान की प्रामाणिक झलक..." data-en="An authentic glimpse into the mathematical, astronomical, architectural, and medical wisdom of Sanatan tradition...">सनातन परंपरा के गणितीय, खगोलीय, वास्तुकला और चिकित्सा ज्ञान की प्रामाणिक झलक...</p>
+        <a href="articles/prachin-bhartiya-vigyan.html" style="color:var(--maroon); font-weight:700;" data-hi="पूरा लेख पढ़ें →" data-en="Read Full Article →">पूरा लेख पढ़ें →</a>
+      </div>
+
+      <div class="card">
+        <span class="book-badge" data-hi="समकालीन चिंतन" data-en="Contemporary Thought">समकालीन चिंतन</span>
+        <h3>
+          <a href="articles/yuva-pidhi-bhartiya-sanskriti.html" data-hi="युवा पीढ़ी और भारतीय संस्कृति" data-en="Young Generation and Indian Culture">युवा पीढ़ी और भारतीय संस्कृति</a>
+        </h3>
+        <p style="margin:0.6rem 0 1rem; color:var(--text-muted);" data-hi="डिजिटल युग में तर्क, साहित्य और व्यावहारिक दृष्टिकोण के साथ अपनी जड़ों से जुड़ने के सरल माध्यम..." data-en="Practical ways to connect with one's cultural roots and literature in the digital age...">डिजिटल युग में तर्क, साहित्य और व्यावहारिक दृष्टिकोण के साथ अपनी जड़ों से जुड़ने के सरल माध्यम...</p>
+        <a href="articles/yuva-pidhi-bhartiya-sanskriti.html" style="color:var(--maroon); font-weight:700;" data-hi="पूरा लेख पढ़ें →" data-en="Read Full Article →">पूरा लेख पढ़ें →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- वीडियो एवं पुस्तक प्रोमो -->
+  <section id="videos">
+    <div class="section-header">
+      <h2 data-hi="वीडियो एवं पुस्तक प्रोमो (Videos)" data-en="Videos & Book Promos">वीडियो एवं पुस्तक प्रोमो (Videos)</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <span class="book-badge" data-hi="पुस्तक प्रोमो • शीघ्र प्रसारित" data-en="Book Promo • Premiering Soon">पुस्तक प्रोमो • शीघ्र प्रसारित</span>
+        <h3 data-hi="शिवशक्ति त्रिदेव गाथा — आधिकारिक परिचय वीडियो" data-en="ShivShakti Tridev Gatha — Official Book Trailer">शिवशक्ति त्रिदेव गाथा — आधिकारिक परिचय वीडियो</h3>
+        <p style="margin:0.6rem 0 1rem; color:var(--text-muted);" data-hi="छह खंडों के इस महाकाव्य की रचना-यात्रा, प्रमुख छंदों और आध्यात्मिक संदेश की दृश्यात्मक झलक शीघ्र हमारे YouTube मंच पर प्रस्तुत की जाएगी।" data-en="A visual introduction to the eight-year writing journey, select verses, and spiritual message of this six-part poetic work will premiere soon on YouTube.">
+          छह खंडों के इस महाकाव्य की रचना-यात्रा, प्रमुख छंदों और आध्यात्मिक संदेश की दृश्यात्मक झलक शीघ्र हमारे YouTube मंच पर प्रस्तुत की जाएगी।
+        </p>
+        <a href="#contact" class="btn btn-outline" data-hi="वीडियो अपडेट के लिए जुड़ें" data-en="Stay Updated on Videos">वीडियो अपडेट के लिए जुड़ें</a>
+      </div>
+
+      <div class="card">
+        <span class="book-badge" data-hi="साहित्य संवाद • YouTube श्रृंखला" data-en="Literary Talks • YouTube Series">साहित्य संवाद • YouTube श्रृंखला</span>
+        <h3 data-hi="सनातन विज्ञान एवं पौराणिक चिंतन व्याख्यान" data-en="Talks on Sanatan Science & Pauranik Insights">सनातन विज्ञान एवं पौराणिक चिंतन व्याख्यान</h3>
+        <p style="margin:0.6rem 0 1rem; color:var(--text-muted);" data-hi="'सनातन गौरव गाथा' के 18 खंडों से जुड़े रोचक वैज्ञानिक एवं सांस्कृतिक प्रसंगों पर संक्षिप्त व्याख्यान श्रृंखला शीघ्र प्रारंभ हो रही है।" data-en="A concise video series exploring scientific and cultural insights from the 18 Khands of 'Sanatan Gaurav Gatha' is launching soon.">
+          'सनातन गौरव गाथा' के 18 खंडों से जुड़े रोचक वैज्ञानिक एवं सांस्कृतिक प्रसंगों पर संक्षिप्त व्याख्यान श्रृंखला शीघ्र प्रारंभ हो रही है।
+        </p>
+        <a href="#contact" class="btn btn-outline" data-hi="चैनल सूचना प्राप्त करें" data-en="Get Channel Updates">चैनल सूचना प्राप्त करें</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- पॉडकास्ट एवं काव्य-पाठ -->
+  <section id="podcast">
+    <div class="section-header">
+      <h2 data-hi="पॉडकास्ट एवं काव्य-पाठ (Podcast)" data-en="Podcast & Poetry Recitation">पॉडकास्ट एवं काव्य-पाठ (Podcast)</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="card" style="text-align:center; max-width:820px; margin:auto;">
+      <span class="book-badge" data-hi="ऑडियो कथा एवं छंद-पाठ • शीघ्र प्रारंभ" data-en="Audio Stories & Recitations • Launching Soon">ऑडियो कथा एवं छंद-पाठ • शीघ्र प्रारंभ</span>
+      <h3 style="margin-bottom:0.6rem;" data-hi="मानस वाणी — दोहा-चौपाई पाठ एवं साहित्यिक संवाद" data-en="Manas Vaani — Verse Recitation & Literary Dialogue">मानस वाणी — दोहा-चौपाई पाठ एवं साहित्यिक संवाद</h3>
+      <p style="margin-bottom:1.3rem; color:var(--text-muted);" data-hi="अध्ययन और यात्रा के समय सुनने योग्य शुद्ध हिंदी काव्य-पाठ, पौराणिक प्रसंगों की व्याख्या और सनातन चिंतन के विशेष ऑडियो एपिसोड शीघ्र यहाँ उपलब्ध होंगे।" data-en="Audio episodes featuring pure Hindi Doha-Chaupai recitations, Pauranik reflections, and literary conversations will soon be available to listen directly here.">
+        अध्ययन और यात्रा के समय सुनने योग्य शुद्ध हिंदी काव्य-पाठ, पौराणिक प्रसंगों की व्याख्या और सनातन चिंतन के विशेष ऑडियो एपिसोड शीघ्र यहाँ उपलब्ध होंगे।
+      </p>
+      <a href="#contact" class="btn btn-outline" data-hi="प्रथम एपिसोड की सूचना पाएँ" data-en="Notify Me for Episode 1">प्रथम एपिसोड की सूचना पाएँ</a>
+    </div>
+  </section>
+
+  <!-- परामर्श एवं मार्गदर्शन -->
+  <section id="consultation">
+    <div class="section-header">
+      <h2 data-hi="व्यक्तिगत परामर्श एवं मार्गदर्शन" data-en="Personal Consultation & Guidance">व्यक्तिगत परामर्श एवं मार्गदर्शन</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="card" style="text-align:center; max-width:820px; margin:auto;">
+      <span class="book-badge" data-hi="शीघ्र आ रहा है • ऑनलाइन सत्र" data-en="Coming Soon • Online Sessions">शीघ्र आ रहा है • ऑनलाइन सत्र</span>
+      <p style="margin:0.8rem 0 1.4rem; color:var(--text-muted);" data-hi="साहित्यिक मार्गदर्शन, सनातन दर्शन चर्चा तथा विशेष व्यक्तिगत परामर्श सत्रों के लिए अपॉइंटमेंट बुकिंग की सुविधा शीघ्र प्रारंभ की जा रही है।" data-en="Appointment booking for literary guidance, Sanatan philosophy discussions, and personal consultation sessions will be launching soon.">
+        साहित्यिक मार्गदर्शन, सनातन दर्शन चर्चा तथा विशेष व्यक्तिगत परामर्श सत्रों के लिए अपॉइंटमेंट बुकिंग की सुविधा शीघ्र प्रारंभ की जा रही है।
+      </p>
+      <a href="#contact" class="btn btn-outline" data-hi="परामर्श के लिए पूर्व-पंजीकरण करें" data-en="Pre-register for Consultation">परामर्श के लिए पूर्व-पंजीकरण करें</a>
+    </div>
+  </section>
+
+  <!-- संपर्क करें -->
+  <section id="contact">
+    <div class="section-header">
+      <h2 data-hi="लेखक से संपर्क करें (Contact Us)" data-en="Contact the Author">लेखक से संपर्क करें (Contact Us)</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="card" style="max-width:740px; margin:auto;">
+      <div class="form-group">
+        <label for="visitorName" data-hi="आपका नाम *" data-en="Your Name *">आपका नाम *</label>
+        <input type="text" id="visitorName" placeholder="अपना नाम लिखें / Enter your name" />
+      </div>
+      <div class="form-group">
+        <label for="visitorTopic" data-hi="विषय चुनें" data-en="Select Subject">विषय चुनें</label>
+        <select id="visitorTopic">
+          <option value="पुस्तक के बारे में पूछताछ">पुस्तक के बारे में पूछताछ / Book Inquiry</option>
+          <option value="साहित्यिक कार्यक्रम / साक्षात्कार">साहित्यिक कार्यक्रम / Literary Event</option>
+          <option value="व्यक्तिगत परामर्श सत्र">व्यक्तिगत परामर्श सत्र / Consultation Session</option>
+          <option value="पाठक प्रतिक्रिया">पाठक प्रतिक्रिया / Reader Feedback</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="visitorMessage" data-hi="आपका संदेश *" data-en="Your Message *">आपका संदेश *</label>
+        <textarea id="visitorMessage" rows="4" placeholder="अपना संदेश यहाँ लिखें / Write your message here..."></textarea>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" style="flex:1;" onclick="sendContactMessage('whatsapp')" data-hi="WhatsApp पर भेजें" data-en="Send on WhatsApp">WhatsApp पर भेजें</button>
+        <button type="button" class="btn btn-outline" style="flex:1;" onclick="sendContactMessage('email')" data-hi="Email से भेजें" data-en="Send via Email">Email से भेजें</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- फ्लोटिंग संपर्क बटन -->
+  <a href="#contact" class="floating-whatsapp" data-hi="✉ लेखक से जुड़ें" data-en="✉ Connect with Author">✉ लेखक से जुड़ें</a>
+
+  <!-- फुटर -->
+  <footer>
+    <div class="brand-title" style="font-size:1.35rem;" data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</div>
+    <div class="footer-links">
+      <a href="#contact">Facebook</a>
+      <a href="#contact">Instagram</a>
+      <a href="#contact">YouTube</a>
+    </div>
+    <div class="footer-links" style="margin-top:0.5rem;">
+      <a href="legal/privacy-policy.html" data-hi="गोपनीयता नीति (Privacy Policy)" data-en="Privacy Policy">गोपनीयता नीति (Privacy Policy)</a>
+      <a href="legal/terms.html" data-hi="नियम एवं शर्तें (Terms)" data-en="Terms & Conditions">नियम एवं शर्तें (Terms)</a>
+      <a href="legal/disclaimer.html" data-hi="अस्वीकरण (Disclaimer)" data-en="Disclaimer">अस्वीकरण (Disclaimer)</a>
+    </div>
+    <p style="font-size:0.88rem; margin-top:0.8rem;" data-hi="© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।" data-en="© 2026 Manas Manuj. All rights reserved.">© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
