@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>सभी साहित्यिक लेख | मानस मनुज</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../images/author.jpg" />
+
+  <meta name="description" content="मानस मनुज के सभी साहित्यिक लेख — सनातन दर्शन, पौराणिक साहित्य, प्राचीन भारतीय विज्ञान, संस्कृति और समकालीन चिंतन।" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .articles-toolbar {
+      max-width: 960px;
+      margin: 0 auto 1.6rem;
+    }
+    .article-search-wrap {
+      max-width: 520px;
+      margin: 0 auto 1.1rem;
+    }
+    .article-search-input {
+      width: 100%;
+      padding: 0.72rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(122, 28, 28, 0.28);
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: inherit;
+      outline: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .article-search-input:focus {
+      border-color: var(--maroon, #7a1c1c);
+      box-shadow: 0 0 0 3px rgba(122, 28, 28, 0.1);
+    }
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.55rem;
+    }
+    .filter-btn {
+      padding: 0.48rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(122, 28, 28, 0.28);
+      background: #ffffff;
+      color: var(--maroon, #7a1c1c);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--maroon, #7a1c1c);
+      color: #ffffff;
+    }
+    .articles-archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.3rem;
+    }
+    .article-archive-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .article-archive-card:hover {
+      transform: translateY(-3px);
+    }
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .article-read-time {
+      font-size: 0.8rem;
+      color: var(--text-muted, #5c4b43);
+    }
+    .article-archive-card h3 {
+      margin: 0.25rem 0 0.55rem;
+      line-height: 1.4;
+    }
+    .article-archive-card h3 a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .article-archive-card h3 a:hover {
+      color: var(--maroon, #7a1c1c);
+    }
+    .article-excerpt {
+      margin: 0 0 1.1rem;
+      color: var(--text-muted, #5c4b43);
+      font-size: 0.94rem;
+    }
+    .article-read-link {
+      color: var(--maroon, #7a1c1c);
+      font-weight: 700;
+      text-decoration: none;
+      align-self: flex-start;
+    }
+    .article-read-link:hover {
+      text-decoration: underline;
+    }
+    .no-results-box {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--text-muted, #5c4b43);
+      grid-column: 1 / -1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- हेडर एवं नेविगेशन मेनू -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html#home" class="brand-title">
+        <span data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</span>
+        <span class="brand-sub" data-hi="हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन" data-en="Hindi Literature • Spiritual & Sanatan Thought">हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन</span>
+      </a>
+
+      <div class="lang-switch">
+        <button type="button" id="btn-hi" class="lang-btn active" onclick="setLanguage('hi')">हिंदी</button>
+        <button type="button" id="btn-en" class="lang-btn" onclick="setLanguage('en')">English</button>
+      </div>
+
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+      <nav>
+        <ul id="navList">
+          <li><a href="../index.html#home" data-hi="मुख्य पृष्ठ" data-en="Home">मुख्य पृष्ठ</a></li>
+          <li><a href="../index.html#about" data-hi="लेखक परिचय" data-en="About">लेखक परिचय</a></li>
+          <li><a href="../index.html#books" data-hi="पुस्तकें" data-en="Books">पुस्तकें</a></li>
+          <li><a href="index.html" class="active" data-hi="लेख" data-en="Articles">लेख</a></li>
+          <li><a href="../videos/index.html" data-hi="वीडियो" data-en="Videos">वीडियो</a></li>
+          <li><a href="../podcast/index.html" data-hi="पॉडकास्ट" data-en="Podcast">पॉडकास्ट</a></li>
+          <li><a href="../index.html#consultation" data-hi="परामर्श" data-en="Consultation">परामर्श</a></li>
+          <li><a href="../index.html#contact" class="nav-contact-btn" data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- शीर्षक -->
+  <div class="hero" style="padding: 1.8rem 1.2rem 1rem;">
+    <div class="hero-inner" style="margin-bottom: 0;">
+      <div class="sacred-badge" data-hi="✦ साहित्यिक संग्रह एवं विचार-विमर्श ✦" data-en="✦ Literary Archive & Reflections ✦">✦ साहित्यिक संग्रह एवं विचार-विमर्श ✦</div>
+      <h1 data-hi="सभी साहित्यिक लेख" data-en="All Literary Articles">सभी साहित्यिक लेख</h1>
+      <p style="max-width:700px; margin:0.45rem auto 0; color:var(--text-muted);" data-hi="सनातन दर्शन, पौराणिक साहित्य, प्राचीन भारतीय विज्ञान, संस्कृति और समकालीन विषयों पर प्रकाशित सभी लेख यहाँ पढ़ें।" data-en="Explore all published articles on Sanatan philosophy, Pauranik literature, ancient Indian science, culture, and contemporary thought.">
+        सनातन दर्शन, पौराणिक साहित्य, प्राचीन भारतीय विज्ञान, संस्कृति और समकालीन विषयों पर प्रकाशित सभी लेख यहाँ पढ़ें।
+      </p>
+    </div>
+  </div>
+
+  <!-- खोज, श्रेणी फ़िल्टर और लेखों की सूची -->
+  <section style="padding-top: 1.2rem;">
+    <div class="articles-toolbar">
+      <div class="article-search-wrap">
+        <input
+          type="search"
+          id="articleSearch"
+          class="article-search-input"
+          placeholder="लेख खोजें (उदा. काव्य, विज्ञान, संस्कृति) / Search articles..."
+          oninput="renderArticles()"
+        />
+      </div>
+
+      <div class="filter-tabs">
+        <button type="button" class="filter-btn active" onclick="filterArticles('all', this)" data-hi="सभी लेख" data-en="All Articles">सभी लेख</button>
+        <button type="button" class="filter-btn" onclick="filterArticles('sahitya', this)" data-hi="साहित्यिक चिंतन" data-en="Literary Reflection">साहित्यिक चिंतन</button>
+        <button type="button" class="filter-btn" onclick="filterArticles('vigyan', this)" data-hi="भारतीय ज्ञान परंपरा" data-en="Indian Knowledge">भारतीय ज्ञान परंपरा</button>
+        <button type="button" class="filter-btn" onclick="filterArticles('samkalin', this)" data-hi="समकालीन चिंतन" data-en="Contemporary Thought">समकालीन चिंतन</button>
+        <button type="button" class="filter-btn" onclick="filterArticles('darshan', this)" data-hi="सनातन दर्शन" data-en="Sanatan Philosophy">सनातन दर्शन</button>
+      </div>
+    </div>
+
+    <div class="articles-archive-grid" id="articlesGrid"></div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="../index.html#articles" class="btn btn-outline" data-hi="← मुख्य पृष्ठ पर लौटें" data-en="← Back to Home">← मुख्य पृष्ठ पर लौटें</a>
+    </div>
+  </section>
+
+  <!-- फुटर -->
+  <footer>
+    <div class="brand-title" style="font-size:1.35rem;" data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ManasManuj" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://www.facebook.com/manasmanuj" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://www.instagram.com/manasmanuj/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.threads.com/@manasmanuj" target="_blank" rel="noopener noreferrer">Threads</a>
+    </div>
+    <div class="footer-links" style="margin-top:0.5rem;">
+      <a href="../legal/privacy-policy.html" data-hi="गोपनीयता नीति (Privacy Policy)" data-en="Privacy Policy">गोपनीयता नीति (Privacy Policy)</a>
+      <a href="../legal/terms.html" data-hi="नियम एवं शर्तें (Terms)" data-en="Terms & Conditions">नियम एवं शर्तें (Terms)</a>
+      <a href="../legal/disclaimer.html" data-hi="अस्वीकरण (Disclaimer)" data-en="Disclaimer">अस्वीकरण (Disclaimer)</a>
+    </div>
+    <p style="font-size:0.88rem; margin-top:0.8rem;" data-hi="© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।" data-en="© 2026 Manas Manuj. All rights reserved.">© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    /* ==========================================================
+       नया लेख जोड़ने के लिए नीचे सूची में सबसे ऊपर एक नया ब्लॉक जोड़ें:
+       category विकल्प: "sahitya", "vigyan", "samkalin", "darshan"
+       ========================================================== */
+    const ARTICLES_LIST = [
+      {
+        file: "chhandbaddh-kavya-chetna.html",
+        category: "sahitya",
+        badgeHi: "साहित्यिक चिंतन",
+        badgeEn: "Literary Reflection",
+        readTimeHi: "पठन समय: 4 मिनट",
+        readTimeEn: "4 min read",
+        titleHi: "छंदबद्ध काव्य में आध्यात्मिक चेतना",
+        titleEn: "Spiritual Consciousness in Metrical Poetry",
+        excerptHi: "दोहा और चौपाई की परंपरा किस प्रकार जटिल दर्शन को जनमानस तक सहजता से पहुँचाती है और मन में स्थायी भाव उत्पन्न करती है...",
+        excerptEn: "How the tradition of Doha and Chaupai effortlessly brings complex philosophy to the masses and nurtures lasting contemplation..."
+      },
+      {
+        file: "prachin-bhartiya-vigyan.html",
+        category: "vigyan",
+        badgeHi: "भारतीय ज्ञान परंपरा",
+        badgeEn: "Indian Knowledge",
+        readTimeHi: "पठन समय: 5 मिनट",
+        readTimeEn: "5 min read",
+        titleHi: "प्राचीन भारतीय विज्ञान और गौरव",
+        titleEn: "Ancient Indian Science and Pride",
+        excerptHi: "सनातन परंपरा के गणितीय, खगोलीय, वास्तुकला और चिकित्सा ज्ञान की प्रामाणिक झलक तथा आधुनिक विश्व में उसका महत्व...",
+        excerptEn: "An authentic glimpse into the mathematical, astronomical, architectural, and medical wisdom of Sanatan tradition..."
+      },
+      {
+        file: "yuva-pidhi-bhartiya-sanskriti.html",
+        category: "samkalin",
+        badgeHi: "समकालीन चिंतन",
+        badgeEn: "Contemporary Thought",
+        readTimeHi: "पठन समय: 4 मिनट",
+        readTimeEn: "4 min read",
+        titleHi: "युवा पीढ़ी और भारतीय संस्कृति",
+        titleEn: "Young Generation and Indian Culture",
+        excerptHi: "डिजिटल युग में तर्क, साहित्य और व्यावहारिक दृष्टिकोण के साथ अपनी जड़ों व भारतीय संस्कृति से जुड़ने के सरल माध्यम...",
+        excerptEn: "Practical ways for the digital generation to connect with cultural roots, logic, and timeless Indian literature..."
+      }
+    ];
+
+    let activeArticleCategory = "all";
+
+    function renderArticles() {
+      const grid = document.getElementById("articlesGrid");
+      const query = (document.getElementById("articleSearch").value || "").trim().toLowerCase();
+      const lang = localStorage.getItem("siteLang") || "hi";
+
+      const filtered = ARTICLES_LIST.filter((art) => {
+        const matchesCat = activeArticleCategory === "all" || art.category === activeArticleCategory;
+        if (!matchesCat) return false;
+        if (!query) return true;
+        const searchable = `${art.titleHi} ${art.titleEn} ${art.excerptHi} ${art.excerptEn} ${art.badgeHi} ${art.badgeEn}`.toLowerCase();
+        return searchable.includes(query);
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="card no-results-box">
+            <p style="margin:0;" data-hi="इस श्रेणी या खोज शब्द से जुड़ा कोई लेख अभी उपलब्ध नहीं है। शीघ्र नए लेख जोड़े जाएँगे।" data-en="No articles found for this category or search term yet. New articles will be added soon.">
+              ${lang === "en" ? "No articles found for this category or search term yet. New articles will be added soon." : "इस श्रेणी या खोज शब्द से जुड़ा कोई लेख अभी उपलब्ध नहीं है। शीघ्र नए लेख जोड़े जाएँगे।"}
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map((art) => `
+        <article class="card article-archive-card">
+          <div>
+            <div class="article-meta-row">
+              <span class="book-badge" style="margin:0;" data-hi="${art.badgeHi}" data-en="${art.badgeEn}">${lang === "en" ? art.badgeEn : art.badgeHi}</span>
+              <span class="article-read-time" data-hi="${art.readTimeHi}" data-en="${art.readTimeEn}">${lang === "en" ? art.readTimeEn : art.readTimeHi}</span>
+            </div>
+            <h3>
+              <a href="${art.file}" data-hi="${art.titleHi}" data-en="${art.titleEn}">${lang === "en" ? art.titleEn : art.titleHi}</a>
+            </h3>
+            <p class="article-excerpt" data-hi="${art.excerptHi}" data-en="${art.excerptEn}">${lang === "en" ? art.excerptEn : art.excerptHi}</p>
+          </div>
+          <a href="${art.file}" class="article-read-link" data-hi="पूरा लेख पढ़ें →" data-en="Read Full Article →">${lang === "en" ? "Read Full Article →" : "पूरा लेख पढ़ें →"}</a>
+        </article>
+      `).join("");
+    }
+
+    function filterArticles(category, btnEl) {
+      activeArticleCategory = category;
+      document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+      if (btnEl) btnEl.classList.add("active");
+      renderArticles();
+    }
+
+    window.addEventListener("DOMContentLoaded", renderArticles);
+  </script>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>पॉडकास्ट एवं साहित्यिक संवाद | मानस मनुज</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../images/author.jpg" />
+
+  <meta name="description" content="मानस वाणी — सनातन धर्मग्रंथों, भारतीय दर्शन, साहित्यिक चिंतन और आध्यात्मिकता पर आधारित विचारोत्तेजक संवाद एवं पॉडकास्ट श्रृंखला।" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .podcast-stage-card {
+      max-width: 880px;
+      margin: 0 auto 1.8rem;
+      padding: 1.4rem;
+    }
+    .podcast-player-box {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(122, 28, 28, 0.08), rgba(217, 119, 6, 0.12));
+      border: 1px solid rgba(122, 28, 28, 0.2);
+      padding: 1.4rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .podcast-player-box iframe {
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      display: block;
+    }
+    .podcast-player-box audio {
+      width: 100%;
+      margin-top: 0.6rem;
+    }
+    .podcast-video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .podcast-video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .podcast-mic-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--maroon, #7a1c1c);
+      color: #ffffff;
+      font-size: 1.4rem;
+      margin-bottom: 0.65rem;
+      box-shadow: 0 6px 16px rgba(122, 28, 28, 0.25);
+    }
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.55rem;
+      margin-bottom: 1.5rem;
+    }
+    .filter-btn {
+      padding: 0.48rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(122, 28, 28, 0.28);
+      background: #ffffff;
+      color: var(--maroon, #7a1c1c);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--maroon, #7a1c1c);
+      color: #ffffff;
+    }
+    .episode-list {
+      max-width: 880px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .episode-card {
+      cursor: pointer;
+      padding: 1.15rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .episode-card:hover {
+      transform: translateY(-2px);
+    }
+    .episode-card.playing {
+      border: 2px solid var(--maroon, #7a1c1c);
+      box-shadow: 0 8px 20px rgba(122, 28, 28, 0.14);
+    }
+    .episode-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .episode-num {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--maroon, #7a1c1c);
+      background: rgba(122, 28, 28, 0.1);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+    .episode-duration {
+      font-size: 0.8rem;
+      color: var(--text-muted, #5c4b43);
+    }
+    .episode-card h3 {
+      font-size: 1.08rem;
+      margin: 0 0 0.35rem;
+    }
+    .episode-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted, #5c4b43);
+      margin: 0;
+    }
+    .episode-play-btn {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: var(--maroon, #7a1c1c);
+      color: #ffffff;
+      font-size: 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(122, 28, 28, 0.24);
+    }
+    @media (max-width: 600px) {
+      .episode-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .episode-play-btn {
+        align-self: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- हेडर एवं नेविगेशन मेनू -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html#home" class="brand-title">
+        <span data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</span>
+        <span class="brand-sub" data-hi="हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन" data-en="Hindi Literature • Spiritual & Sanatan Thought">हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन</span>
+      </a>
+
+      <div class="lang-switch">
+        <button type="button" id="btn-hi" class="lang-btn active" onclick="setLanguage('hi')">हिंदी</button>
+        <button type="button" id="btn-en" class="lang-btn" onclick="setLanguage('en')">English</button>
+      </div>
+
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+      <nav>
+        <ul id="navList">
+          <li><a href="../index.html#home" data-hi="मुख्य पृष्ठ" data-en="Home">मुख्य पृष्ठ</a></li>
+          <li><a href="../index.html#about" data-hi="लेखक परिचय" data-en="About">लेखक परिचय</a></li>
+          <li><a href="../index.html#books" data-hi="पुस्तकें" data-en="Books">पुस्तकें</a></li>
+          <li><a href="../articles/index.html" data-hi="लेख" data-en="Articles">लेख</a></li>
+          <li><a href="../videos/index.html" data-hi="वीडियो" data-en="Videos">वीडियो</a></li>
+          <li><a href="index.html" class="active" data-hi="पॉडकास्ट" data-en="Podcast">पॉडकास्ट</a></li>
+          <li><a href="../index.html#consultation" data-hi="परामर्श" data-en="Consultation">परामर्श</a></li>
+          <li><a href="../index.html#contact" class="nav-contact-btn" data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- शीर्षक -->
+  <div class="hero" style="padding: 1.8rem 1.2rem 1rem;">
+    <div class="hero-inner" style="margin-bottom: 0;">
+      <div class="sacred-badge" data-hi="✦ मानस वाणी • साहित्यिक संवाद ✦" data-en="✦ Manas Vaani • Literary Dialogues ✦">✦ मानस वाणी • साहित्यिक संवाद ✦</div>
+      <h1 data-hi="ग्रंथ, दर्शन एवं आध्यात्मिकता पर संवाद" data-en="Conversations on Scriptures, Philosophy & Spirituality">ग्रंथ, दर्शन एवं आध्यात्मिकता पर संवाद</h1>
+      <p style="max-width:720px; margin:0.45rem auto 0; color:var(--text-muted);" data-hi="सनातन धर्मग्रंथों के गूढ़ अर्थ, भारतीय दार्शनिक परंपरा, आध्यात्मिक चिंतन और समकालीन प्रश्नों पर केंद्रित गंभीर एवं सहज वार्तालाप श्रृंखला।" data-en="A thoughtful conversation series exploring the deeper meanings of Sanatan scriptures, Indian philosophy, spirituality, and contemporary questions.">
+        सनातन धर्मग्रंथों के गूढ़ अर्थ, भारतीय दार्शनिक परंपरा, आध्यात्मिक चिंतन और समकालीन प्रश्नों पर केंद्रित गंभीर एवं सहज वार्तालाप श्रृंखला।
+      </p>
+    </div>
+  </div>
+
+  <!-- मुख्य पॉडकास्ट प्लेयर + एपिसोड सूची -->
+  <section style="padding-top: 1.2rem;">
+    <div class="card podcast-stage-card" id="podcastStageCard">
+      <div class="podcast-player-box" id="podcastPlayerBox">
+        <div class="podcast-mic-icon">🎙</div>
+        <h3 style="margin-bottom:0.35rem;" data-hi="मानस वाणी — साहित्यिक संवाद प्लेयर" data-en="Manas Vaani — Literary Dialogue Player">मानस वाणी — साहित्यिक संवाद प्लेयर</h3>
+        <p style="margin:0; font-size:0.92rem; color:var(--text-muted);" data-hi="नीचे दी गई संवाद सूची से किसी भी एपिसोड पर टैप करें।" data-en="Tap any episode from the dialogue list below.">नीचे दी गई संवाद सूची से किसी भी एपिसोड पर टैप करें।</p>
+      </div>
+      <div>
+        <span class="book-badge" id="epStageBadge" data-hi="साहित्यिक संवाद" data-en="Literary Dialogue">साहित्यिक संवाद</span>
+        <h2 id="epStageTitle" style="margin:0.45rem 0 0.35rem; font-size:1.35rem;" data-hi="ग्रंथों को तर्क और आस्था के संतुलन से कैसे समझें?" data-en="How to Understand Scriptures with a Balance of Faith and Reason?">ग्रंथों को तर्क और आस्था के संतुलन से कैसे समझें?</h2>
+        <p id="epStageDesc" style="margin:0; color:var(--text-muted);" data-hi="पॉडकास्ट एपिसोड का लिंक जुड़ते ही आप पूरा वार्तालाप बिना बाहर जाए सीधे यहीं सुन या देख सकेंगे।" data-en="Once episode links are added, you can listen to or watch the full conversation directly here.">पॉडकास्ट एपिसोड का लिंक जुड़ते ही आप पूरा वार्तालाप बिना बाहर जाए सीधे यहीं सुन या देख सकेंगे।</p>
+      </div>
+    </div>
+
+    <!-- विषय फ़िल्टर -->
+    <div class="filter-tabs">
+      <button type="button" class="filter-btn active" onclick="filterEpisodes('all', this)" data-hi="सभी संवाद" data-en="All Dialogues">सभी संवाद</button>
+      <button type="button" class="filter-btn" onclick="filterEpisodes('scriptures', this)" data-hi="धर्मग्रंथ विमर्श" data-en="Scripture Insights">धर्मग्रंथ विमर्श</button>
+      <button type="button" class="filter-btn" onclick="filterEpisodes('spirituality', this)" data-hi="आध्यात्मिकता" data-en="Spirituality">आध्यात्मिकता</button>
+      <button type="button" class="filter-btn" onclick="filterEpisodes('qa', this)" data-hi="पाठक प्रश्नोत्तर" data-en="Reader Q&A">पाठक प्रश्नोत्तर</button>
+    </div>
+
+    <!-- एपिसोड ट्रे / सूची -->
+    <div class="episode-list" id="episodeList"></div>
+
+    <!-- विषय सुझाव / प्रश्न भेजने का बॉक्स -->
+    <div class="card" style="max-width:880px; margin:2rem auto 0; text-align:center;">
+      <h3 style="margin-bottom:0.5rem;" data-hi="आगामी साहित्यिक संवाद के लिए अपना प्रश्न या विषय भेजें" data-en="Suggest a Question or Topic for Upcoming Dialogues">आगामी साहित्यिक संवाद के लिए अपना प्रश्न या विषय भेजें</h3>
+      <p style="margin-bottom:1.1rem; color:var(--text-muted);" data-hi="यदि आप किसी पौराणिक प्रसंग, ग्रंथ या आध्यात्मिक विषय पर विशेष चर्चा सुनना चाहते हैं, तो हमें अपना विषय अवश्य लिखें।" data-en="If you would like a dedicated conversation on a specific scripture, philosophical idea, or spiritual question, feel free to write to us.">
+        यदि आप किसी पौराणिक प्रसंग, ग्रंथ या आध्यात्मिक विषय पर विशेष चर्चा सुनना चाहते हैं, तो हमें अपना विषय अवश्य लिखें।
+      </p>
+      <div class="btn-group" style="justify-content:center;">
+        <a href="../index.html#contact" class="btn btn-primary" data-hi="विषय या प्रश्न भेजें" data-en="Send Topic or Question">विषय या प्रश्न भेजें</a>
+        <a href="../index.html#podcast" class="btn btn-outline" data-hi="← मुख्य पृष्ठ पर लौटें" data-en="← Back to Home">← मुख्य पृष्ठ पर लौटें</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- फुटर -->
+  <footer>
+    <div class="brand-title" style="font-size:1.35rem;" data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ManasManuj" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://www.facebook.com/manasmanuj" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://www.instagram.com/manasmanuj/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.threads.com/@manasmanuj" target="_blank" rel="noopener noreferrer">Threads</a>
+    </div>
+    <div class="footer-links" style="margin-top:0.5rem;">
+      <a href="../legal/privacy-policy.html" data-hi="गोपनीयता नीति (Privacy Policy)" data-en="Privacy Policy">गोपनीयता नीति (Privacy Policy)</a>
+      <a href="../legal/terms.html" data-hi="नियम एवं शर्तें (Terms)" data-en="Terms & Conditions">नियम एवं शर्तें (Terms)</a>
+      <a href="../legal/disclaimer.html" data-hi="अस्वीकरण (Disclaimer)" data-en="Disclaimer">अस्वीकरण (Disclaimer)</a>
+    </div>
+    <p style="font-size:0.88rem; margin-top:0.8rem;" data-hi="© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।" data-en="© 2026 Manas Manuj. All rights reserved.">© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    /* =====================================================================
+       यहाँ अपने पॉडकास्ट/साहित्यिक संवाद के लिंक जोड़ें:
+       - YouTube संवाद: mediaUrl: "https://www.youtube.com/watch?v=XXXX"
+       - Spotify एपिसोड: mediaUrl: "https://open.spotify.com/episode/XXXX"
+       - सीधा MP3 ऑडियो: mediaUrl: "../audio/episode-1.mp3" या कोई सीधा .mp3 लिंक
+       ===================================================================== */
+    const PODCAST_EPISODES = [
+      {
+        id: "ep-1",
+        numberHi: "संवाद 01",
+        numberEn: "Dialogue 01",
+        category: "scriptures",
+        badgeHi: "धर्मग्रंथ विमर्श",
+        badgeEn: "Scripture Insights",
+        durationHi: "शीघ्र प्रसारित",
+        durationEn: "Coming Soon",
+        titleHi: "ग्रंथों को तर्क और आस्था के संतुलन से कैसे समझें?",
+        titleEn: "Understanding Scriptures with a Balance of Faith and Logic",
+        descHi: "सनातन ग्रंथों के प्रतीकात्मक अर्थ, ऐतिहासिक संदर्भ और आधुनिक जीवन में उनकी व्यावहारिक प्रासंगिकता पर विशेष वार्तालाप।",
+        descEn: "A conversation on symbolic meanings in Sanatan scriptures, historical context, and practical relevance today.",
+        mediaUrl: "" // यहाँ YouTube, Spotify या MP3 लिंक डालें
+      },
+      {
+        id: "ep-2",
+        numberHi: "संवाद 02",
+        numberEn: "Dialogue 02",
+        category: "spirituality",
+        badgeHi: "आध्यात्मिकता",
+        badgeEn: "Spirituality",
+        durationHi: "शीघ्र प्रसारित",
+        durationEn: "Coming Soon",
+        titleHi: "आदिशक्ति और त्रिदेव — सृष्टि, संतुलन और चेतना का दर्शन",
+        titleEn: "Adishakti & Tridev — Philosophy of Creation, Balance & Consciousness",
+        descHi: "सृष्टि की उत्पत्ति, ब्रह्मा-विष्णु-महेश के कार्य-विभाजन और शक्ति तत्व के मूल दार्शनिक स्वरूप पर गहन चर्चा।",
+        descEn: "An in-depth dialogue on cosmic creation, the roles of Brahma-Vishnu-Mahesh, and the philosophical essence of Shakti.",
+        mediaUrl: ""
+      },
+      {
+        id: "ep-3",
+        numberHi: "संवाद 03",
+        numberEn: "Dialogue 03",
+        category: "spirituality",
+        badgeHi: "आध्यात्मिकता",
+        badgeEn: "Spirituality",
+        durationHi: "शीघ्र प्रसारित",
+        durationEn: "Coming Soon",
+        titleHi: "दैनिक जीवन में आध्यात्मिकता — एकाग्रता, कर्म और आंतरिक शांति",
+        titleEn: "Spirituality in Daily Life — Focus, Karma & Inner Clarity",
+        descHi: "आध्यात्मिकता केवल एकांत का विषय नहीं है; आधुनिक कार्य-जीवन में संतुलन और स्पष्टता कैसे बनाए रखें, इस पर संवाद।",
+        descEn: "Exploring how spirituality goes beyond seclusion to bring clarity, balance, and purposeful action into daily life.",
+        mediaUrl: ""
+      },
+      {
+        id: "ep-4",
+        numberHi: "संवाद 04",
+        numberEn: "Dialogue 04",
+        category: "qa",
+        badgeHi: "पाठक प्रश्नोत्तर",
+        badgeEn: "Reader Q&A",
+        durationHi: "शीघ्र प्रसारित",
+        durationEn: "Coming Soon",
+        titleHi: "युवा पाठकों के प्रश्न — पौराणिक संदर्भ और वैज्ञानिक दृष्टिकोण",
+        titleEn: "Questions from Young Readers — Pauranik Context & Scientific Outlook",
+        descHi: "पाठकों द्वारा पूछे गए प्रमुख प्रश्नों के तथ्यपरक एवं सनातन दर्शन सम्मत उत्तर।",
+        descEn: "Thoughtful, grounded answers to key questions asked by readers regarding scriptures and scientific thinking.",
+        mediaUrl: ""
+      }
+    ];
+
+    let activeEpFilter = "all";
+    let activeEpisodeId = null;
+
+    // लिंक के प्रकार (YouTube / Spotify / MP3) के अनुसार प्लेयर HTML बनाना
+    function buildPlayerHtml(ep, lang) {
+      const url = (ep.mediaUrl || "").trim();
+
+      if (!url) {
+        return `
+          <div class="podcast-mic-icon">🎙</div>
+          <h3 style="margin-bottom:0.35rem;" data-hi="${ep.titleHi}" data-en="${ep.titleEn}">${lang === "en" ? ep.titleEn : ep.titleHi}</h3>
+          <p style="margin:0; font-size:0.92rem; color:var(--text-muted);" data-hi="यह साहित्यिक संवाद शीघ्र यहीं सुनने व देखने के लिए उपलब्ध होगा।" data-en="This literary dialogue will be available to play directly here soon.">${lang === "en" ? "This literary dialogue will be available to play directly here soon." : "यह साहित्यिक संवाद शीघ्र यहीं सुनने व देखने के लिए उपलब्ध होगा।"}</p>
+        `;
+      }
+
+      // YouTube लिंक
+      const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+      if (ytMatch && ytMatch[1]) {
+        return `
+          <div class="podcast-video-wrap">
+            <iframe src="https://www.youtube.com/embed/${ytMatch[1]}?rel=0" title="${ep.titleHi}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        `;
+      }
+
+      // Spotify एपिसोड या शो लिंक
+      if (url.includes("open.spotify.com/")) {
+        const spotifyEmbed = url.includes("/embed/")
+          ? url
+          : url.replace("open.spotify.com/", "open.spotify.com/embed/");
+        return `<iframe src="${spotifyEmbed}" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+      }
+
+      // सीधा ऑडियो फ़ाइल लिंक (.mp3, .wav, .m4a, .ogg)
+      return `
+        <div class="podcast-mic-icon">🎙</div>
+        <h3 style="margin-bottom:0.4rem;" data-hi="${ep.titleHi}" data-en="${ep.titleEn}">${lang === "en" ? ep.titleEn : ep.titleHi}</h3>
+        <audio controls preload="metadata">
+          <source src="${url}" />
+          आपका ब्राउज़र ऑडियो प्लेयर का समर्थन नहीं करता।
+        </audio>
+      `;
+    }
+
+    function selectEpisode(epId) {
+      const ep = PODCAST_EPISODES.find((item) => item.id === epId);
+      if (!ep) return;
+
+      activeEpisodeId = ep.id;
+      const lang = localStorage.getItem("siteLang") || "hi";
+
+      document.getElementById("podcastPlayerBox").innerHTML = buildPlayerHtml(ep, lang);
+
+      const badge = document.getElementById("epStageBadge");
+      badge.setAttribute("data-hi", ep.badgeHi);
+      badge.setAttribute("data-en", ep.badgeEn);
+      badge.textContent = lang === "en" ? ep.badgeEn : ep.badgeHi;
+
+      const title = document.getElementById("epStageTitle");
+      title.setAttribute("data-hi", ep.titleHi);
+      title.setAttribute("data-en", ep.titleEn);
+      title.textContent = lang === "en" ? ep.titleEn : ep.titleHi;
+
+      const desc = document.getElementById("epStageDesc");
+      desc.setAttribute("data-hi", ep.descHi);
+      desc.setAttribute("data-en", ep.descEn);
+      desc.textContent = lang === "en" ? ep.descEn : ep.descHi;
+
+      renderEpisodes();
+      document.getElementById("podcastStageCard").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function renderEpisodes() {
+      const container = document.getElementById("episodeList");
+      const lang = localStorage.getItem("siteLang") || "hi";
+      const list = activeEpFilter === "all"
+        ? PODCAST_EPISODES
+        : PODCAST_EPISODES.filter((ep) => ep.category === activeEpFilter);
+
+      container.innerHTML = list.map((ep) => {
+        const isPlaying = ep.id === activeEpisodeId;
+        return `
+          <div class="card episode-card ${isPlaying ? "playing" : ""}" onclick="selectEpisode('${ep.id}')">
+            <div>
+              <div class="episode-meta">
+                <span class="episode-num" data-hi="${ep.numberHi}" data-en="${ep.numberEn}">${lang === "en" ? ep.numberEn : ep.numberHi}</span>
+                <span class="book-badge" style="margin:0;" data-hi="${ep.badgeHi}" data-en="${ep.badgeEn}">${lang === "en" ? ep.badgeEn : ep.badgeHi}</span>
+                <span class="episode-duration" data-hi="${ep.durationHi}" data-en="${ep.durationEn}">${lang === "en" ? ep.durationEn : ep.durationHi}</span>
+              </div>
+              <h3 data-hi="${ep.titleHi}" data-en="${ep.titleEn}">${lang === "en" ? ep.titleEn : ep.titleHi}</h3>
+              <p data-hi="${ep.descHi}" data-en="${ep.descEn}">${lang === "en" ? ep.descEn : ep.descHi}</p>
+            </div>
+            <button type="button" class="episode-play-btn" aria-label="Play Episode">▶</button>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function filterEpisodes(category, btnEl) {
+      activeEpFilter = category;
+      document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+      if (btnEl) btnEl.classList.add("active");
+      renderEpisodes();
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderEpisodes();
+      const firstLive = PODCAST_EPISODES.find((ep) => ep.mediaUrl && ep.mediaUrl.trim());
+      if (firstLive) {
+        selectEpisode(firstLive.id);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>वीडियो एवं व्याख्यान | मानस मनुज</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../images/author.jpg" />
+
+  <meta name="description" content="मानस मनुज के आधिकारिक वीडियो, पुस्तक परिचय, सनातन विज्ञान एवं पौराणिक चिंतन व्याख्यान सीधे वेबसाइट पर देखें।" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .video-stage-card {
+      max-width: 920px;
+      margin: 0 auto 1.8rem;
+      padding: 1.2rem;
+    }
+    .main-video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(122, 28, 28, 0.1), rgba(217, 119, 6, 0.14));
+      border: 1px solid rgba(122, 28, 28, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .main-video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .stage-placeholder {
+      padding: 1.4rem;
+      color: var(--maroon, #7a1c1c);
+    }
+    .stage-play-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--maroon, #7a1c1c);
+      color: #ffffff;
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+      box-shadow: 0 6px 16px rgba(122, 28, 28, 0.28);
+    }
+    .stage-info {
+      margin-top: 1rem;
+    }
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.55rem;
+      margin-bottom: 1.5rem;
+    }
+    .filter-btn {
+      padding: 0.48rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(122, 28, 28, 0.28);
+      background: #ffffff;
+      color: var(--maroon, #7a1c1c);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--maroon, #7a1c1c);
+      color: #ffffff;
+    }
+    .video-tray-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+    .tray-card {
+      cursor: pointer;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .tray-card:hover {
+      transform: translateY(-3px);
+    }
+    .tray-card.playing {
+      border: 2px solid var(--maroon, #7a1c1c);
+      box-shadow: 0 8px 20px rgba(122, 28, 28, 0.16);
+    }
+    .tray-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #5e1515, #9a3412);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.85rem;
+    }
+    .tray-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .tray-play-badge {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(122, 28, 28, 0.9);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .tray-platform-tag {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.72);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+    }
+    .tray-card h3 {
+      font-size: 1.05rem;
+      margin: 0.35rem 0 0.45rem;
+    }
+    .tray-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted, #5c4b43);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- हेडर एवं नेविगेशन मेनू -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html#home" class="brand-title">
+        <span data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</span>
+        <span class="brand-sub" data-hi="हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन" data-en="Hindi Literature • Spiritual & Sanatan Thought">हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन</span>
+      </a>
+
+      <div class="lang-switch">
+        <button type="button" id="btn-hi" class="lang-btn active" onclick="setLanguage('hi')">हिंदी</button>
+        <button type="button" id="btn-en" class="lang-btn" onclick="setLanguage('en')">English</button>
+      </div>
+
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+      <nav>
+        <ul id="navList">
+          <li><a href="../index.html#home" data-hi="मुख्य पृष्ठ" data-en="Home">मुख्य पृष्ठ</a></li>
+          <li><a href="../index.html#about" data-hi="लेखक परिचय" data-en="About">लेखक परिचय</a></li>
+          <li><a href="../index.html#books" data-hi="पुस्तकें" data-en="Books">पुस्तकें</a></li>
+          <li><a href="../articles/index.html" data-hi="लेख" data-en="Articles">लेख</a></li>
+          <li><a href="index.html" class="active" data-hi="वीडियो" data-en="Videos">वीडियो</a></li>
+          <li><a href="../podcast/index.html" data-hi="पॉडकास्ट" data-en="Podcast">पॉडकास्ट</a></li>
+          <li><a href="../index.html#consultation" data-hi="परामर्श" data-en="Consultation">परामर्श</a></li>
+          <li><a href="../index.html#contact" class="nav-contact-btn" data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- शीर्षक -->
+  <div class="hero" style="padding: 1.8rem 1.2rem 1rem;">
+    <div class="hero-inner" style="margin-bottom: 0;">
+      <div class="sacred-badge" data-hi="✦ आधिकारिक वीडियो संग्रह (Direct Play) ✦" data-en="✦ Official Video Gallery (Direct Play) ✦">✦ आधिकारिक वीडियो संग्रह (Direct Play) ✦</div>
+      <h1 data-hi="वीडियो एवं व्याख्यान ट्रे" data-en="Videos & Talks Gallery">वीडियो एवं व्याख्यान ट्रे</h1>
+      <p style="max-width:700px; margin:0.4rem auto 0; color:var(--text-muted);" data-hi="पुस्तक परिचय, सनातन विज्ञान, पौराणिक प्रसंग एवं साहित्यिक संवाद से जुड़े वीडियो बिना बाहर जाए सीधे यहीं देखें।" data-en="Watch book introductions, Sanatan science insights, Pauranik perspectives, and literary videos directly here.">
+        पुस्तक परिचय, सनातन विज्ञान, पौराणिक प्रसंग एवं साहित्यिक संवाद से जुड़े वीडियो बिना बाहर जाए सीधे यहीं देखें।
+      </p>
+    </div>
+  </div>
+
+  <!-- मुख्य वीडियो प्लेयर + वीडियो ट्रे -->
+  <section style="padding-top: 1.2rem;">
+    <!-- मुख्य वीडियो प्लेयर -->
+    <div class="card video-stage-card" id="videoStageCard">
+      <div class="main-video-frame" id="mainVideoFrame">
+        <div class="stage-placeholder">
+          <div class="stage-play-circle">▶</div>
+          <h3 style="margin-bottom:0.3rem;" data-hi="वीडियो चुनें और यहीं देखें" data-en="Select a video to watch directly here">वीडियो चुनें और यहीं देखें</h3>
+          <p style="margin:0; font-size:0.92rem; color:var(--text-muted);" data-hi="नीचे दी गई वीडियो ट्रे से किसी भी वीडियो पर टैप करें।" data-en="Tap any video from the video tray below.">नीचे दी गई वीडियो ट्रे से किसी भी वीडियो पर टैप करें।</p>
+        </div>
+      </div>
+      <div class="stage-info" id="mainVideoInfo">
+        <span class="book-badge" id="stageCategory" data-hi="वीडियो प्लेयर" data-en="Video Player">वीडियो प्लेयर</span>
+        <h2 id="stageTitle" style="margin:0.45rem 0 0.35rem; font-size:1.35rem;" data-hi="शिवशक्ति त्रिदेव गाथा — आधिकारिक परिचय वीडियो" data-en="ShivShakti Tridev Gatha — Official Book Video">शिवशक्ति त्रिदेव गाथा — आधिकारिक परिचय वीडियो</h2>
+        <p id="stageDesc" style="margin:0; color:var(--text-muted);" data-hi="जैसे ही वीडियो लिंक जोड़े जाएँगे, YouTube और Facebook दोनों के वीडियो सीधे इसी प्लेयर में चलेंगे।" data-en="Once video links are added, both YouTube and Facebook videos will play directly inside this player.">जैसे ही वीडियो लिंक जोड़े जाएँगे, YouTube और Facebook दोनों के वीडियो सीधे इसी प्लेयर में चलेंगे।</p>
+      </div>
+    </div>
+
+    <!-- श्रेणी फ़िल्टर -->
+    <div class="filter-tabs">
+      <button type="button" class="filter-btn active" onclick="filterVideos('all', this)" data-hi="सभी वीडियो" data-en="All Videos">सभी वीडियो</button>
+      <button type="button" class="filter-btn" onclick="filterVideos('books', this)" data-hi="पुस्तक परिचय" data-en="Book Intro">पुस्तक परिचय</button>
+      <button type="button" class="filter-btn" onclick="filterVideos('sanatan', this)" data-hi="सनातन विज्ञान" data-en="Sanatan Science">सनातन विज्ञान</button>
+      <button type="button" class="filter-btn" onclick="filterVideos('dialogue', this)" data-hi="साहित्य संवाद" data-en="Literary Talks">साहित्य संवाद</button>
+    </div>
+
+    <!-- वीडियो ट्रे (ग्रिड) -->
+    <div class="video-tray-grid" id="videoTray"></div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="../index.html#videos" class="btn btn-outline" data-hi="← मुख्य पृष्ठ पर लौटें" data-en="← Back to Home">← मुख्य पृष्ठ पर लौटें</a>
+    </div>
+  </section>
+
+  <!-- फुटर -->
+  <footer>
+    <div class="brand-title" style="font-size:1.35rem;" data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ManasManuj" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://www.facebook.com/manasmanuj" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://www.instagram.com/manasmanuj/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.threads.com/@manasmanuj" target="_blank" rel="noopener noreferrer">Threads</a>
+    </div>
+    <div class="footer-links" style="margin-top:0.5rem;">
+      <a href="../legal/privacy-policy.html" data-hi="गोपनीयता नीति (Privacy Policy)" data-en="Privacy Policy">गोपनीयता नीति (Privacy Policy)</a>
+      <a href="../legal/terms.html" data-hi="नियम एवं शर्तें (Terms)" data-en="Terms & Conditions">नियम एवं शर्तें (Terms)</a>
+      <a href="../legal/disclaimer.html" data-hi="अस्वीकरण (Disclaimer)" data-en="Disclaimer">अस्वीकरण (Disclaimer)</a>
+    </div>
+    <p style="font-size:0.88rem; margin-top:0.8rem;" data-hi="© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।" data-en="© 2026 Manas Manuj. All rights reserved.">© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    /* ==========================================================
+       यहाँ अपने YouTube या Facebook वीडियो के सीधे लिंक जोड़ें:
+       - YouTube उदाहरण: url: "https://www.youtube.com/watch?v=XXXX"
+       - Facebook उदाहरण: url: "https://www.facebook.com/manasmanuj/videos/XXXX/"
+       ========================================================== */
+    const VIDEO_LIST = [
+      {
+        id: "vid-1",
+        category: "books",
+        badgeHi: "पुस्तक परिचय",
+        badgeEn: "Book Intro",
+        platform: "YouTube",
+        titleHi: "शिवशक्ति त्रिदेव गाथा — आधिकारिक परिचय वीडियो",
+        titleEn: "ShivShakti Tridev Gatha — Official Book Intro",
+        descHi: "आठ वर्षों की साधना, 6 खण्ड और 109 अध्यायों में रचित इस महाकाव्य की रचना-यात्रा और मुख्य संदेश।",
+        descEn: "The eight-year journey, 6 Khands, and 109 chapters of this spiritual work and its core message.",
+        url: "" // यहाँ YouTube या Facebook वीडियो लिंक पेस्ट करें
+      },
+      {
+        id: "vid-2",
+        category: "sanatan",
+        badgeHi: "सनातन विज्ञान",
+        badgeEn: "Sanatan Science",
+        platform: "YouTube",
+        titleHi: "सनातन गौरव गाथा — वैदिक विज्ञान एवं ब्रह्मांड चिंतन",
+        titleEn: "Sanatan Gaurav Gatha — Vedic Science & Cosmos",
+        descHi: "भारतीय ज्ञान परंपरा के खगोलीय, वैज्ञानिक और सांस्कृतिक आयामों पर आधारित विशेष व्याख्यान।",
+        descEn: "A special talk on astronomical, scientific, and cultural dimensions of Indian knowledge traditions.",
+        url: "" // यहाँ YouTube या Facebook वीडियो लिंक पेस्ट करें
+      },
+      {
+        id: "vid-3",
+        category: "dialogue",
+        badgeHi: "साहित्य संवाद",
+        badgeEn: "Literary Talks",
+        platform: "Facebook",
+        titleHi: "पौराणिक ग्रंथ और आधुनिक पाठक — विशेष Facebook संवाद",
+        titleEn: "Pauranik Scriptures & Modern Readers — Facebook Talk",
+        descHi: "पौराणिक ग्रंथों के गूढ़ विषयों को तर्कसंगत एवं सरल हिंदी में समझने पर आधारित विशेष वीडियो संवाद।",
+        descEn: "A focused video talk on understanding deep Pauranik subjects through logical and lucid Hindi.",
+        url: "" // यहाँ Facebook वीडियो लिंक पेस्ट करें
+      },
+      {
+        id: "vid-4",
+        category: "books",
+        badgeHi: "पुस्तक अंश",
+        badgeEn: "Book Insights",
+        platform: "YouTube",
+        titleHi: "आदिशक्ति और त्रिदेव की एकता — आवरण का गूढ़ भावार्थ",
+        titleEn: "Unity of Adishakti & Tridev — Meaning of the Cover",
+        descHi: "पुस्तक के आवरण में छिपे आध्यात्मिक प्रतीकों और सृष्टि के मूल तत्वों की संक्षिप्त व्याख्या।",
+        descEn: "A concise explanation of the spiritual symbolism depicted on the book cover.",
+        url: "" // यहाँ YouTube या Facebook वीडियो लिंक पेस्ट करें
+      }
+    ];
+
+    let activeFilter = "all";
+    let activeVideoId = null;
+
+    // YouTube या Facebook लिंक को सीधे एम्बेड URL में बदलने का फ़ंक्शन
+    function getEmbedInfo(rawUrl) {
+      if (!rawUrl || !rawUrl.trim()) return null;
+      const url = rawUrl.trim();
+
+      // YouTube लिंक पहचानें
+      const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+      if (ytMatch && ytMatch[1]) {
+        const videoId = ytMatch[1];
+        return {
+          platform: "YouTube",
+          embedUrl: `https://www.youtube.com/embed/${videoId}?rel=0`,
+          thumbUrl: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+        };
+      }
+
+      // Facebook वीडियो लिंक पहचानें
+      if (url.includes("facebook.com") || url.includes("fb.watch")) {
+        return {
+          platform: "Facebook",
+          embedUrl: `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&t=0`,
+          thumbUrl: ""
+        };
+      }
+
+      return null;
+    }
+
+    // चुने गए वीडियो को मुख्य प्लेयर में चलाना
+    function playVideoInStage(videoId) {
+      const video = VIDEO_LIST.find((v) => v.id === videoId);
+      if (!video) return;
+
+      activeVideoId = video.id;
+      const lang = localStorage.getItem("siteLang") || "hi";
+      const frame = document.getElementById("mainVideoFrame");
+      const badge = document.getElementById("stageCategory");
+      const title = document.getElementById("stageTitle");
+      const desc = document.getElementById("stageDesc");
+
+      badge.setAttribute("data-hi", video.badgeHi);
+      badge.setAttribute("data-en", video.badgeEn);
+      badge.textContent = lang === "en" ? video.badgeEn : video.badgeHi;
+
+      title.setAttribute("data-hi", video.titleHi);
+      title.setAttribute("data-en", video.titleEn);
+      title.textContent = lang === "en" ? video.titleEn : video.titleHi;
+
+      desc.setAttribute("data-hi", video.descHi);
+      desc.setAttribute("data-en", video.descEn);
+      desc.textContent = lang === "en" ? video.descEn : video.descHi;
+
+      const embed = getEmbedInfo(video.url);
+      if (embed) {
+        frame.innerHTML = `<iframe src="${embed.embedUrl}" title="${video.titleHi}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+      } else {
+        frame.innerHTML = `
+          <div class="stage-placeholder">
+            <div class="stage-play-circle">▶</div>
+            <h3 style="margin-bottom:0.35rem;" data-hi="${video.titleHi}" data-en="${video.titleEn}">${lang === "en" ? video.titleEn : video.titleHi}</h3>
+            <p style="margin:0; font-size:0.92rem; color:var(--text-muted);" data-hi="यह वीडियो शीघ्र यहीं डायरेक्ट प्ले के लिए उपलब्ध होगा।" data-en="This video will be available for direct playback here soon.">${lang === "en" ? "This video will be available for direct playback here soon." : "यह वीडियो शीघ्र यहीं डायरेक्ट प्ले के लिए उपलब्ध होगा।"}</p>
+          </div>
+        `;
+      }
+
+      renderVideoTray();
+      document.getElementById("videoStageCard").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // वीडियो ट्रे बनाना
+    function renderVideoTray() {
+      const tray = document.getElementById("videoTray");
+      const lang = localStorage.getItem("siteLang") || "hi";
+      const filtered = activeFilter === "all"
+        ? VIDEO_LIST
+        : VIDEO_LIST.filter((v) => v.category === activeFilter);
+
+      tray.innerHTML = filtered.map((v) => {
+        const embed = getEmbedInfo(v.url);
+        const isPlaying = v.id === activeVideoId;
+        const statusTag = embed ? embed.platform : (lang === "en" ? "Coming Soon" : "शीघ्र उपलब्ध");
+        const thumbHtml = embed && embed.thumbUrl
+          ? `<img src="${embed.thumbUrl}" alt="${v.titleHi}" loading="lazy" />`
+          : "";
+
+        return `
+          <div class="card tray-card ${isPlaying ? "playing" : ""}" onclick="playVideoInStage('${v.id}')">
+            <div class="tray-thumb">
+              ${thumbHtml}
+              <span class="tray-platform-tag">${statusTag}</span>
+              <div class="tray-play-badge">▶</div>
+            </div>
+            <span class="book-badge" style="align-self:flex-start;" data-hi="${v.badgeHi}" data-en="${v.badgeEn}">${lang === "en" ? v.badgeEn : v.badgeHi}</span>
+            <h3 data-hi="${v.titleHi}" data-en="${v.titleEn}">${lang === "en" ? v.titleEn : v.titleHi}</h3>
+            <p data-hi="${v.descHi}" data-en="${v.descEn}">${lang === "en" ? v.descEn : v.descHi}</p>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // श्रेणी फ़िल्टर बदलना
+    function filterVideos(category, btnEl) {
+      activeFilter = category;
+      document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+      if (btnEl) btnEl.classList.add("active");
+      renderVideoTray();
+    }
+
+    // पेज लोड होते ही ट्रे तैयार करना और यदि कोई लिंक जुड़ा है तो पहला वीडियो लोड करना
+    window.addEventListener("DOMContentLoaded", () => {
+      renderVideoTray();
+      const firstReady = VIDEO_LIST.find((v) => getEmbedInfo(v.url));
+      if (firstReady) {
+        playVideoInStage(firstReady.id);
+      }
+    });
+  </script>
+</body>
+</html>
