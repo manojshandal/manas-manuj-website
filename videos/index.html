@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>वीडियो एवं व्याख्यान | मानस मनुज</title>
+  <title>वीडियो गैलरी | मानस मनुज</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="../images/author.jpg" />
 
-  <meta name="description" content="मानस मनुज के आधिकारिक वीडियो, पुस्तक परिचय, सनातन विज्ञान एवं पौराणिक चिंतन व्याख्यान सीधे वेबसाइट पर देखें।" />
+  <meta name="description" content="मानस मनुज के Facebook एवं YouTube वीडियो सीधे वेबसाइट पर देखें।" />
   <meta name="robots" content="index, follow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,8 +18,8 @@
 
   <style>
     .video-stage-card {
-      max-width: 920px;
-      margin: 0 auto 1.8rem;
+      max-width: 900px;
+      margin: 0 auto 1.6rem;
       padding: 1.2rem;
     }
     .main-video-frame {
@@ -28,7 +28,7 @@
       aspect-ratio: 16 / 9;
       border-radius: 10px;
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(122, 28, 28, 0.1), rgba(217, 119, 6, 0.14));
+      background: linear-gradient(135deg, rgba(122, 28, 28, 0.08), rgba(217, 119, 6, 0.12));
       border: 1px solid rgba(122, 28, 28, 0.2);
       display: flex;
       align-items: center;
@@ -42,23 +42,6 @@
       height: 100%;
       border: 0;
     }
-    .stage-placeholder {
-      padding: 1.4rem;
-      color: var(--maroon, #7a1c1c);
-    }
-    .stage-play-circle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--maroon, #7a1c1c);
-      color: #ffffff;
-      font-size: 1.5rem;
-      margin-bottom: 0.7rem;
-      box-shadow: 0 6px 16px rgba(122, 28, 28, 0.28);
-    }
     .stage-info {
       margin-top: 1rem;
     }
@@ -70,7 +53,7 @@
       margin-bottom: 1.5rem;
     }
     .filter-btn {
-      padding: 0.48rem 1rem;
+      padding: 0.48rem 1.05rem;
       border-radius: 999px;
       border: 1px solid rgba(122, 28, 28, 0.28);
       background: #ffffff;
@@ -148,13 +131,31 @@
       border-radius: 999px;
     }
     .tray-card h3 {
-      font-size: 1.05rem;
-      margin: 0.35rem 0 0.45rem;
+      font-size: 1.04rem;
+      margin: 0.2rem 0 0.4rem;
     }
     .tray-card p {
       font-size: 0.9rem;
       color: var(--text-muted, #5c4b43);
       margin: 0;
+    }
+    .empty-state-card {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2rem 1.4rem;
+    }
+    .empty-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgba(122, 28, 28, 0.1);
+      color: var(--maroon, #7a1c1c);
+      font-size: 1.5rem;
+      margin-bottom: 0.85rem;
     }
   </style>
 </head>
@@ -193,42 +194,50 @@
   <!-- शीर्षक -->
   <div class="hero" style="padding: 1.8rem 1.2rem 1rem;">
     <div class="hero-inner" style="margin-bottom: 0;">
-      <div class="sacred-badge" data-hi="✦ आधिकारिक वीडियो संग्रह (Direct Play) ✦" data-en="✦ Official Video Gallery (Direct Play) ✦">✦ आधिकारिक वीडियो संग्रह (Direct Play) ✦</div>
-      <h1 data-hi="वीडियो एवं व्याख्यान ट्रे" data-en="Videos & Talks Gallery">वीडियो एवं व्याख्यान ट्रे</h1>
-      <p style="max-width:700px; margin:0.4rem auto 0; color:var(--text-muted);" data-hi="पुस्तक परिचय, सनातन विज्ञान, पौराणिक प्रसंग एवं साहित्यिक संवाद से जुड़े वीडियो बिना बाहर जाए सीधे यहीं देखें।" data-en="Watch book introductions, Sanatan science insights, Pauranik perspectives, and literary videos directly here.">
-        पुस्तक परिचय, सनातन विज्ञान, पौराणिक प्रसंग एवं साहित्यिक संवाद से जुड़े वीडियो बिना बाहर जाए सीधे यहीं देखें।
+      <div class="sacred-badge" data-hi="✦ वीडियो संग्रह ✦" data-en="✦ Video Collection ✦">✦ वीडियो संग्रह ✦</div>
+      <h1 data-hi="वीडियो गैलरी" data-en="Video Gallery">वीडियो गैलरी</h1>
+      <p style="max-width:680px; margin:0.4rem auto 0; color:var(--text-muted);" data-hi="Facebook और YouTube पर साझा किए गए ताज़ा वीडियो सीधे यहीं देखें।" data-en="Watch recent videos shared on Facebook and YouTube directly here.">
+        Facebook और YouTube पर साझा किए गए ताज़ा वीडियो सीधे यहीं देखें।
       </p>
     </div>
   </div>
 
-  <!-- मुख्य वीडियो प्लेयर + वीडियो ट्रे -->
+  <!-- मुख्य वीडियो सेक्शन -->
   <section style="padding-top: 1.2rem;">
-    <!-- मुख्य वीडियो प्लेयर -->
-    <div class="card video-stage-card" id="videoStageCard">
-      <div class="main-video-frame" id="mainVideoFrame">
-        <div class="stage-placeholder">
-          <div class="stage-play-circle">▶</div>
-          <h3 style="margin-bottom:0.3rem;" data-hi="वीडियो चुनें और यहीं देखें" data-en="Select a video to watch directly here">वीडियो चुनें और यहीं देखें</h3>
-          <p style="margin:0; font-size:0.92rem; color:var(--text-muted);" data-hi="नीचे दी गई वीडियो ट्रे से किसी भी वीडियो पर टैप करें।" data-en="Tap any video from the video tray below.">नीचे दी गई वीडियो ट्रे से किसी भी वीडियो पर टैप करें।</p>
+    <!-- खाली स्थिति (जब तक एडमिन पैनल से पहला वीडियो न जोड़ा जाए) -->
+    <div class="card empty-state-card" id="videoEmptyState" style="display:none;">
+      <div class="empty-icon">▶</div>
+      <h2 style="margin-bottom:0.5rem; font-size:1.35rem;" data-hi="नए वीडियो शीघ्र यहाँ जुड़ेंगे" data-en="New Videos Coming Soon">नए वीडियो शीघ्र यहाँ जुड़ेंगे</h2>
+      <p style="color:var(--text-muted); margin-bottom:1.2rem;" data-hi="Facebook और YouTube के वीडियो यहाँ नियमित रूप से जोड़े जाएँगे। तब तक आप हमारे आधिकारिक चैनलों से जुड़ सकते हैं।" data-en="Facebook and YouTube videos will be added here regularly. Meanwhile, feel free to connect on our official channels.">
+        Facebook और YouTube के वीडियो यहाँ नियमित रूप से जोड़े जाएँगे। तब तक आप हमारे आधिकारिक चैनलों से जुड़ सकते हैं।
+      </p>
+      <div class="btn-group" style="justify-content:center;">
+        <a href="https://www.facebook.com/manasmanuj" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Facebook</a>
+        <a href="https://www.youtube.com/@ManasManuj" target="_blank" rel="noopener noreferrer" class="btn btn-outline">YouTube</a>
+      </div>
+    </div>
+
+    <!-- वीडियो प्लेयर और ट्रे (वीडियो जुड़ने पर अपने-आप दिखेगा) -->
+    <div id="videoGalleryWrap" style="display:none;">
+      <div class="card video-stage-card" id="videoStageCard">
+        <div class="main-video-frame" id="mainVideoFrame"></div>
+        <div class="stage-info">
+          <span class="book-badge" id="stagePlatform">Video</span>
+          <h2 id="stageTitle" style="margin:0.45rem 0 0.35rem; font-size:1.35rem;"></h2>
+          <p id="stageDesc" style="margin:0; color:var(--text-muted);"></p>
         </div>
       </div>
-      <div class="stage-info" id="mainVideoInfo">
-        <span class="book-badge" id="stageCategory" data-hi="वीडियो प्लेयर" data-en="Video Player">वीडियो प्लेयर</span>
-        <h2 id="stageTitle" style="margin:0.45rem 0 0.35rem; font-size:1.35rem;" data-hi="शिवशक्ति त्रिदेव गाथा — आधिकारिक परिचय वीडियो" data-en="ShivShakti Tridev Gatha — Official Book Video">शिवशक्ति त्रिदेव गाथा — आधिकारिक परिचय वीडियो</h2>
-        <p id="stageDesc" style="margin:0; color:var(--text-muted);" data-hi="जैसे ही वीडियो लिंक जोड़े जाएँगे, YouTube और Facebook दोनों के वीडियो सीधे इसी प्लेयर में चलेंगे।" data-en="Once video links are added, both YouTube and Facebook videos will play directly inside this player.">जैसे ही वीडियो लिंक जोड़े जाएँगे, YouTube और Facebook दोनों के वीडियो सीधे इसी प्लेयर में चलेंगे।</p>
+
+      <!-- सरल प्लेटफ़ॉर्म फ़िल्टर -->
+      <div class="filter-tabs">
+        <button type="button" class="filter-btn active" onclick="filterVideos('all', this)" data-hi="सभी वीडियो" data-en="All Videos">सभी वीडियो</button>
+        <button type="button" class="filter-btn" onclick="filterVideos('Facebook', this)">Facebook</button>
+        <button type="button" class="filter-btn" onclick="filterVideos('YouTube', this)">YouTube</button>
       </div>
-    </div>
 
-    <!-- श्रेणी फ़िल्टर -->
-    <div class="filter-tabs">
-      <button type="button" class="filter-btn active" onclick="filterVideos('all', this)" data-hi="सभी वीडियो" data-en="All Videos">सभी वीडियो</button>
-      <button type="button" class="filter-btn" onclick="filterVideos('books', this)" data-hi="पुस्तक परिचय" data-en="Book Intro">पुस्तक परिचय</button>
-      <button type="button" class="filter-btn" onclick="filterVideos('sanatan', this)" data-hi="सनातन विज्ञान" data-en="Sanatan Science">सनातन विज्ञान</button>
-      <button type="button" class="filter-btn" onclick="filterVideos('dialogue', this)" data-hi="साहित्य संवाद" data-en="Literary Talks">साहित्य संवाद</button>
+      <!-- वीडियो ट्रे -->
+      <div class="video-tray-grid" id="videoTray"></div>
     </div>
-
-    <!-- वीडियो ट्रे (ग्रिड) -->
-    <div class="video-tray-grid" id="videoTray"></div>
 
     <div style="text-align:center; margin-top:2rem;">
       <a href="../index.html#videos" class="btn btn-outline" data-hi="← मुख्य पृष्ठ पर लौटें" data-en="← Back to Home">← मुख्य पृष्ठ पर लौटें</a>
@@ -254,72 +263,23 @@
 
   <script src="../js/main.js"></script>
   <script>
-    /* ==========================================================
-       यहाँ अपने YouTube या Facebook वीडियो के सीधे लिंक जोड़ें:
-       - YouTube उदाहरण: url: "https://www.youtube.com/watch?v=XXXX"
-       - Facebook उदाहरण: url: "https://www.facebook.com/manasmanuj/videos/XXXX/"
-       ========================================================== */
-    const VIDEO_LIST = [
-      {
-        id: "vid-1",
-        category: "books",
-        badgeHi: "पुस्तक परिचय",
-        badgeEn: "Book Intro",
-        platform: "YouTube",
-        titleHi: "शिवशक्ति त्रिदेव गाथा — आधिकारिक परिचय वीडियो",
-        titleEn: "ShivShakti Tridev Gatha — Official Book Intro",
-        descHi: "आठ वर्षों की साधना, 6 खण्ड और 109 अध्यायों में रचित इस महाकाव्य की रचना-यात्रा और मुख्य संदेश।",
-        descEn: "The eight-year journey, 6 Khands, and 109 chapters of this spiritual work and its core message.",
-        url: "" // यहाँ YouTube या Facebook वीडियो लिंक पेस्ट करें
-      },
-      {
-        id: "vid-2",
-        category: "sanatan",
-        badgeHi: "सनातन विज्ञान",
-        badgeEn: "Sanatan Science",
-        platform: "YouTube",
-        titleHi: "सनातन गौरव गाथा — वैदिक विज्ञान एवं ब्रह्मांड चिंतन",
-        titleEn: "Sanatan Gaurav Gatha — Vedic Science & Cosmos",
-        descHi: "भारतीय ज्ञान परंपरा के खगोलीय, वैज्ञानिक और सांस्कृतिक आयामों पर आधारित विशेष व्याख्यान।",
-        descEn: "A special talk on astronomical, scientific, and cultural dimensions of Indian knowledge traditions.",
-        url: "" // यहाँ YouTube या Facebook वीडियो लिंक पेस्ट करें
-      },
-      {
-        id: "vid-3",
-        category: "dialogue",
-        badgeHi: "साहित्य संवाद",
-        badgeEn: "Literary Talks",
-        platform: "Facebook",
-        titleHi: "पौराणिक ग्रंथ और आधुनिक पाठक — विशेष Facebook संवाद",
-        titleEn: "Pauranik Scriptures & Modern Readers — Facebook Talk",
-        descHi: "पौराणिक ग्रंथों के गूढ़ विषयों को तर्कसंगत एवं सरल हिंदी में समझने पर आधारित विशेष वीडियो संवाद।",
-        descEn: "A focused video talk on understanding deep Pauranik subjects through logical and lucid Hindi.",
-        url: "" // यहाँ Facebook वीडियो लिंक पेस्ट करें
-      },
-      {
-        id: "vid-4",
-        category: "books",
-        badgeHi: "पुस्तक अंश",
-        badgeEn: "Book Insights",
-        platform: "YouTube",
-        titleHi: "आदिशक्ति और त्रिदेव की एकता — आवरण का गूढ़ भावार्थ",
-        titleEn: "Unity of Adishakti & Tridev — Meaning of the Cover",
-        descHi: "पुस्तक के आवरण में छिपे आध्यात्मिक प्रतीकों और सृष्टि के मूल तत्वों की संक्षिप्त व्याख्या।",
-        descEn: "A concise explanation of the spiritual symbolism depicted on the book cover.",
-        url: "" // यहाँ YouTube या Facebook वीडियो लिंक पेस्ट करें
-      }
-    ];
-
+    let VIDEO_LIST = [];
     let activeFilter = "all";
-    let activeVideoId = null;
+    let activeIndex = -1;
 
-    // YouTube या Facebook लिंक को सीधे एम्बेड URL में बदलने का फ़ंक्शन
-    function getEmbedInfo(rawUrl) {
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function getEmbedInfo(rawUrl, fallbackPlatform) {
       if (!rawUrl || !rawUrl.trim()) return null;
       const url = rawUrl.trim();
 
-      // YouTube लिंक पहचानें
-      const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+      const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
       if (ytMatch && ytMatch[1]) {
         const videoId = ytMatch[1];
         return {
@@ -329,7 +289,6 @@
         };
       }
 
-      // Facebook वीडियो लिंक पहचानें
       if (url.includes("facebook.com") || url.includes("fb.watch")) {
         return {
           platform: "Facebook",
@@ -338,97 +297,111 @@
         };
       }
 
-      return null;
+      return {
+        platform: fallbackPlatform || "Video",
+        embedUrl: url,
+        thumbUrl: ""
+      };
     }
 
-    // चुने गए वीडियो को मुख्य प्लेयर में चलाना
-    function playVideoInStage(videoId) {
-      const video = VIDEO_LIST.find((v) => v.id === videoId);
+    function playVideoInStage(idx, shouldScroll = true) {
+      const video = VIDEO_LIST[idx];
       if (!video) return;
 
-      activeVideoId = video.id;
-      const lang = localStorage.getItem("siteLang") || "hi";
+      activeIndex = idx;
+      const embed = getEmbedInfo(video.url, video.platform);
       const frame = document.getElementById("mainVideoFrame");
-      const badge = document.getElementById("stageCategory");
-      const title = document.getElementById("stageTitle");
-      const desc = document.getElementById("stageDesc");
 
-      badge.setAttribute("data-hi", video.badgeHi);
-      badge.setAttribute("data-en", video.badgeEn);
-      badge.textContent = lang === "en" ? video.badgeEn : video.badgeHi;
-
-      title.setAttribute("data-hi", video.titleHi);
-      title.setAttribute("data-en", video.titleEn);
-      title.textContent = lang === "en" ? video.titleEn : video.titleHi;
-
-      desc.setAttribute("data-hi", video.descHi);
-      desc.setAttribute("data-en", video.descEn);
-      desc.textContent = lang === "en" ? video.descEn : video.descHi;
-
-      const embed = getEmbedInfo(video.url);
-      if (embed) {
-        frame.innerHTML = `<iframe src="${embed.embedUrl}" title="${video.titleHi}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+      if (embed && embed.embedUrl) {
+        frame.innerHTML = `<iframe src="${embed.embedUrl}" title="${escapeHtml(video.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
       } else {
-        frame.innerHTML = `
-          <div class="stage-placeholder">
-            <div class="stage-play-circle">▶</div>
-            <h3 style="margin-bottom:0.35rem;" data-hi="${video.titleHi}" data-en="${video.titleEn}">${lang === "en" ? video.titleEn : video.titleHi}</h3>
-            <p style="margin:0; font-size:0.92rem; color:var(--text-muted);" data-hi="यह वीडियो शीघ्र यहीं डायरेक्ट प्ले के लिए उपलब्ध होगा।" data-en="This video will be available for direct playback here soon.">${lang === "en" ? "This video will be available for direct playback here soon." : "यह वीडियो शीघ्र यहीं डायरेक्ट प्ले के लिए उपलब्ध होगा।"}</p>
-          </div>
-        `;
+        frame.innerHTML = `<div style="padding:1.5rem; color:var(--text-muted);">यह वीडियो लिंक उपलब्ध नहीं है।</div>`;
+      }
+
+      document.getElementById("stagePlatform").textContent = (embed && embed.platform) || video.platform || "Video";
+      document.getElementById("stageTitle").textContent = video.title || "वीडियो";
+
+      const descEl = document.getElementById("stageDesc");
+      if (video.desc && video.desc.trim()) {
+        descEl.textContent = video.desc;
+        descEl.style.display = "block";
+      } else {
+        descEl.style.display = "none";
       }
 
       renderVideoTray();
-      document.getElementById("videoStageCard").scrollIntoView({ behavior: "smooth", block: "start" });
+      if (shouldScroll) {
+        document.getElementById("videoStageCard").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
 
-    // वीडियो ट्रे बनाना
     function renderVideoTray() {
       const tray = document.getElementById("videoTray");
-      const lang = localStorage.getItem("siteLang") || "hi";
-      const filtered = activeFilter === "all"
-        ? VIDEO_LIST
-        : VIDEO_LIST.filter((v) => v.category === activeFilter);
+      const filtered = VIDEO_LIST
+        .map((item, idx) => ({ item, idx }))
+        .filter(({ item }) => {
+          if (activeFilter === "all") return true;
+          const info = getEmbedInfo(item.url, item.platform);
+          const plat = (info && info.platform) || item.platform || "";
+          return plat.toLowerCase() === activeFilter.toLowerCase();
+        });
 
-      tray.innerHTML = filtered.map((v) => {
-        const embed = getEmbedInfo(v.url);
-        const isPlaying = v.id === activeVideoId;
-        const statusTag = embed ? embed.platform : (lang === "en" ? "Coming Soon" : "शीघ्र उपलब्ध");
+      if (filtered.length === 0) {
+        tray.innerHTML = `<div class="card" style="grid-column:1/-1; text-align:center; padding:1.5rem; color:var(--text-muted);">इस प्लेटफ़ॉर्म पर अभी कोई वीडियो नहीं जुड़ा है।</div>`;
+        return;
+      }
+
+      tray.innerHTML = filtered.map(({ item, idx }) => {
+        const embed = getEmbedInfo(item.url, item.platform);
+        const isPlaying = idx === activeIndex;
+        const platformLabel = (embed && embed.platform) || item.platform || "Video";
         const thumbHtml = embed && embed.thumbUrl
-          ? `<img src="${embed.thumbUrl}" alt="${v.titleHi}" loading="lazy" />`
+          ? `<img src="${embed.thumbUrl}" alt="${escapeHtml(item.title)}" loading="lazy" />`
           : "";
 
         return `
-          <div class="card tray-card ${isPlaying ? "playing" : ""}" onclick="playVideoInStage('${v.id}')">
+          <div class="card tray-card ${isPlaying ? "playing" : ""}" onclick="playVideoInStage(${idx}, true)">
             <div class="tray-thumb">
               ${thumbHtml}
-              <span class="tray-platform-tag">${statusTag}</span>
+              <span class="tray-platform-tag">${escapeHtml(platformLabel)}</span>
               <div class="tray-play-badge">▶</div>
             </div>
-            <span class="book-badge" style="align-self:flex-start;" data-hi="${v.badgeHi}" data-en="${v.badgeEn}">${lang === "en" ? v.badgeEn : v.badgeHi}</span>
-            <h3 data-hi="${v.titleHi}" data-en="${v.titleEn}">${lang === "en" ? v.titleEn : v.titleHi}</h3>
-            <p data-hi="${v.descHi}" data-en="${v.descEn}">${lang === "en" ? v.descEn : v.descHi}</p>
+            <h3>${escapeHtml(item.title)}</h3>
+            ${item.desc ? `<p>${escapeHtml(item.desc)}</p>` : ""}
           </div>
         `;
       }).join("");
     }
 
-    // श्रेणी फ़िल्टर बदलना
-    function filterVideos(category, btnEl) {
-      activeFilter = category;
+    function filterVideos(platform, btnEl) {
+      activeFilter = platform;
       document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
       if (btnEl) btnEl.classList.add("active");
       renderVideoTray();
     }
 
-    // पेज लोड होते ही ट्रे तैयार करना और यदि कोई लिंक जुड़ा है तो पहला वीडियो लोड करना
-    window.addEventListener("DOMContentLoaded", () => {
-      renderVideoTray();
-      const firstReady = VIDEO_LIST.find((v) => getEmbedInfo(v.url));
-      if (firstReady) {
-        playVideoInStage(firstReady.id);
+    async function loadVideosFromData() {
+      try {
+        const res = await fetch(`../data/videos.json?v=${Date.now()}`, { cache: "no-store" });
+        const data = await res.json();
+        VIDEO_LIST = Array.isArray(data.items)
+          ? data.items.filter((v) => v && v.url && v.url.trim())
+          : [];
+      } catch (err) {
+        VIDEO_LIST = [];
       }
-    });
+
+      if (VIDEO_LIST.length === 0) {
+        document.getElementById("videoEmptyState").style.display = "block";
+        document.getElementById("videoGalleryWrap").style.display = "none";
+      } else {
+        document.getElementById("videoEmptyState").style.display = "none";
+        document.getElementById("videoGalleryWrap").style.display = "block";
+        playVideoInStage(0, false);
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", loadVideosFromData);
   </script>
 </body>
 </html>

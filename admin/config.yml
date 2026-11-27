@@ -1,0 +1,57 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "site_content"
+    label: "वेबसाइट सामग्री (Manage Content)"
+    files:
+      - label: "वीडियो गैलरी (Videos)"
+        name: "videos"
+        file: "data/videos.json"
+        fields:
+          - label: "वीडियो सूची"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.platform}})"
+            fields:
+              - { label: "वीडियो का शीर्षक (Title)", name: "title", widget: "string" }
+              - { label: "YouTube या Facebook लिंक", name: "url", widget: "string", hint: "सीधे YouTube या Facebook वीडियो का लिंक पेस्ट करें" }
+              - { label: "प्लेटफ़ॉर्म", name: "platform", widget: "select", options: ["Facebook", "YouTube"], default: "Facebook" }
+              - { label: "छोटा विवरण (वैकल्पिक)", name: "desc", widget: "text", required: false }
+              - { label: "होम पेज पर दिखाएँ?", name: "featured", widget: "boolean", default: true }
+
+      - label: "पॉडकास्ट एवं चर्चा (Podcast)"
+        name: "podcasts"
+        file: "data/podcasts.json"
+        fields:
+          - label: "पॉडकास्ट एपिसोड सूची"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "एपिसोड का शीर्षक (Title)", name: "title", widget: "string" }
+              - { label: "होस्ट / चैनल का नाम (वैकल्पिक)", name: "host", widget: "string", required: false }
+              - { label: "YouTube, Spotify या MP3 लिंक", name: "mediaUrl", widget: "string", hint: "पॉडकास्ट वीडियो या ऑडियो का लिंक पेस्ट करें" }
+              - { label: "संक्षिप्त विवरण (वैकल्पिक)", name: "desc", widget: "text", required: false }
+              - { label: "होम पेज पर दिखाएँ?", name: "featured", widget: "boolean", default: true }
+
+      - label: "साहित्यिक लेख (Articles)"
+        name: "articles"
+        file: "data/articles.json"
+        fields:
+          - label: "लेखों की सूची"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "लेख का शीर्षक (Title)", name: "title", widget: "string" }
+              - { label: "श्रेणी (Category)", name: "category", widget: "select", options: ["साहित्यिक चिंतन", "भारतीय ज्ञान परंपरा", "समकालीन चिंतन", "सनातन दर्शन", "विविध"], default: "साहित्यिक चिंतन" }
+              - { label: "पठन समय (उदा. 4 मिनट)", name: "readTime", widget: "string", default: "4 मिनट" }
+              - { label: "संक्षिप्त परिचय (2-3 पंक्तियाँ)", name: "excerpt", widget: "text" }
+              - { label: "पूरा लेख यहाँ लिखें (नए लेख के लिए)", name: "body", widget: "markdown", required: false }
+              - { label: "पुराने HTML पेज का नाम (केवल पहले से बने लेखों के लिए)", name: "legacyFile", widget: "string", required: false }
+              - { label: "होम पेज पर प्रमुख लेख में दिखाएँ?", name: "featured", widget: "boolean", default: true }
