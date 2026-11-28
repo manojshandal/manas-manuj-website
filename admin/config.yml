@@ -2,16 +2,24 @@ backend:
   name: git-gateway
   branch: main
 
+site_url: https://manasmanuj.in
+display_url: https://manasmanuj.in
+logo_url: /images/author.jpg
+
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
   - name: "site_content"
     label: "वेबसाइट सामग्री (Manage Content)"
+    editor:
+      preview: false
     files:
-      - label: "वीडियो गैलरी (Videos)"
+      - label: "🎬 वीडियो गैलरी (Videos)"
         name: "videos"
         file: "data/videos.json"
+        editor:
+          preview: false
         fields:
           - label: "वीडियो सूची"
             name: "items"
@@ -20,13 +28,16 @@ collections:
             fields:
               - { label: "वीडियो का शीर्षक (Title)", name: "title", widget: "string" }
               - { label: "YouTube या Facebook लिंक", name: "url", widget: "string", hint: "सीधे YouTube या Facebook वीडियो का लिंक पेस्ट करें" }
-              - { label: "प्लेटफ़ॉर्म", name: "platform", widget: "select", options: ["Facebook", "YouTube"], default: "Facebook" }
+              - { label: "प्लेटफ़ॉर्म", name: "platform", widget: "select", options: ["YouTube", "Facebook"], default: "YouTube" }
+              - { label: "कस्टम थंबनेल (वैकल्पिक — Facebook वीडियो के लिए)", name: "thumbnail", widget: "image", required: false }
               - { label: "छोटा विवरण (वैकल्पिक)", name: "desc", widget: "text", required: false }
               - { label: "होम पेज पर दिखाएँ?", name: "featured", widget: "boolean", default: true }
 
-      - label: "पॉडकास्ट एवं चर्चा (Podcast)"
+      - label: "🎙️ पॉडकास्ट एवं चर्चा (Podcast)"
         name: "podcasts"
         file: "data/podcasts.json"
+        editor:
+          preview: false
         fields:
           - label: "पॉडकास्ट एपिसोड सूची"
             name: "items"
@@ -39,9 +50,11 @@ collections:
               - { label: "संक्षिप्त विवरण (वैकल्पिक)", name: "desc", widget: "text", required: false }
               - { label: "होम पेज पर दिखाएँ?", name: "featured", widget: "boolean", default: true }
 
-      - label: "साहित्यिक लेख (Articles)"
+      - label: "✍️ साहित्यिक लेख (Articles)"
         name: "articles"
         file: "data/articles.json"
+        editor:
+          preview: false
         fields:
           - label: "लेखों की सूची"
             name: "items"
@@ -55,3 +68,24 @@ collections:
               - { label: "पूरा लेख यहाँ लिखें (नए लेख के लिए)", name: "body", widget: "markdown", required: false }
               - { label: "पुराने HTML पेज का नाम (केवल पहले से बने लेखों के लिए)", name: "legacyFile", widget: "string", required: false }
               - { label: "होम पेज पर प्रमुख लेख में दिखाएँ?", name: "featured", widget: "boolean", default: true }
+
+      - label: "⭐ पाठक समीक्षाएँ (Reader Reviews)"
+        name: "reviews"
+        file: "data/reviews.json"
+        editor:
+          preview: false
+        fields:
+          - label: "पाठक समीक्षा सूची"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.book}} ({{fields.rating}}★)"
+            fields:
+              - { label: "पाठक का नाम (Reader Name)", name: "name", widget: "string" }
+              - { label: "शहर / स्थान (वैकल्पिक)", name: "city", widget: "string", required: false }
+              - { label: "पुस्तक / विषय", name: "book", widget: "select", options: ["शिवशक्ति त्रिदेव गाथा", "सनातन गौरव गाथा", "वेबसाइट एवं साहित्य"], default: "शिवशक्ति त्रिदेव गाथा" }
+              - { label: "रेटिंग (Stars)", name: "rating", widget: "select", options: ["5", "4", "3", "2", "1"], default: "5" }
+              - { label: "समीक्षा संदेश (Review Message)", name: "message", widget: "text" }
+              - { label: "पाठक या पुस्तक की फ़ोटो (वैकल्पिक)", name: "photo", widget: "image", required: false, hint: "पाठक द्वारा भेजी गई फ़ोटो यहाँ अपलोड करें" }
+              - { label: "दिनांक (वैकल्पिक, उदा. नवंबर 2026)", name: "date", widget: "string", required: false }
+              - { label: "वेबसाइट पर प्रकाशित करें? (Approve)", name: "approved", widget: "boolean", default: true, hint: "बंद करने पर यह समीक्षा वेबसाइट से छिप जाएगी" }
+              - { label: "होम पेज पर प्रमुख समीक्षा में दिखाएँ?", name: "featured", widget: "boolean", default: true }
