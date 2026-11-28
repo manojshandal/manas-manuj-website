@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>संपर्क करें (Contact Us) | मानस मनुज • लेखक एवं शोधकर्ता</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../images/author.jpg" />
+
+  <meta name="description" content="मानस मनुज (लेखक एवं सनातन शोधकर्ता) से सीधे संपर्क करें — पुस्तक पूछताछ, साहित्यिक कार्यक्रम, साक्षात्कार एवं व्यक्तिगत परामर्श हेतु।" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .official-emails-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(122, 28, 28, 0.14);
+    }
+    .email-info-item {
+      background: rgba(122, 28, 28, 0.04);
+      border: 1px solid rgba(122, 28, 28, 0.14);
+      border-radius: 8px;
+      padding: 0.7rem 0.85rem;
+      text-align: center;
+    }
+    .email-info-label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted, #5c4b43);
+      margin-bottom: 0.22rem;
+    }
+    .email-info-link {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--maroon, #7a1c1c);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .email-info-link:hover {
+      text-decoration: underline;
+    }
+    .review-redirect-note {
+      margin-top: 1.4rem;
+      padding: 0.9rem 1rem;
+      border-radius: 10px;
+      background: rgba(217, 119, 6, 0.08);
+      border: 1px dashed rgba(217, 119, 6, 0.45);
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--text-muted, #5c4b43);
+    }
+    .review-redirect-note a {
+      color: var(--maroon, #7a1c1c);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- हेडर एवं नेविगेशन मेनू -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html#home" class="brand-title">
+        <span class="brand-name-row">
+          <span data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</span>
+          <span class="brand-role" data-hi="• लेखक एवं शोधकर्ता" data-en="• Author & Researcher">• लेखक एवं शोधकर्ता</span>
+        </span>
+        <span class="brand-sub" data-hi="सनातन दर्शन • पौराणिक साहित्य एवं वैदिक विज्ञान" data-en="Sanatan Philosophy • Pauranik Literature & Vedic Science">सनातन दर्शन • पौराणिक साहित्य एवं वैदिक विज्ञान</span>
+      </a>
+
+      <div class="lang-switch">
+        <button type="button" id="btn-hi" class="lang-btn active" onclick="setLanguage('hi')">हिंदी</button>
+        <button type="button" id="btn-en" class="lang-btn" onclick="setLanguage('en')">English</button>
+      </div>
+
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+      <nav>
+        <ul id="navList">
+          <li><a href="../index.html#home" data-hi="मुख्य पृष्ठ" data-en="Home">मुख्य पृष्ठ</a></li>
+          <li><a href="../index.html#about" data-hi="लेखक परिचय" data-en="About">लेखक परिचय</a></li>
+          <li><a href="../index.html#books" data-hi="पुस्तकें" data-en="Books">पुस्तकें</a></li>
+          <li><a href="../articles/index.html" data-hi="लेख" data-en="Articles">लेख</a></li>
+          <li><a href="../videos/index.html" data-hi="वीडियो" data-en="Videos">वीडियो</a></li>
+          <li><a href="../podcast/index.html" data-hi="पॉडकास्ट" data-en="Podcast">पॉडकास्ट</a></li>
+          <li><a href="../reviews/index.html" data-hi="समीक्षाएँ" data-en="Reviews">समीक्षाएँ</a></li>
+          <li><a href="index.html" class="nav-contact-btn active" data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- शीर्षक -->
+  <div class="hero" style="padding: 1.8rem 1.2rem 1rem;">
+    <div class="hero-inner" style="margin-bottom: 0;">
+      <div class="sacred-badge" data-hi="✦ लेखक से सीधा संवाद ✦" data-en="✦ Direct Communication ✦">✦ लेखक से सीधा संवाद ✦</div>
+      <h1 data-hi="लेखक से संपर्क करें" data-en="Contact the Author">लेखक से संपर्क करें</h1>
+      <p style="max-width:680px; margin:0.45rem auto 0; color:var(--text-muted);" data-hi="पुस्तक पूछताछ, साहित्यिक आयोजन, साक्षात्कार, मीडिया संपर्क अथवा व्यक्तिगत परामर्श हेतु सीधे संदेश भेजें।" data-en="Reach out directly for book inquiries, literary events, interviews, media collaborations, or personal consultation.">
+        पुस्तक पूछताछ, साहित्यिक आयोजन, साक्षात्कार, मीडिया संपर्क अथवा व्यक्तिगत परामर्श हेतु सीधे संदेश भेजें।
+      </p>
+    </div>
+  </div>
+
+  <!-- संपर्क फ़ॉर्म -->
+  <section style="padding-top: 1.2rem;">
+    <div class="card" style="max-width:740px; margin:auto;">
+      <div class="form-group">
+        <label for="visitorName" data-hi="आपका नाम *" data-en="Your Name *">आपका नाम *</label>
+        <input type="text" id="visitorName" placeholder="अपना नाम लिखें / Enter your name" />
+      </div>
+
+      <div class="form-group">
+        <label for="visitorTopic" data-hi="विषय चुनें" data-en="Select Subject">विषय चुनें</label>
+        <select id="visitorTopic">
+          <option value="पुस्तक के बारे में पूछताछ">पुस्तक के बारे में पूछताछ / Book Inquiry</option>
+          <option value="साहित्यिक कार्यक्रम / साक्षात्कार">साहित्यिक कार्यक्रम / साक्षात्कार (Event & Interview)</option>
+          <option value="व्यक्तिगत परामर्श सत्र">व्यक्तिगत परामर्श सत्र / Personal Consultation</option>
+          <option value="प्रकाशन एवं मीडिया संपर्क">प्रकाशन एवं मीडिया संपर्क / Publishing & Media</option>
+          <option value="अन्य विषय">अन्य विषय / Other Inquiry</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="visitorMessage" data-hi="आपका संदेश *" data-en="Your Message *">आपका संदेश *</label>
+        <textarea id="visitorMessage" rows="5" placeholder="अपना संदेश विस्तार से लिखें / Write your message here..."></textarea>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" style="flex:1;" onclick="sendContactMessage('whatsapp')" data-hi="WhatsApp पर भेजें" data-en="Send on WhatsApp">WhatsApp पर भेजें</button>
+        <button type="button" class="btn btn-outline" style="flex:1;" onclick="sendContactMessage('email')" data-hi="Email से भेजें" data-en="Send via Email">Email से भेजें</button>
+      </div>
+
+      <!-- आधिकारिक विभागवार ईमेल पते -->
+      <div class="official-emails-grid">
+        <div class="email-info-item">
+          <span class="email-info-label" data-hi="सामान्य संपर्क" data-en="General Inquiries">सामान्य संपर्क</span>
+          <a href="mailto:contact@manasmanuj.in" class="email-info-link">contact@manasmanuj.in</a>
+        </div>
+        <div class="email-info-item">
+          <span class="email-info-label" data-hi="पुस्तक ऑर्डर" data-en="Book Orders">पुस्तक ऑर्डर</span>
+          <a href="mailto:booking@manasmanuj.in" class="email-info-link">booking@manasmanuj.in</a>
+        </div>
+        <div class="email-info-item">
+          <span class="email-info-label" data-hi="परामर्श एवं मार्गदर्शन" data-en="Consultation & Guidance">परामर्श एवं मार्गदर्शन</span>
+          <a href="mailto:guidance@manasmanuj.in" class="email-info-link">guidance@manasmanuj.in</a>
+        </div>
+      </div>
+
+      <div class="review-redirect-note">
+        <span data-hi="क्या आप पुस्तक या वेबसाइट पर अपनी समीक्षा (Review) व फ़ोटो साझा करना चाहते हैं?" data-en="Want to share a book review or reader photo?">क्या आप पुस्तक या वेबसाइट पर अपनी समीक्षा (Review) व फ़ोटो साझा करना चाहते हैं?</span>
+        <br />
+        <a href="../reviews/index.html" data-hi="⭐ पाठक समीक्षा पृष्ठ पर जाएँ →" data-en="⭐ Go to Reader Reviews Page →">⭐ पाठक समीक्षा पृष्ठ पर जाएँ →</a>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="../index.html" class="btn btn-outline" data-hi="← मुख्य पृष्ठ पर लौटें" data-en="← Back to Home">← मुख्य पृष्ठ पर लौटें</a>
+    </div>
+  </section>
+
+  <!-- फुटर -->
+  <footer>
+    <div class="brand-title" style="font-size:1.35rem;" data-hi="मानस मनुज • लेखक एवं शोधकर्ता" data-en="Manas Manuj • Author & Researcher">मानस मनुज • लेखक एवं शोधकर्ता</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ManasManuj" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://www.facebook.com/manasmanuj" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://www.instagram.com/manasmanuj/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.threads.com/@manasmanuj" target="_blank" rel="noopener noreferrer">Threads</a>
+    </div>
+    <div class="footer-links" style="margin-top:0.5rem;">
+      <a href="../legal/privacy-policy.html" data-hi="गोपनीयता नीति (Privacy Policy)" data-en="Privacy Policy">गोपनीयता नीति (Privacy Policy)</a>
+      <a href="../legal/terms.html" data-hi="नियम एवं शर्तें (Terms)" data-en="Terms & Conditions">नियम एवं शर्तें (Terms)</a>
+      <a href="../legal/disclaimer.html" data-hi="अस्वीकरण (Disclaimer)" data-en="Disclaimer">अस्वीकरण (Disclaimer)</a>
+    </div>
+    <p style="font-size:0.88rem; margin-top:0.8rem;" data-hi="© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।" data-en="© 2026 Manas Manuj. All rights reserved.">© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

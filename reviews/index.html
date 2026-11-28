@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>पाठक समीक्षाएँ (Reader Reviews) | मानस मनुज • लेखक एवं शोधकर्ता</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../images/author.jpg" />
+
+  <meta name="description" content="मानस मनुज की पुस्तकों और साहित्य पर पाठकों की प्रामाणिक समीक्षाएँ, अनुभव एवं तस्वीरें पढ़ें और अपनी समीक्षा साझा करें।" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .review-filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.55rem;
+      margin-bottom: 1.6rem;
+    }
+    .review-filter-btn {
+      padding: 0.48rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(122, 28, 28, 0.28);
+      background: #ffffff;
+      color: var(--maroon, #7a1c1c);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .review-filter-btn.active,
+    .review-filter-btn:hover {
+      background: var(--maroon, #7a1c1c);
+      color: #ffffff;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.3rem;
+    }
+    .review-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.75rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-3px);
+    }
+    .review-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .review-stars {
+      color: #d97706;
+      font-size: 1.05rem;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+    .review-message {
+      margin: 0;
+      color: var(--text-dark, #2d1e17);
+      font-size: 0.96rem;
+      line-height: 1.72;
+      white-space: pre-line;
+    }
+    .review-photo-wrap {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(122, 28, 28, 0.16);
+      cursor: zoom-in;
+      background: #f8f1e5;
+    }
+    .review-photo-wrap img {
+      width: 100%;
+      max-height: 230px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+    .review-photo-wrap:hover img {
+      transform: scale(1.03);
+    }
+    .review-photo-hint {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      background: rgba(0, 0, 0, 0.68);
+      color: #ffffff;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+    }
+    .review-author-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(122, 28, 28, 0.12);
+      flex-wrap: wrap;
+    }
+    .review-author-name {
+      font-weight: 700;
+      color: var(--maroon, #7a1c1c);
+      font-size: 0.95rem;
+    }
+    .review-author-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted, #5c4b43);
+    }
+    .reviews-empty-card {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 2rem 1.2rem;
+      color: var(--text-muted, #5c4b43);
+    }
+
+    /* स्टार रेटिंग पिकर */
+    .star-picker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.25rem;
+    }
+    .star-pick-btn {
+      background: none;
+      border: none;
+      font-size: 1.75rem;
+      cursor: pointer;
+      color: #d6c5b3;
+      padding: 0.1rem 0.15rem;
+      line-height: 1;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+    .star-pick-btn.selected {
+      color: #d97706;
+    }
+    .star-pick-btn:hover {
+      transform: scale(1.15);
+    }
+    .star-rating-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--maroon, #7a1c1c);
+      margin-left: 0.5rem;
+    }
+
+    /* फ़ोटो अपलोड प्रीव्यू */
+    .photo-upload-preview {
+      margin-top: 0.75rem;
+      display: none;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.65rem;
+      border-radius: 8px;
+      background: rgba(122, 28, 28, 0.04);
+      border: 1px solid rgba(122, 28, 28, 0.18);
+    }
+    .photo-upload-preview img {
+      width: 68px;
+      height: 68px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .review-status-msg {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 8px;
+      font-size: 0.94rem;
+      font-weight: 600;
+      line-height: 1.55;
+    }
+    .review-status-msg.success {
+      display: block;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .review-status-msg.error {
+      display: block;
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    /* फ़ोटो लाइटबॉक्स मोडल */
+    .photo-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.92);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .photo-lightbox.open {
+      display: flex;
+    }
+    .photo-lightbox img {
+      max-width: 94vw;
+      max-height: 78vh;
+      border-radius: 10px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+      object-fit: contain;
+    }
+    .photo-lightbox-caption {
+      color: #fffdf8;
+      margin-top: 0.85rem;
+      font-size: 0.95rem;
+      text-align: center;
+      max-width: 680px;
+    }
+    .photo-lightbox-close {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 999px;
+      padding: 0.42rem 0.95rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- हेडर एवं नेविगेशन मेनू -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html#home" class="brand-title">
+        <span class="brand-name-row">
+          <span data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</span>
+          <span class="brand-role" data-hi="• लेखक एवं शोधकर्ता" data-en="• Author & Researcher">• लेखक एवं शोधकर्ता</span>
+        </span>
+        <span class="brand-sub" data-hi="सनातन दर्शन • पौराणिक साहित्य एवं वैदिक विज्ञान" data-en="Sanatan Philosophy • Pauranik Literature & Vedic Science">सनातन दर्शन • पौराणिक साहित्य एवं वैदिक विज्ञान</span>
+      </a>
+
+      <div class="lang-switch">
+        <button type="button" id="btn-hi" class="lang-btn active" onclick="setLanguage('hi')">हिंदी</button>
+        <button type="button" id="btn-en" class="lang-btn" onclick="setLanguage('en')">English</button>
+      </div>
+
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+      <nav>
+        <ul id="navList">
+          <li><a href="../index.html#home" data-hi="मुख्य पृष्ठ" data-en="Home">मुख्य पृष्ठ</a></li>
+          <li><a href="../index.html#about" data-hi="लेखक परिचय" data-en="About">लेखक परिचय</a></li>
+          <li><a href="../index.html#books" data-hi="पुस्तकें" data-en="Books">पुस्तकें</a></li>
+          <li><a href="../articles/index.html" data-hi="लेख" data-en="Articles">लेख</a></li>
+          <li><a href="../videos/index.html" data-hi="वीडियो" data-en="Videos">वीडियो</a></li>
+          <li><a href="../podcast/index.html" data-hi="पॉडकास्ट" data-en="Podcast">पॉडकास्ट</a></li>
+          <li><a href="index.html" class="active" data-hi="समीक्षाएँ" data-en="Reviews">समीक्षाएँ</a></li>
+          <li><a href="../contact/index.html" target="_blank" rel="noopener noreferrer" class="nav-contact-btn" data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- शीर्षक -->
+  <div class="hero" style="padding: 1.8rem 1.2rem 1rem;">
+    <div class="hero-inner" style="margin-bottom: 0;">
+      <div class="sacred-badge" data-hi="✦ पाठकों के अनुभव एवं विचार ✦" data-en="✦ Reader Reflections & Testimonials ✦">✦ पाठकों के अनुभव एवं विचार ✦</div>
+      <h1 data-hi="पाठक समीक्षाएँ" data-en="Reader Reviews">पाठक समीक्षाएँ</h1>
+      <p style="max-width:700px; margin:0.45rem auto 0; color:var(--text-muted);" data-hi="पुस्तकों एवं साहित्यिक रचनाओं पर पाठकों द्वारा साझा किए गए अनुभव व तस्वीरें यहाँ पढ़ें, अथवा नीचे अपनी समीक्षा लिखें।" data-en="Read authentic reader experiences and photos shared on our books and writings, or submit your own review below.">
+        पुस्तकों एवं साहित्यिक रचनाओं पर पाठकों द्वारा साझा किए गए अनुभव व तस्वीरें यहाँ पढ़ें, अथवा नीचे अपनी समीक्षा लिखें।
+      </p>
+      <div style="margin-top:1rem;">
+        <a href="#write-review" class="btn btn-primary" data-hi="✍ अपनी समीक्षा लिखें" data-en="✍ Write a Review">✍ अपनी समीक्षा लिखें</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- सभी अप्रूव्ड समीक्षाएँ -->
+  <section style="padding-top: 1.2rem;">
+    <div class="review-filter-tabs">
+      <button type="button" class="review-filter-btn active" onclick="filterReviews('all', this)" data-hi="सभी समीक्षाएँ" data-en="All Reviews">सभी समीक्षाएँ</button>
+      <button type="button" class="review-filter-btn" onclick="filterReviews('शिवशक्ति त्रिदेव गाथा', this)">शिवशक्ति त्रिदेव गाथा</button>
+      <button type="button" class="review-filter-btn" onclick="filterReviews('सनातन गौरव गाथा', this)">सनातन गौरव गाथा</button>
+      <button type="button" class="review-filter-btn" onclick="filterReviews('वेबसाइट एवं साहित्य', this)">वेबसाइट एवं साहित्य</button>
+    </div>
+
+    <div class="reviews-grid" id="allReviewsGrid">
+      <div class="card reviews-empty-card">
+        <p style="margin:0;">समीक्षाएँ लोड हो रही हैं...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- नई समीक्षा लिखने का फ़ॉर्म -->
+  <section id="write-review" style="padding-top: 0.5rem;">
+    <div class="section-header">
+      <h2 data-hi="अपनी समीक्षा साझा करें (Write a Review)" data-en="Share Your Review">अपनी समीक्षा साझा करें (Write a Review)</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="card" style="max-width:740px; margin:auto;">
+      <p style="margin-bottom:1.2rem; color:var(--text-muted); font-size:0.93rem;" data-hi="आपकी समीक्षा और तस्वीर लेखक की स्वीकृति के बाद इस पृष्ठ पर प्रकाशित की जाएगी।" data-en="Your review and optional photo will be published on this page after author verification.">
+        आपकी समीक्षा और तस्वीर लेखक की स्वीकृति के बाद इस पृष्ठ पर प्रकाशित की जाएगी।
+      </p>
+
+      <form id="reviewSubmitForm" onsubmit="handleReviewSubmit(event)">
+        <!-- स्पैम सुरक्षा फ़ील्ड -->
+        <input type="text" id="revWebsite" class="hp-field" autocomplete="off" tabindex="-1" />
+
+        <div class="form-group">
+          <label for="revName" data-hi="आपका पूरा नाम *" data-en="Your Full Name *">आपका पूरा नाम *</label>
+          <input type="text" id="revName" required maxlength="80" placeholder="अपना नाम लिखें / Enter your name" />
+        </div>
+
+        <div class="form-group">
+          <label for="revCity" data-hi="शहर / स्थान (वैकल्पिक)" data-en="City / Location (Optional)">शहर / स्थान (वैकल्पिक)</label>
+          <input type="text" id="revCity" maxlength="60" placeholder="उदा. चंडीगढ़, दिल्ली, कांगड़ा" />
+        </div>
+
+        <div class="form-group">
+          <label for="revBook" data-hi="पुस्तक / विषय चुनें" data-en="Select Book / Topic">पुस्तक / विषय चुनें</label>
+          <select id="revBook">
+            <option value="शिवशक्ति त्रिदेव गाथा">शिवशक्ति त्रिदेव गाथा</option>
+            <option value="सनातन गौरव गाथा">सनातन गौरव गाथा</option>
+            <option value="वेबसाइट एवं साहित्य">वेबसाइट एवं साहित्य</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label data-hi="आपकी रेटिंग *" data-en="Your Rating *">आपकी रेटिंग *</label>
+          <input type="hidden" id="revRating" value="5" />
+          <div class="star-picker" id="starPicker">
+            <button type="button" class="star-pick-btn selected" data-val="1" onclick="setStarRating(1)">★</button>
+            <button type="button" class="star-pick-btn selected" data-val="2" onclick="setStarRating(2)">★</button>
+            <button type="button" class="star-pick-btn selected" data-val="3" onclick="setStarRating(3)">★</button>
+            <button type="button" class="star-pick-btn selected" data-val="4" onclick="setStarRating(4)">★</button>
+            <button type="button" class="star-pick-btn selected" data-val="5" onclick="setStarRating(5)">★</button>
+            <span class="star-rating-label" id="starRatingLabel">5 / 5</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="revMessage" data-hi="आपकी समीक्षा *" data-en="Your Review *">आपकी समीक्षा *</label>
+          <textarea id="revMessage" required rows="4" maxlength="1500" placeholder="पुस्तक या साहित्य के बारे में अपना अनुभव लिखें..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="revPhoto" data-hi="पुस्तक या पाठक की फ़ोटो अपलोड करें (वैकल्पिक)" data-en="Upload Book or Reader Photo (Optional)">पुस्तक या पाठक की फ़ोटो अपलोड करें (वैकल्पिक)</label>
+          <input type="file" id="revPhoto" accept="image/*" onchange="handlePhotoSelect(event)" />
+          <div class="photo-upload-preview" id="photoPreviewWrap">
+            <img id="photoPreviewImg" src="" alt="Preview" />
+            <div style="flex:1;">
+              <div style="font-size:0.86rem; font-weight:600; color:var(--maroon);">फ़ोटो तैयार है</div>
+              <small style="color:var(--text-muted);">समीक्षा के साथ सुरक्षित अपलोड होगी</small>
+            </div>
+            <button type="button" class="btn btn-outline" style="padding:0.35rem 0.75rem; font-size:0.82rem;" onclick="clearSelectedPhoto()">हटाएँ</button>
+          </div>
+        </div>
+
+        <button type="submit" id="revSubmitBtn" class="btn btn-primary" style="width:100%;" data-hi="समीक्षा सबमिट करें" data-en="Submit Review">समीक्षा सबमिट करें</button>
+        <div id="revStatus" class="review-status-msg"></div>
+      </form>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="../index.html#reviews" class="btn btn-outline" data-hi="← मुख्य पृष्ठ पर लौटें" data-en="← Back to Home">← मुख्य पृष्ठ पर लौटें</a>
+    </div>
+  </section>
+
+  <!-- फ़ोटो लाइटबॉक्स मोडल -->
+  <div class="photo-lightbox" id="reviewPhotoModal" onclick="if(event.target.id==='reviewPhotoModal') closePhotoLightbox()">
+    <button type="button" class="photo-lightbox-close" onclick="closePhotoLightbox()">✕ बंद करें</button>
+    <img id="lightboxImg" src="" alt="पाठक फ़ोटो" />
+    <p class="photo-lightbox-caption" id="lightboxCaption"></p>
+  </div>
+
+  <!-- फुटर -->
+  <footer>
+    <div class="brand-title" style="font-size:1.35rem;" data-hi="मानस मनुज • लेखक एवं शोधकर्ता" data-en="Manas Manuj • Author & Researcher">मानस मनुज • लेखक एवं शोधकर्ता</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ManasManuj" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://www.facebook.com/manasmanuj" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://www.instagram.com/manasmanuj/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.threads.com/@manasmanuj" target="_blank" rel="noopener noreferrer">Threads</a>
+    </div>
+    <div class="footer-links" style="margin-top:0.5rem;">
+      <a href="../legal/privacy-policy.html" data-hi="गोपनीयता नीति (Privacy Policy)" data-en="Privacy Policy">गोपनीयता नीति (Privacy Policy)</a>
+      <a href="../legal/terms.html" data-hi="नियम एवं शर्तें (Terms)" data-en="Terms & Conditions">नियम एवं शर्तें (Terms)</a>
+      <a href="../legal/disclaimer.html" data-hi="अस्वीकरण (Disclaimer)" data-en="Disclaimer">अस्वीकरण (Disclaimer)</a>
+    </div>
+    <p style="font-size:0.88rem; margin-top:0.8rem;" data-hi="© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।" data-en="© 2026 Manas Manuj. All rights reserved.">© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    let ALL_REVIEWS = [];
+    let activeReviewFilter = "all";
+    let compressedPhotoBase64 = "";
+
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function normalizePhotoPath(photo) {
+      const p = String(photo || "").trim();
+      if (!p) return "";
+      if (p.startsWith("http://") || p.startsWith("https://") || p.startsWith("/")) return p;
+      return "../" + p.replace(/^\.?\//, "");
+    }
+
+    function renderStars(rating) {
+      const r = Math.min(5, Math.max(1, parseInt(rating, 10) || 5));
+      return "★".repeat(r) + "☆".repeat(5 - r);
+    }
+
+    function setStarRating(val) {
+      document.getElementById("revRating").value = String(val);
+      document.getElementById("starRatingLabel").textContent = `${val} / 5`;
+      document.querySelectorAll("#starPicker .star-pick-btn").forEach((btn) => {
+        const bVal = parseInt(btn.getAttribute("data-val"), 10);
+        btn.classList.toggle("selected", bVal <= val);
+      });
+    }
+
+    function compressImageFile(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onerror = () => reject(new Error("फ़ाइल पढ़ने में त्रुटि"));
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onerror = () => reject(new Error("अमान्य छवि फ़ाइल"));
+          img.onload = () => {
+            const maxDim = 1000;
+            let w = img.width;
+            let h = img.height;
+            if (w > maxDim || h > maxDim) {
+              if (w > h) {
+                h = Math.round((h * maxDim) / w);
+                w = maxDim;
+              } else {
+                w = Math.round((w * maxDim) / h);
+                h = maxDim;
+              }
+            }
+            const canvas = document.createElement("canvas");
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, w, h);
+            resolve(canvas.toDataURL("image/jpeg", 0.78));
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function handlePhotoSelect(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) {
+        clearSelectedPhoto();
+        return;
+      }
+      try {
+        compressedPhotoBase64 = await compressImageFile(file);
+        document.getElementById("photoPreviewImg").src = compressedPhotoBase64;
+        document.getElementById("photoPreviewWrap").style.display = "flex";
+      } catch (err) {
+        clearSelectedPhoto();
+        alert("कृपया एक मान्य छवि (JPG/PNG) चुनें।");
+      }
+    }
+
+    function clearSelectedPhoto() {
+      compressedPhotoBase64 = "";
+      const input = document.getElementById("revPhoto");
+      if (input) input.value = "";
+      document.getElementById("photoPreviewImg").src = "";
+      document.getElementById("photoPreviewWrap").style.display = "none";
+    }
+
+    function openPhotoLightbox(src, caption) {
+      document.getElementById("lightboxImg").src = src;
+      document.getElementById("lightboxCaption").textContent = caption || "";
+      document.getElementById("reviewPhotoModal").classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePhotoLightbox() {
+      document.getElementById("reviewPhotoModal").classList.remove("open");
+      document.getElementById("lightboxImg").src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closePhotoLightbox();
+    });
+
+    function filterReviews(bookFilter, btnEl) {
+      activeReviewFilter = bookFilter;
+      document.querySelectorAll(".review-filter-btn").forEach((b) => b.classList.remove("active"));
+      if (btnEl) btnEl.classList.add("active");
+      renderAllReviews();
+    }
+
+    function renderAllReviews() {
+      const grid = document.getElementById("allReviewsGrid");
+      const filtered = ALL_REVIEWS.filter((r) => {
+        if (activeReviewFilter === "all") return true;
+        return r.book === activeReviewFilter;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="card reviews-empty-card">
+            <p style="margin:0 0 0.8rem;">इस श्रेणी में अभी कोई प्रकाशित समीक्षा उपलब्ध नहीं है।</p>
+            <a href="#write-review" class="btn btn-primary">पहली समीक्षा लिखें ✍</a>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map((rev) => {
+        const photoUrl = normalizePhotoPath(rev.photo);
+        const caption = `${rev.name || "पाठक"}${rev.book ? " — " + rev.book : ""}`;
+        const photoHtml = photoUrl
+          ? `
+            <div class="review-photo-wrap" onclick="openPhotoLightbox('${escapeHtml(photoUrl)}', '${escapeHtml(caption)}')">
+              <img src="${escapeHtml(photoUrl)}" alt="${escapeHtml(caption)}" loading="lazy" />
+              <span class="review-photo-hint">🔍 बड़ा देखें</span>
+            </div>
+          `
+          : "";
+
+        const metaParts = [];
+        if (rev.city && rev.city.trim()) metaParts.push(rev.city.trim());
+        if (rev.date && rev.date.trim()) metaParts.push(rev.date.trim());
+
+        return `
+          <article class="card review-card">
+            <div style="display:flex; flex-direction:column; gap:0.75rem;">
+              <div class="review-card-top">
+                <span class="book-badge" style="margin:0;">${escapeHtml(rev.book || "शिवशक्ति त्रिदेव गाथा")}</span>
+                <span class="review-stars" aria-label="${escapeHtml(rev.rating || 5)} stars">${renderStars(rev.rating)}</span>
+              </div>
+              <p class="review-message">“${escapeHtml(rev.message || "")}”</p>
+              ${photoHtml}
+            </div>
+            <div class="review-author-row">
+              <span class="review-author-name">— ${escapeHtml(rev.name || "पाठक")}</span>
+              ${metaParts.length ? `<span class="review-author-meta">${escapeHtml(metaParts.join(" • "))}</span>` : ""}
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    async function handleReviewSubmit(event) {
+      event.preventDefault();
+      const btn = document.getElementById("revSubmitBtn");
+      const statusEl = document.getElementById("revStatus");
+
+      const payload = {
+        name: document.getElementById("revName").value.trim(),
+        city: document.getElementById("revCity").value.trim(),
+        book: document.getElementById("revBook").value,
+        rating: document.getElementById("revRating").value,
+        message: document.getElementById("revMessage").value.trim(),
+        photoBase64: compressedPhotoBase64,
+        website: document.getElementById("revWebsite").value
+      };
+
+      if (!payload.name || payload.message.length < 5) {
+        statusEl.className = "review-status-msg error";
+        statusEl.textContent = "कृपया अपना नाम और कम से कम 5 अक्षरों की समीक्षा लिखें।";
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "भेजा जा रहा है...";
+      statusEl.className = "review-status-msg";
+      statusEl.textContent = "";
+
+      try {
+        const res = await fetch("/.netlify/functions/submit-review", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (res.ok && data.ok) {
+          statusEl.className = "review-status-msg success";
+          statusEl.textContent = data.message || "धन्यवाद! आपकी समीक्षा प्राप्त हो गई है। लेखक की स्वीकृति के बाद यह प्रकाशित हो जाएगी।";
+          document.getElementById("reviewSubmitForm").reset();
+          setStarRating(5);
+          clearSelectedPhoto();
+        } else {
+          statusEl.className = "review-status-msg error";
+          statusEl.textContent = data.error || "समीक्षा भेजने में समस्या आई। कृपया पुनः प्रयास करें।";
+        }
+      } catch (err) {
+        statusEl.className = "review-status-msg error";
+        statusEl.textContent = "नेटवर्क त्रुटि हुई। कृपया इंटरनेट जाँच कर पुनः प्रयास करें।";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "समीक्षा सबमिट करें";
+      }
+    }
+
+    async function loadApprovedReviews() {
+      try {
+        const res = await fetch(`../data/reviews.json?v=${Date.now()}`, { cache: "no-store" });
+        const data = await res.json();
+        ALL_REVIEWS = Array.isArray(data.items)
+          ? data.items.filter((r) => r && r.approved === true && r.message && r.message.trim())
+          : [];
+      } catch (err) {
+        ALL_REVIEWS = [];
+      }
+      renderAllReviews();
+    }
+
+    window.addEventListener("DOMContentLoaded", loadApprovedReviews);
+  </script>
+</body>
+</html>

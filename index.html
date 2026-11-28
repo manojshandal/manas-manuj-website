@@ -9,7 +9,7 @@
   <link rel="icon" type="image/jpeg" href="images/author.jpg" />
 
   <!-- SEO एवं Google AdSense के लिए मेटा टैग्स -->
-  <meta name="description" content="मानस मनुज (लेखक एवं सनातन विषयों के शोधकर्ता) की आधिकारिक वेबसाइट। सनातन दर्शन, पौराणिक साहित्य, वैदिक विज्ञान, शिवशक्ति त्रिदेव गाथा, सनातन गौरव गाथा, लेख और वीडियो।" />
+  <meta name="description" content="मानस मनुज (लेखक एवं सनातन विषयों के शोधकर्ता) की आधिकारिक वेबसाइट। सनातन दर्शन, पौराणिक साहित्य, वैदिक विज्ञान, शिवशक्ति त्रिदेव गाथा, सनातन गौरव गाथा, लेख, वीडियो और पाठक समीक्षाएँ।" />
   <meta name="keywords" content="मानस मनुज, Manas Manuj, Author and Researcher, सनातन शोधकर्ता, शिवशक्ति त्रिदेव गाथा, सनातन गौरव गाथा, पौराणिक साहित्य, वैदिक विज्ञान, हिंदी साहित्य" />
   <meta name="author" content="मानस मनुज (मनोज कुमार)" />
   <meta name="robots" content="index, follow" />
@@ -18,14 +18,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://manasmanuj.in/" />
 
-  <!-- प्राइवेट Site Visit Analytics (GA4 / GoatCounter) कोड यहाँ जोड़ा जाएगा — पब्लिक को नहीं दिखेगा -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- ब्रांडिंग, शोध हाइलाइट, सोशल बार, वीडियो कार्ड, पॉपअप प्लेयर और ईमेल कार्ड स्टाइलिंग -->
   <style>
     .brand-name-row {
       display: inline-flex;
@@ -191,27 +188,6 @@
       text-align: center;
       margin-top: 1.6rem;
     }
-    .official-emails-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0.75rem;
-      margin-top: 1.4rem;
-      padding-top: 1.2rem;
-      border-top: 1px solid rgba(122, 28, 28, 0.14);
-    }
-    .email-info-item {
-      background: rgba(122, 28, 28, 0.04);
-      border: 1px solid rgba(122, 28, 28, 0.14);
-      border-radius: 8px;
-      padding: 0.65rem 0.85rem;
-      text-align: center;
-    }
-    .email-info-label {
-      display: block;
-      font-size: 0.8rem;
-      color: var(--text-muted, #5c4b43);
-      margin-bottom: 0.2rem;
-    }
     .email-info-link {
       font-size: 0.88rem;
       font-weight: 700;
@@ -223,7 +199,154 @@
       text-decoration: underline;
     }
 
-    /* फुल-स्क्रीन पॉपअप लाइटबॉक्स वीडियो प्लेयर */
+    /* होम पेज पाठक समीक्षा सेक्शन */
+    .home-reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.6rem;
+    }
+    .home-review-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .home-review-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .home-review-stars {
+      color: #d97706;
+      font-size: 1.02rem;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+    .home-review-msg {
+      margin: 0;
+      color: var(--text-dark, #2d1e17);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+    .home-review-photo {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(122, 28, 28, 0.16);
+      cursor: zoom-in;
+      background: #f8f1e5;
+    }
+    .home-review-photo img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .home-review-photo-tag {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      background: rgba(0, 0, 0, 0.68);
+      color: #ffffff;
+      font-size: 0.72rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+    }
+    .home-review-author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding-top: 0.7rem;
+      border-top: 1px solid rgba(122, 28, 28, 0.12);
+    }
+    .home-review-name {
+      font-weight: 700;
+      color: var(--maroon, #7a1c1c);
+      font-size: 0.94rem;
+    }
+    .home-review-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted, #5c4b43);
+    }
+    .star-picker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.25rem;
+    }
+    .star-pick-btn {
+      background: none;
+      border: none;
+      font-size: 1.7rem;
+      cursor: pointer;
+      color: #d6c5b3;
+      padding: 0.1rem 0.15rem;
+      line-height: 1;
+      transition: transform 0.15s ease, color 0.15s ease;
+    }
+    .star-pick-btn.selected {
+      color: #d97706;
+    }
+    .star-pick-btn:hover {
+      transform: scale(1.15);
+    }
+    .star-rating-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--maroon, #7a1c1c);
+      margin-left: 0.45rem;
+    }
+    .photo-upload-preview {
+      margin-top: 0.7rem;
+      display: none;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.65rem;
+      border-radius: 8px;
+      background: rgba(122, 28, 28, 0.04);
+      border: 1px solid rgba(122, 28, 28, 0.18);
+    }
+    .photo-upload-preview img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .review-status-msg {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 8px;
+      font-size: 0.94rem;
+      font-weight: 600;
+      line-height: 1.55;
+    }
+    .review-status-msg.success {
+      display: block;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .review-status-msg.error {
+      display: block;
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* फुल-स्क्रीन पॉपअप लाइटबॉक्स (वीडियो, लेख और रिव्यू फ़ोटो) */
     .video-modal-overlay {
       position: fixed;
       inset: 0;
@@ -319,8 +442,6 @@
       text-decoration: none;
       font-weight: 600;
     }
-
-    /* नए एडमिन लेखों के लिए होम पेज पॉपअप रीडर */
     .article-modal-box {
       width: 100%;
       max-width: 780px;
@@ -337,6 +458,20 @@
       line-height: 1.85;
       font-size: 1.02rem;
       white-space: pre-line;
+    }
+    .photo-modal-img {
+      max-width: 94vw;
+      max-height: 78vh;
+      border-radius: 10px;
+      object-fit: contain;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+    }
+    .photo-modal-caption {
+      color: #fffdf8;
+      margin-top: 0.85rem;
+      font-size: 0.94rem;
+      text-align: center;
+      max-width: 680px;
     }
 
     @media (max-width: 640px) {
@@ -381,8 +516,8 @@
           <li><a href="#articles" data-hi="लेख" data-en="Articles">लेख</a></li>
           <li><a href="#videos" data-hi="वीडियो" data-en="Videos">वीडियो</a></li>
           <li><a href="#podcast" data-hi="पॉडकास्ट" data-en="Podcast">पॉडकास्ट</a></li>
-          <li><a href="#consultation" data-hi="परामर्श" data-en="Consultation">परामर्श</a></li>
-          <li><a href="#contact" class="nav-contact-btn" data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</a></li>
+          <li><a href="#reviews" data-hi="समीक्षाएँ" data-en="Reviews">समीक्षाएँ</a></li>
+          <li><a href="contact/index.html" target="_blank" rel="noopener noreferrer" class="nav-contact-btn" data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</a></li>
         </ul>
       </nav>
     </div>
@@ -416,7 +551,7 @@
     </div>
   </div>
 
-  <!-- लेखक परिचय (वेबसाइट खुलते ही सबसे पहले) -->
+  <!-- लेखक परिचय -->
   <section id="about" style="padding-top: 1.2rem;">
     <div class="section-header">
       <h2 data-hi="लेखक एवं शोधकर्ता परिचय" data-en="About the Author & Researcher">लेखक एवं शोधकर्ता परिचय</h2>
@@ -547,7 +682,7 @@
         </div>
       </div>
 
-      <!-- पुस्तक 2 (तीनों भागों के नए कवर के साथ) -->
+      <!-- पुस्तक 2 -->
       <div class="card">
         <span class="book-badge" data-hi="आगामी त्रयी • 3 भाग | 18 खंड | 108 अध्याय" data-en="Upcoming Trilogy • 3 Volumes | 18 Khands | 108 Chapters">आगामी त्रयी • 3 भाग | 18 खंड | 108 अध्याय</span>
         <a href="books/sanatan-gaurav-gatha.html" style="display:block; text-decoration:none; margin: 1rem 0;">
@@ -577,14 +712,13 @@
     </div>
   </section>
 
-  <!-- डायरेक्ट सेल ऑर्डर फॉर्म (पुस्तक ड्रॉपडाउन + WhatsApp/Email दोनों विकल्पों सहित) -->
+  <!-- डायरेक्ट सेल ऑर्डर फॉर्म -->
   <section id="direct-order">
     <div class="section-header">
       <h2 data-hi="लेखक से सीधी पुस्तक मँगवाएँ (Direct Sale)" data-en="Order Directly from Author (Direct Sale)">लेखक से सीधी पुस्तक मँगवाएँ (Direct Sale)</h2>
       <div class="divider"></div>
     </div>
-    
-    <!-- डायरेक्ट सेल हाईलाइट बॉक्स -->
+
     <div class="direct-sale-banner" style="max-width:740px; margin:0 auto 1.4rem;">
       <div>
         <h2 data-hi="विशेष पाठक सुविधा: लेखक से सीधी प्रति प्राप्त करें" data-en="Special Reader Offer: Get Direct Copy from the Author">विशेष पाठक सुविधा: लेखक से सीधी प्रति प्राप्त करें</h2>
@@ -593,7 +727,7 @@
         </p>
       </div>
     </div>
-    
+
     <div class="card" style="max-width:740px; margin:auto;">
       <p style="margin-bottom:1.2rem; color:var(--text-muted);" data-hi="नीचे विवरण भरकर WhatsApp या Email से ऑर्डर भेजें—आपका ऑर्डर रिकॉर्ड सीधे <strong>booking@manasmanuj.in</strong> पर सुरक्षित दर्ज हो जाएगा।" data-en="Fill in the details below and submit via WhatsApp or Email—your order record will be logged directly at <strong>booking@manasmanuj.in</strong>.">
         नीचे विवरण भरकर WhatsApp या Email से ऑर्डर भेजें—आपका ऑर्डर रिकॉर्ड सीधे <strong>booking@manasmanuj.in</strong> पर सुरक्षित दर्ज हो जाएगा।
@@ -639,8 +773,8 @@
       </p>
     </div>
   </section>
-  
-  <!-- चुनिंदा साहित्यिक लेख (एडमिन पैनल से लाइव अपडेट) -->
+
+  <!-- चुनिंदा साहित्यिक लेख -->
   <section id="articles">
     <div class="section-header">
       <h2 data-hi="प्रमुख साहित्यिक लेख (Featured Articles)" data-en="Featured Literary Articles">प्रमुख साहित्यिक लेख (Featured Articles)</h2>
@@ -655,7 +789,7 @@
         <p style="margin:0.6rem 0 1rem; color:var(--text-muted);" data-hi="दोहा और चौपाई की परंपरा किस प्रकार जटिल दर्शन को जनमानस तक सहजता से पहुँचाती है..." data-en="How the tradition of Doha and Chaupai effortlessly brings complex philosophy to the masses...">दोहा और चौपाई की परंपरा किस प्रकार जटिल दर्शन को जनमानस तक सहजता से पहुँचाती है...</p>
         <a href="articles/chhandbaddh-kavya-chetna.html" style="color:var(--maroon); font-weight:700;" data-hi="पूरा लेख पढ़ें →" data-en="Read Full Article →">पूरा लेख पढ़ें →</a>
       </div>
-      
+
       <div class="card">
         <span class="book-badge" data-hi="भारतीय ज्ञान परंपरा" data-en="Indian Knowledge">भारतीय ज्ञान परंपरा</span>
         <h3>
@@ -664,7 +798,7 @@
         <p style="margin:0.6rem 0 1rem; color:var(--text-muted);" data-hi="सनातन परंपरा के गणितीय, खगोलीय, वास्तुकला और चिकित्सा ज्ञान की प्रामाणिक झलक..." data-en="An authentic glimpse into the mathematical, astronomical, architectural, and medical wisdom of Sanatan tradition...">सनातन परंपरा के गणितीय, खगोलीय, वास्तुकला और चिकित्सा ज्ञान की प्रामाणिक झलक...</p>
         <a href="articles/prachin-bhartiya-vigyan.html" style="color:var(--maroon); font-weight:700;" data-hi="पूरा लेख पढ़ें →" data-en="Read Full Article →">पूरा लेख पढ़ें →</a>
       </div>
-      
+
       <div class="card">
         <span class="book-badge" data-hi="समकालीन चिंतन" data-en="Contemporary Thought">समकालीन चिंतन</span>
         <h3>
@@ -674,13 +808,13 @@
         <a href="articles/yuva-pidhi-bhartiya-sanskriti.html" style="color:var(--maroon); font-weight:700;" data-hi="पूरा लेख पढ़ें →" data-en="Read Full Article →">पूरा लेख पढ़ें →</a>
       </div>
     </div>
-    
+
     <div class="section-more-wrap">
       <a href="articles/index.html" class="btn btn-primary" data-hi="सभी साहित्यिक लेख पढ़ें →" data-en="Read All Literary Articles →">सभी साहित्यिक लेख पढ़ें →</a>
     </div>
   </section>
-  
-  <!-- वीडियो एवं व्याख्यान (एडमिन पैनल से लाइव अपडेट + फुल-स्क्रीन पॉपअप प्लेयर) -->
+
+  <!-- वीडियो एवं व्याख्यान -->
   <section id="videos">
     <div class="section-header">
       <h2 data-hi="वीडियो एवं व्याख्यान (Videos)" data-en="Videos & Talks">वीडियो एवं व्याख्यान (Videos)</h2>
@@ -700,7 +834,7 @@
           छह खंडों के इस महाकाव्य की रचना-यात्रा, प्रमुख प्रसंगों और आध्यात्मिक संदेश की दृश्यात्मक झलक आप सीधे वेबसाइट पर देख सकेंगे।
         </p>
       </div>
-      
+
       <div class="card">
         <span class="book-badge" data-hi="सनातन चिंतन • वीडियो" data-en="Sanatan Insights • Video">सनातन चिंतन • वीडियो</span>
         <h3 data-hi="सनातन विज्ञान एवं पौराणिक चिंतन व्याख्यान" data-en="Talks on Sanatan Science & Pauranik Insights">सनातन विज्ञान एवं पौराणिक चिंतन व्याख्यान</h3>
@@ -715,12 +849,12 @@
         </p>
       </div>
     </div>
-    
+
     <div class="section-more-wrap">
       <a href="videos/index.html" class="btn btn-primary" data-hi="सभी वीडियो देखें (वीडियो गैलरी) →" data-en="Watch All Videos (Video Gallery) →">सभी वीडियो देखें (वीडियो गैलरी) →</a>
     </div>
   </section>
-  
+
   <!-- पॉडकास्ट एवं साहित्यिक संवाद -->
   <section id="podcast">
     <div class="section-header">
@@ -738,7 +872,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- परामर्श एवं मार्गदर्शन -->
   <section id="consultation">
     <div class="section-header">
@@ -747,66 +881,98 @@
     </div>
     <div class="card" style="text-align:center; max-width:820px; margin:auto;">
       <span class="book-badge" data-hi="शीघ्र आ रहा है • ऑनलाइन सत्र" data-en="Coming Soon • Online Sessions">शीघ्र आ रहा है • ऑनलाइन सत्र</span>
-      <p style="margin:0.8rem 0 1.4rem; color:var(--text-muted);" data-hi="साहित्यिक मार्गदर्शन, सनातन दर्शन चर्चा तथा विशेष व्यक्तिगत परामर्श सत्रों के लिए अपॉइंटमेंट बुकिंग की सुविधा शीघ्र प्रारंभ की जा रही है। पूर्व-पंजीकरण या मार्गदर्शन अनुरोध हेतु सीधे ईमेल करें या संपर्क फ़ॉर्म भरें।" data-en="Appointment booking for literary guidance, Sanatan philosophy discussions, and personal consultation sessions will be launching soon. For pre-registration or guidance requests, email us directly or use the contact form.">
-        साहित्यिक मार्गदर्शन, सनातन दर्शन चर्चा तथा विशेष व्यक्तिगत परामर्श सत्रों के लिए अपॉइंटमेंट बुकिंग की सुविधा शीघ्र प्रारंभ की जा रही है। पूर्व-पंजीकरण या मार्गदर्शन अनुरोध हेतु सीधे ईमेल करें या संपर्क फ़ॉर्म भरें।
+      <p style="margin:0.8rem 0 1.4rem; color:var(--text-muted);" data-hi="साहित्यिक मार्गदर्शन, सनातन दर्शन चर्चा तथा विशेष व्यक्तिगत परामर्श सत्रों के लिए अपॉइंटमेंट बुकिंग की सुविधा शीघ्र प्रारंभ की जा रही है। पूर्व-पंजीकरण या मार्गदर्शन अनुरोध हेतु सीधे ईमेल करें या संपर्क पृष्ठ का उपयोग करें।" data-en="Appointment booking for literary guidance, Sanatan philosophy discussions, and personal consultation sessions will be launching soon. For pre-registration or guidance requests, email us directly or use our Contact page.">
+        साहित्यिक मार्गदर्शन, सनातन दर्शन चर्चा तथा विशेष व्यक्तिगत परामर्श सत्रों के लिए अपॉइंटमेंट बुकिंग की सुविधा शीघ्र प्रारंभ की जा रही है। पूर्व-पंजीकरण या मार्गदर्शन अनुरोध हेतु सीधे ईमेल करें या संपर्क पृष्ठ का उपयोग करें।
       </p>
       <div class="btn-group" style="justify-content:center;">
         <a href="mailto:guidance@manasmanuj.in?subject=Personal%20Consultation%20%26%20Guidance" class="btn btn-primary" data-hi="सीधे ईमेल करें: guidance@manasmanuj.in" data-en="Email Directly: guidance@manasmanuj.in">सीधे ईमेल करें: guidance@manasmanuj.in</a>
-        <a href="#contact" class="btn btn-outline" data-hi="परामर्श के लिए पूर्व-पंजीकरण करें" data-en="Pre-register for Consultation">परामर्श के लिए पूर्व-पंजीकरण करें</a>
+        <a href="contact/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-hi="परामर्श के लिए संपर्क करें" data-en="Contact for Consultation">परामर्श के लिए संपर्क करें</a>
       </div>
     </div>
   </section>
-  
-  <!-- संपर्क करें -->
-  <section id="contact">
+
+  <!-- पाठक समीक्षाएँ सेक्शन (होम पेज के बॉटम में — चुनिंदा 4-5 समीक्षाएँ + रिव्यू फ़ॉर्म) -->
+  <section id="reviews">
     <div class="section-header">
-      <h2 data-hi="लेखक से संपर्क करें (Contact Us)" data-en="Contact the Author">लेखक से संपर्क करें (Contact Us)</h2>
+      <h2 data-hi="पाठक समीक्षाएँ (Reader Reviews)" data-en="Reader Reviews & Testimonials">पाठक समीक्षाएँ (Reader Reviews)</h2>
       <div class="divider"></div>
     </div>
-    
+
+    <!-- चुनिंदा 4-5 अप्रूव्ड रिव्यू (एडमिन पैनल से लाइव नियंत्रित) -->
+    <div class="home-reviews-grid" id="homeReviewsGrid"></div>
+
+    <div class="section-more-wrap" style="margin-top:0; margin-bottom:2rem;">
+      <a href="reviews/index.html" class="btn btn-outline" data-hi="सभी पाठक समीक्षाएँ देखें →" data-en="View All Reader Reviews →">सभी पाठक समीक्षाएँ देखें →</a>
+    </div>
+
+    <!-- पाठक के लिए नया रिव्यू सबमिट करने का फ़ॉर्म (सीधे एडमिन पैनल में जाएगा) -->
     <div class="card" style="max-width:740px; margin:auto;">
-      <div class="form-group">
-        <label for="visitorName" data-hi="आपका नाम *" data-en="Your Name *">आपका नाम *</label>
-        <input type="text" id="visitorName" placeholder="अपना नाम लिखें / Enter your name" />
-      </div>
-      <div class="form-group">
-        <label for="visitorTopic" data-hi="विषय चुनें" data-en="Select Subject">विषय चुनें</label>
-        <select id="visitorTopic">
-          <option value="पुस्तक के बारे में पूछताछ">पुस्तक के बारे में पूछताछ / Book Inquiry</option>
-          <option value="साहित्यिक कार्यक्रम / साक्षात्कार">साहित्यिक कार्यक्रम / Literary Event</option>
-          <option value="व्यक्तिगत परामर्श सत्र">व्यक्तिगत परामर्श सत्र / Consultation Session</option>
-          <option value="पाठक प्रतिक्रिया">पाठक प्रतिक्रिया / Reader Feedback</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="visitorMessage" data-hi="आपका संदेश *" data-en="Your Message *">आपका संदेश *</label>
-        <textarea id="visitorMessage" rows="4" placeholder="अपना संदेश यहाँ लिखें / Write your message here..."></textarea>
-      </div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary" style="flex:1;" onclick="sendContactMessage('whatsapp')" data-hi="WhatsApp पर भेजें" data-en="Send on WhatsApp">WhatsApp पर भेजें</button>
-        <button type="button" class="btn btn-outline" style="flex:1;" onclick="sendContactMessage('email')" data-hi="Email से भेजें" data-en="Send via Email">Email से भेजें</button>
-      </div>
-      
-      <!-- आधिकारिक विभागवार कस्टम ईमेल पते -->
-      <div class="official-emails-grid">
-        <div class="email-info-item">
-          <span class="email-info-label" data-hi="सामान्य संपर्क" data-en="General Inquiries">सामान्य संपर्क</span>
-          <a href="mailto:contact@manasmanuj.in" class="email-info-link">contact@manasmanuj.in</a>
+      <h3 style="margin-bottom:0.4rem;" data-hi="✍ अपनी समीक्षा लिखें (Write a Review)" data-en="✍ Write a Review">✍ अपनी समीक्षा लिखें (Write a Review)</h3>
+      <p style="margin-bottom:1.2rem; color:var(--text-muted); font-size:0.92rem;" data-hi="पुस्तक या वेबसाइट पर अपना अनुभव और फ़ोटो साझा करें। लेखक की स्वीकृति के बाद आपकी समीक्षा यहाँ प्रकाशित हो जाएगी।" data-en="Share your experience and optional photo. Once approved by the author, your review will be published here.">
+        पुस्तक या वेबसाइट पर अपना अनुभव और फ़ोटो साझा करें। लेखक की स्वीकृति के बाद आपकी समीक्षा यहाँ प्रकाशित हो जाएगी।
+      </p>
+
+      <form id="homeReviewForm" onsubmit="handleHomeReviewSubmit(event)">
+        <input type="text" id="homeRevWebsite" class="hp-field" autocomplete="off" tabindex="-1" />
+
+        <div class="form-group">
+          <label for="homeRevName" data-hi="आपका पूरा नाम *" data-en="Your Full Name *">आपका पूरा नाम *</label>
+          <input type="text" id="homeRevName" required maxlength="80" placeholder="अपना नाम लिखें / Enter your name" />
         </div>
-        <div class="email-info-item">
-          <span class="email-info-label" data-hi="पुस्तक ऑर्डर" data-en="Book Orders">पुस्तक ऑर्डर</span>
-          <a href="mailto:booking@manasmanuj.in" class="email-info-link">booking@manasmanuj.in</a>
+
+        <div class="form-group">
+          <label for="homeRevCity" data-hi="शहर / स्थान (वैकल्पिक)" data-en="City / Location (Optional)">शहर / स्थान (वैकल्पिक)</label>
+          <input type="text" id="homeRevCity" maxlength="60" placeholder="उदा. चंडीगढ़, दिल्ली, कांगड़ा" />
         </div>
-        <div class="email-info-item">
-          <span class="email-info-label" data-hi="परामर्श एवं मार्गदर्शन" data-en="Consultation & Guidance">परामर्श एवं मार्गदर्शन</span>
-          <a href="mailto:guidance@manasmanuj.in" class="email-info-link">guidance@manasmanuj.in</a>
+
+        <div class="form-group">
+          <label for="homeRevBook" data-hi="पुस्तक / विषय चुनें" data-en="Select Book / Topic">पुस्तक / विषय चुनें</label>
+          <select id="homeRevBook">
+            <option value="शिवशक्ति त्रिदेव गाथा">शिवशक्ति त्रिदेव गाथा</option>
+            <option value="सनातन गौरव गाथा">सनातन गौरव गाथा</option>
+            <option value="वेबसाइट एवं साहित्य">वेबसाइट एवं साहित्य</option>
+          </select>
         </div>
-      </div>
+
+        <div class="form-group">
+          <label data-hi="आपकी रेटिंग *" data-en="Your Rating *">आपकी रेटिंग *</label>
+          <input type="hidden" id="homeRevRating" value="5" />
+          <div class="star-picker" id="homeStarPicker">
+            <button type="button" class="star-pick-btn selected" data-val="1" onclick="setHomeStarRating(1)">★</button>
+            <button type="button" class="star-pick-btn selected" data-val="2" onclick="setHomeStarRating(2)">★</button>
+            <button type="button" class="star-pick-btn selected" data-val="3" onclick="setHomeStarRating(3)">★</button>
+            <button type="button" class="star-pick-btn selected" data-val="4" onclick="setHomeStarRating(4)">★</button>
+            <button type="button" class="star-pick-btn selected" data-val="5" onclick="setHomeStarRating(5)">★</button>
+            <span class="star-rating-label" id="homeStarLabel">5 / 5</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="homeRevMessage" data-hi="आपकी समीक्षा *" data-en="Your Review *">आपकी समीक्षा *</label>
+          <textarea id="homeRevMessage" required rows="4" maxlength="1500" placeholder="अपना अनुभव यहाँ लिखें / Write your review here..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="homeRevPhoto" data-hi="पुस्तक या पाठक की फ़ोटो अपलोड करें (वैकल्पिक)" data-en="Upload Book or Reader Photo (Optional)">पुस्तक या पाठक की फ़ोटो अपलोड करें (वैकल्पिक)</label>
+          <input type="file" id="homeRevPhoto" accept="image/*" onchange="handleHomePhotoSelect(event)" />
+          <div class="photo-upload-preview" id="homePhotoPreviewWrap">
+            <img id="homePhotoPreviewImg" src="" alt="Preview" />
+            <div style="flex:1;">
+              <div style="font-size:0.86rem; font-weight:600; color:var(--maroon);">फ़ोटो तैयार है</div>
+              <small style="color:var(--text-muted);">समीक्षा के साथ सुरक्षित अपलोड होगी</small>
+            </div>
+            <button type="button" class="btn btn-outline" style="padding:0.32rem 0.72rem; font-size:0.82rem;" onclick="clearHomeSelectedPhoto()">हटाएँ</button>
+          </div>
+        </div>
+
+        <button type="submit" id="homeRevSubmitBtn" class="btn btn-primary" style="width:100%;" data-hi="समीक्षा सबमिट करें" data-en="Submit Review">समीक्षा सबमिट करें</button>
+        <div id="homeRevStatus" class="review-status-msg"></div>
+      </form>
     </div>
   </section>
-  
-  <!-- फ्लोटिंग संपर्क बटन -->
-  <a href="#contact" class="floating-whatsapp" data-hi="✉ लेखक से जुड़ें" data-en="✉ Connect with Author">✉ लेखक से जुड़ें</a>
+
+  <!-- फ्लोटिंग संपर्क बटन (नई विंडो में संपर्क पेज खोलेगा) -->
+  <a href="contact/index.html" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" data-hi="✉ लेखक से संपर्क करें" data-en="✉ Contact Author">✉ लेखक से संपर्क करें</a>
 
   <!-- फुल-स्क्रीन पॉपअप लाइटबॉक्स वीडियो प्लेयर -->
   <div class="video-modal-overlay" id="homeVideoModal" onclick="if(event.target.id==='homeVideoModal') closeHomeVideoModal()">
@@ -827,7 +993,7 @@
     </div>
   </div>
 
-  <!-- होम पेज पॉपअप लेख रीडर (एडमिन से लिखे नए लेखों के लिए) -->
+  <!-- होम पेज पॉपअप लेख रीडर -->
   <div class="video-modal-overlay" id="homeArticleModal" onclick="if(event.target.id==='homeArticleModal') closeHomeArticleModal()">
     <div class="article-modal-box">
       <div style="display:flex; justify-content:space-between; align-items:center; gap:0.75rem; margin-bottom:0.6rem;">
@@ -838,7 +1004,14 @@
       <div class="article-modal-body" id="homeArticleBody"></div>
     </div>
   </div>
-  
+
+  <!-- होम पेज रिव्यू फ़ोटो लाइटबॉक्स -->
+  <div class="video-modal-overlay" id="homePhotoModal" onclick="if(event.target.id==='homePhotoModal') closeHomePhotoLightbox()">
+    <button type="button" class="video-modal-btn" style="position:fixed; top:16px; right:16px;" onclick="closeHomePhotoLightbox()">✕ बंद करें</button>
+    <img id="homePhotoLightboxImg" class="photo-modal-img" src="" alt="पाठक फ़ोटो" />
+    <p id="homePhotoLightboxCaption" class="photo-modal-caption"></p>
+  </div>
+
   <!-- फुटर -->
   <footer>
     <div class="brand-title" style="font-size:1.35rem;" data-hi="मानस मनुज • लेखक एवं शोधकर्ता" data-en="Manas Manuj • Author & Researcher">मानस मनुज • लेखक एवं शोधकर्ता</div>
@@ -849,17 +1022,23 @@
       <a href="https://www.threads.com/@manasmanuj" target="_blank" rel="noopener noreferrer">Threads</a>
     </div>
     <div class="footer-links" style="margin-top:0.5rem;">
+      <a href="reviews/index.html" data-hi="पाठक समीक्षाएँ (Reviews)" data-en="Reader Reviews">पाठक समीक्षाएँ (Reviews)</a>
+      <a href="contact/index.html" target="_blank" rel="noopener noreferrer" data-hi="संपर्क करें (Contact Us)" data-en="Contact Us">संपर्क करें (Contact Us)</a>
+    </div>
+    <div class="footer-links" style="margin-top:0.4rem;">
       <a href="legal/privacy-policy.html" data-hi="गोपनीयता नीति (Privacy Policy)" data-en="Privacy Policy">गोपनीयता नीति (Privacy Policy)</a>
       <a href="legal/terms.html" data-hi="नियम एवं शर्तें (Terms)" data-en="Terms & Conditions">नियम एवं शर्तें (Terms)</a>
       <a href="legal/disclaimer.html" data-hi="अस्वीकरण (Disclaimer)" data-en="Disclaimer">अस्वीकरण (Disclaimer)</a>
     </div>
     <p style="font-size:0.88rem; margin-top:0.8rem;" data-hi="© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।" data-en="© 2026 Manas Manuj. All rights reserved.">© 2026 मानस मनुज। सर्वाधिकार सुरक्षित।</p>
   </footer>
-  
+
   <script src="js/main.js"></script>
   <script>
     let HOME_VIDEOS = [];
     let HOME_ARTICLES = [];
+    let HOME_REVIEWS = [];
+    let homeCompressedPhoto = "";
 
     function escapeHomeHtml(str) {
       return String(str || "")
@@ -869,13 +1048,25 @@
         .replace(/"/g, "&quot;");
     }
 
+    function normalizeHomePhotoPath(photo) {
+      const p = String(photo || "").trim();
+      if (!p) return "";
+      if (p.startsWith("http://") || p.startsWith("https://") || p.startsWith("/")) return p;
+      return p.replace(/^\.?\//, "");
+    }
+
+    function renderHomeStars(rating) {
+      const r = Math.min(5, Math.max(1, parseInt(rating, 10) || 5));
+      return "★".repeat(r) + "☆".repeat(5 - r);
+    }
+
     function isShownOnHome(item) {
       if (!item || typeof item !== "object") return false;
       const keys = ["featured", "showOnHome", "show_on_home", "homepage", "onHome", "home", "isFeatured", "pinToHome"];
       for (const k of keys) {
         if (item[k] === true) return true;
       }
-      return Object.entries(item).some(([k, val]) => val === true && !/draft|hide|hidden|disable/i.test(k));
+      return Object.entries(item).some(([k, val]) => val === true && !/draft|hide|hidden|disable|approved/i.test(k));
     }
 
     function getHomeEmbedInfo(rawUrl, fallbackPlatform) {
@@ -979,10 +1170,146 @@
       document.body.style.overflow = "";
     }
 
+    function openHomePhotoLightbox(idx) {
+      const rev = HOME_REVIEWS[idx];
+      if (!rev || !rev.photo) return;
+      document.getElementById("homePhotoLightboxImg").src = normalizeHomePhotoPath(rev.photo);
+      document.getElementById("homePhotoLightboxCaption").textContent =
+        `${rev.name || "पाठक"}${rev.book ? " — " + rev.book : ""}`;
+      document.getElementById("homePhotoModal").classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeHomePhotoLightbox() {
+      document.getElementById("homePhotoModal").classList.remove("open");
+      document.getElementById("homePhotoLightboxImg").src = "";
+      document.body.style.overflow = "";
+    }
+
+    function setHomeStarRating(val) {
+      document.getElementById("homeRevRating").value = String(val);
+      document.getElementById("homeStarLabel").textContent = `${val} / 5`;
+      document.querySelectorAll("#homeStarPicker .star-pick-btn").forEach((btn) => {
+        const bVal = parseInt(btn.getAttribute("data-val"), 10);
+        btn.classList.toggle("selected", bVal <= val);
+      });
+    }
+
+    function compressHomeImageFile(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onerror = () => reject(new Error("फ़ाइल पढ़ने में त्रुटि"));
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onerror = () => reject(new Error("अमान्य छवि फ़ाइल"));
+          img.onload = () => {
+            const maxDim = 1000;
+            let w = img.width;
+            let h = img.height;
+            if (w > maxDim || h > maxDim) {
+              if (w > h) {
+                h = Math.round((h * maxDim) / w);
+                w = maxDim;
+              } else {
+                w = Math.round((w * maxDim) / h);
+                h = maxDim;
+              }
+            }
+            const canvas = document.createElement("canvas");
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, w, h);
+            resolve(canvas.toDataURL("image/jpeg", 0.78));
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function handleHomePhotoSelect(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) {
+        clearHomeSelectedPhoto();
+        return;
+      }
+      try {
+        homeCompressedPhoto = await compressHomeImageFile(file);
+        document.getElementById("homePhotoPreviewImg").src = homeCompressedPhoto;
+        document.getElementById("homePhotoPreviewWrap").style.display = "flex";
+      } catch (err) {
+        clearHomeSelectedPhoto();
+        alert("कृपया एक मान्य छवि (JPG/PNG) चुनें।");
+      }
+    }
+
+    function clearHomeSelectedPhoto() {
+      homeCompressedPhoto = "";
+      const input = document.getElementById("homeRevPhoto");
+      if (input) input.value = "";
+      document.getElementById("homePhotoPreviewImg").src = "";
+      document.getElementById("homePhotoPreviewWrap").style.display = "none";
+    }
+
+    async function handleHomeReviewSubmit(event) {
+      event.preventDefault();
+      const btn = document.getElementById("homeRevSubmitBtn");
+      const statusEl = document.getElementById("homeRevStatus");
+
+      const payload = {
+        name: document.getElementById("homeRevName").value.trim(),
+        city: document.getElementById("homeRevCity").value.trim(),
+        book: document.getElementById("homeRevBook").value,
+        rating: document.getElementById("homeRevRating").value,
+        message: document.getElementById("homeRevMessage").value.trim(),
+        photoBase64: homeCompressedPhoto,
+        website: document.getElementById("homeRevWebsite").value
+      };
+
+      if (!payload.name || payload.message.length < 5) {
+        statusEl.className = "review-status-msg error";
+        statusEl.textContent = "कृपया अपना नाम और कम से कम 5 अक्षरों की समीक्षा लिखें।";
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "भेजा जा रहा है...";
+      statusEl.className = "review-status-msg";
+      statusEl.textContent = "";
+
+      try {
+        const res = await fetch("/.netlify/functions/submit-review", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (res.ok && data.ok) {
+          statusEl.className = "review-status-msg success";
+          statusEl.textContent = data.message || "धन्यवाद! आपकी समीक्षा प्राप्त हो गई है। लेखक की स्वीकृति के बाद यह प्रकाशित हो जाएगी।";
+          document.getElementById("homeReviewForm").reset();
+          setHomeStarRating(5);
+          clearHomeSelectedPhoto();
+        } else {
+          statusEl.className = "review-status-msg error";
+          statusEl.textContent = data.error || "समीक्षा भेजने में समस्या आई। कृपया पुनः प्रयास करें।";
+        }
+      } catch (err) {
+        statusEl.className = "review-status-msg error";
+        statusEl.textContent = "नेटवर्क त्रुटि हुई। कृपया इंटरनेट जाँच कर पुनः प्रयास करें।";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "समीक्षा सबमिट करें";
+      }
+    }
+
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeHomeVideoModal();
         closeHomeArticleModal();
+        closeHomePhotoLightbox();
       }
     });
 
@@ -1055,7 +1382,7 @@
         }
       } catch (err) {}
 
-      // 3. होम पेज पॉडकास्ट लोड करें (यदि किसी एपिसोड पर होम पेज विकल्प चालू हो)
+      // 3. होम पेज पॉडकास्ट लोड करें
       try {
         const res = await fetch(`data/podcasts.json?v=${Date.now()}`, { cache: "no-store" });
         const data = await res.json();
@@ -1075,6 +1402,58 @@
               <a href="podcast/index.html" class="btn btn-primary">पॉडकास्ट सुनें एवं सभी एपिसोड देखें →</a>
             </div>
           `;
+        }
+      } catch (err) {}
+
+      // 4. होम पेज प्रमुख पाठक समीक्षाएँ लोड करें (अधिकतम 5 चुनिंदा अप्रूव्ड समीक्षाएँ)
+      try {
+        const res = await fetch(`data/reviews.json?v=${Date.now()}`, { cache: "no-store" });
+        const data = await res.json();
+        const approvedReviews = Array.isArray(data.items)
+          ? data.items.filter((r) => r && r.approved === true && r.message && r.message.trim())
+          : [];
+        const featuredReviews = approvedReviews.filter((r) => r.featured === true);
+        HOME_REVIEWS = (featuredReviews.length > 0 ? featuredReviews : approvedReviews).slice(0, 5);
+
+        const grid = document.getElementById("homeReviewsGrid");
+        if (HOME_REVIEWS.length === 0) {
+          grid.innerHTML = `
+            <div class="card" style="grid-column:1 / -1; text-align:center; padding:1.6rem;">
+              <p style="margin:0; color:var(--text-muted);">पाठकों की समीक्षाएँ शीघ्र यहाँ प्रदर्शित होंगी। नीचे दिए गए फ़ॉर्म से अपनी पहली समीक्षा साझा करें।</p>
+            </div>
+          `;
+        } else {
+          grid.innerHTML = HOME_REVIEWS.map((rev, idx) => {
+            const photoUrl = normalizeHomePhotoPath(rev.photo);
+            const photoHtml = photoUrl
+              ? `
+                <div class="home-review-photo" onclick="openHomePhotoLightbox(${idx})">
+                  <img src="${escapeHomeHtml(photoUrl)}" alt="${escapeHomeHtml(rev.name || "पाठक")}" loading="lazy" />
+                  <span class="home-review-photo-tag">🔍 बड़ा देखें</span>
+                </div>
+              `
+              : "";
+            const metaParts = [];
+            if (rev.city && rev.city.trim()) metaParts.push(rev.city.trim());
+            if (rev.date && rev.date.trim()) metaParts.push(rev.date.trim());
+
+            return `
+              <article class="card home-review-card">
+                <div style="display:flex; flex-direction:column; gap:0.7rem;">
+                  <div class="home-review-top">
+                    <span class="book-badge" style="margin:0;">${escapeHomeHtml(rev.book || "शिवशक्ति त्रिदेव गाथा")}</span>
+                    <span class="home-review-stars">${renderHomeStars(rev.rating)}</span>
+                  </div>
+                  <p class="home-review-msg">“${escapeHomeHtml(rev.message)}”</p>
+                  ${photoHtml}
+                </div>
+                <div class="home-review-author">
+                  <span class="home-review-name">— ${escapeHomeHtml(rev.name || "पाठक")}</span>
+                  ${metaParts.length ? `<span class="home-review-meta">${escapeHomeHtml(metaParts.join(" • "))}</span>` : ""}
+                </div>
+              </article>
+            `;
+          }).join("");
         }
       } catch (err) {}
     }

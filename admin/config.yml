@@ -78,14 +78,14 @@ collections:
           - label: "पाठक समीक्षा सूची"
             name: "items"
             widget: "list"
-            summary: "{{fields.name}} — {{fields.book}} ({{fields.rating}}★)"
+            summary: "{{fields.name}} — {{fields.book}} ({{fields.rating}}★) | Approved: {{fields.approved}}"
             fields:
+              - { label: "✅ वेबसाइट पर प्रकाशित करें? (Approve)", name: "approved", widget: "boolean", default: false, hint: "ON करके Publish दबाने पर ही यह समीक्षा वेबसाइट पर दिखेगी" }
+              - { label: "🏠 होम पेज पर प्रमुख समीक्षा में दिखाएँ?", name: "featured", widget: "boolean", default: false }
               - { label: "पाठक का नाम (Reader Name)", name: "name", widget: "string" }
               - { label: "शहर / स्थान (वैकल्पिक)", name: "city", widget: "string", required: false }
               - { label: "पुस्तक / विषय", name: "book", widget: "select", options: ["शिवशक्ति त्रिदेव गाथा", "सनातन गौरव गाथा", "वेबसाइट एवं साहित्य"], default: "शिवशक्ति त्रिदेव गाथा" }
               - { label: "रेटिंग (Stars)", name: "rating", widget: "select", options: ["5", "4", "3", "2", "1"], default: "5" }
               - { label: "समीक्षा संदेश (Review Message)", name: "message", widget: "text" }
-              - { label: "पाठक या पुस्तक की फ़ोटो (वैकल्पिक)", name: "photo", widget: "image", required: false, hint: "पाठक द्वारा भेजी गई फ़ोटो यहाँ अपलोड करें" }
-              - { label: "दिनांक (वैकल्पिक, उदा. नवंबर 2026)", name: "date", widget: "string", required: false }
-              - { label: "वेबसाइट पर प्रकाशित करें? (Approve)", name: "approved", widget: "boolean", default: true, hint: "बंद करने पर यह समीक्षा वेबसाइट से छिप जाएगी" }
-              - { label: "होम पेज पर प्रमुख समीक्षा में दिखाएँ?", name: "featured", widget: "boolean", default: true }
+              - { label: "पाठक या पुस्तक की फ़ोटो (वैकल्पिक)", name: "photo", widget: "image", required: false }
+              - { label: "दिनांक (वैकल्पिक)", name: "date", widget: "string", required: false }
