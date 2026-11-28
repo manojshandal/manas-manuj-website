@@ -1,15 +1,3 @@
 {
-  "items": [
-    {
-      "message": "Very good morning sir thanks",
-      "book": "शिवशक्ति त्रिदेव गाथा",
-      "city": "Chd",
-      "name": "Manoj",
-      "featured": false,
-      "date": "28 नवंबर 2026",
-      "photo": "/images/uploads/review-1795858157960-bdytj.jpg",
-      "approved": true,
-      "rating": "5"
-    }
-  ]
+  "items": []
 }
