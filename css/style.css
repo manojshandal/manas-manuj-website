@@ -73,12 +73,28 @@ header {
   line-height: 1.2;
 }
 
+.brand-name-row {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.brand-role {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 0.56em;
+  font-weight: 600;
+  color: #F5E6C8 !important;
+  letter-spacing: 0.01em;
+}
+
 .brand-sub {
   display: block;
   font-family: 'Noto Sans Devanagari', sans-serif;
   font-size: 0.75rem;
   color: var(--cream-soft);
   font-weight: 400;
+  margin-top: 0.12rem;
 }
 
 .menu-toggle {
@@ -470,6 +486,15 @@ footer {
 
   .nav-container {
     flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .brand-title {
+    font-size: 1.32rem;
+  }
+
+  .brand-sub {
+    font-size: 0.7rem;
   }
 
   .about-box {
@@ -482,6 +507,7 @@ footer {
     margin: auto;
   }
 }
+
 /* --- भाषा चयन बटन (Hindi / English) --- */
 .lang-switch {
   display: inline-flex;
@@ -505,6 +531,7 @@ footer {
   background-color: var(--gold);
   color: var(--maroon-dark);
 }
+
 /* --- फाइनल लेखक परिचय लेआउट (Quick Profile + Biography) --- */
 .about-layout {
   display: grid;
@@ -594,6 +621,7 @@ footer {
     text-align: left;
   }
 }
+
 /* --- पुस्तक विवरण पेज (Book Detail Page) --- */
 .book-hero-grid {
   display: grid;
@@ -693,7 +721,6 @@ footer {
   }
 }
 
-
 /* =========================================
    लेखक फोटो एवं 3D हार्डकवर पुस्तक इफ़ेक्ट
    ========================================= */
@@ -720,10 +747,10 @@ footer {
 
 /* 3D हार्डकवर पुस्तक का बैकग्राउंड स्टेज */
 .book-3d-stage {
-  background: radial-gradient(circle at center, #fdf8ef 0%, #f1e4d1 100%);
+  background: linear-gradient(180deg, #faf5ec 0%, #f1e6d6 100%);
   border: 1px solid rgba(122, 28, 28, 0.12);
   border-radius: 14px;
-  padding: 1.8rem 1.2rem;
+  padding: 1.6rem 1rem;
   margin-bottom: 1.2rem;
   display: flex;
   flex-direction: column;
@@ -733,34 +760,28 @@ footer {
   overflow: hidden;
 }
 
-/* 3D पुस्तक का मुख्य डिज़ाइन */
+/* 3D पुस्तक का मुख्य डिज़ाइन (प्रीमियम स्टूडियो हार्डकवर लुक) */
 .book-3d {
   position: relative;
   display: inline-block;
-  width: 195px;
-  max-width: 78%;
-  border-radius: 3px 8px 8px 3px;
-  transform: rotateY(-14deg);
+  width: 225px;
+  max-width: 82%;
+  transform: none;
   transform-style: preserve-3d;
+  border-radius: 3px 7px 7px 3px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow:
-    -4px 0 0 #1f0d0d,
-    4px 2px 0 #f7f3eb,
-    7px 3px 0 #dfd6c7,
-    10px 4px 0 #f7f3eb,
-    13px 5px 0 #cbbda9,
-    18px 22px 32px rgba(35, 15, 10, 0.42);
+    -3px 0 6px rgba(0, 0, 0, 0.28),
+    0 18px 34px rgba(35, 18, 10, 0.30),
+    0 5px 12px rgba(35, 18, 10, 0.18);
 }
 
 .book-3d:hover {
-  transform: rotateY(-5deg) translateY(-4px);
+  transform: translateY(-5px);
   box-shadow:
-    -3px 0 0 #1f0d0d,
-    3px 1px 0 #f7f3eb,
-    6px 2px 0 #dfd6c7,
-    9px 3px 0 #f7f3eb,
-    11px 4px 0 #cbbda9,
-    14px 26px 36px rgba(35, 15, 10, 0.48);
+    -3px 0 8px rgba(0, 0, 0, 0.30),
+    0 24px 40px rgba(35, 18, 10, 0.36),
+    0 8px 16px rgba(35, 18, 10, 0.20);
 }
 
 /* पुस्तक के बाएँ किनारे पर हार्डकवर क्रीज़ (चमक और उभार) */
@@ -769,14 +790,12 @@ footer {
   position: absolute;
   top: 0;
   left: 0;
-  width: 16px;
+  width: 8px;
   height: 100%;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.22) 0%,
-    rgba(0, 0, 0, 0.35) 28%,
-    rgba(255, 255, 255, 0.2) 55%,
-    rgba(0, 0, 0, 0.08) 80%,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(0, 0, 0, 0.22) 55%,
     transparent 100%
   );
   z-index: 2;
@@ -793,8 +812,8 @@ footer {
 
 /* पुस्तक के विस्तृत पेज पर थोड़ा बड़ा 3D साइज़ */
 .book-3d.book-3d-lg {
-  width: 245px;
-  max-width: 85%;
+  width: 260px;
+  max-width: 88%;
 }
 
 /* बैक कवर पढ़ते समय सीधा स्पष्ट व्यू */
@@ -834,48 +853,6 @@ footer {
   color: #ffffff;
   border-color: var(--maroon);
 }
-
-
-/* प्रीमियम स्टूडियो हार्डकवर लुक (क्लीन और प्रोफेशनल) */
-.book-3d-stage {
-  background: linear-gradient(180deg, #faf5ec 0%, #f1e6d6 100%);
-  padding: 1.6rem 1rem;
-}
-
-.book-3d {
-  width: 225px;
-  max-width: 82%;
-  transform: none;
-  border-radius: 3px 7px 7px 3px;
-  box-shadow:
-    -3px 0 6px rgba(0, 0, 0, 0.28),
-    0 18px 34px rgba(35, 18, 10, 0.30),
-    0 5px 12px rgba(35, 18, 10, 0.18);
-}
-
-.book-3d:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    -3px 0 8px rgba(0, 0, 0, 0.30),
-    0 24px 40px rgba(35, 18, 10, 0.36),
-    0 8px 16px rgba(35, 18, 10, 0.20);
-}
-
-.book-3d::before {
-  width: 8px;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.25) 0%,
-    rgba(0, 0, 0, 0.22) 55%,
-    transparent 100%
-  );
-}
-
-.book-3d.book-3d-lg {
-  width: 260px;
-  max-width: 88%;
-}
-
 
 /* आगे और पीछे के आवरण का बिल्कुल एक जैसा नाप */
 .book-3d.book-3d-lg,

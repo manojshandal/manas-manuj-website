@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>मानस मनुज | आधिकारिक साहित्यिक वेबसाइट</title>
+  <title>मानस मनुज • लेखक एवं शोधकर्ता | आधिकारिक साहित्यिक वेबसाइट</title>
 
   <!-- Favicon (ब्राउज़र टैब लोगो) -->
   <link rel="icon" type="image/jpeg" href="images/author.jpg" />
 
   <!-- SEO एवं Google AdSense के लिए मेटा टैग्स -->
-  <meta name="description" content="हिंदी साहित्यकार मानस मनुज की आधिकारिक वेबसाइट। सनातन दर्शन, पौराणिक साहित्य, शिवशक्ति त्रिदेव गाथा, सनातन गौरव गाथा, साहित्यिक लेख, वीडियो और ऑटोग्राफ पुस्तक ऑर्डर।" />
-  <meta name="keywords" content="मानस मनुज, Manas Manuj, शिवशक्ति त्रिदेव गाथा, सनातन गौरव गाथा, हिंदी साहित्य, सनातन धर्म, पौराणिक साहित्य" />
+  <meta name="description" content="मानस मनुज (लेखक एवं सनातन विषयों के शोधकर्ता) की आधिकारिक वेबसाइट। सनातन दर्शन, पौराणिक साहित्य, वैदिक विज्ञान, शिवशक्ति त्रिदेव गाथा, सनातन गौरव गाथा, लेख और वीडियो।" />
+  <meta name="keywords" content="मानस मनुज, Manas Manuj, Author and Researcher, सनातन शोधकर्ता, शिवशक्ति त्रिदेव गाथा, सनातन गौरव गाथा, पौराणिक साहित्य, वैदिक विज्ञान, हिंदी साहित्य" />
   <meta name="author" content="मानस मनुज (मनोज कुमार)" />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="मानस मनुज | आधिकारिक साहित्यिक वेबसाइट" />
-  <meta property="og:description" content="सनातन दर्शन, पौराणिक साहित्य एवं भारतीय संस्कृति पर आधारित पुस्तकों और लेखों का आधिकारिक मंच।" />
+  <meta property="og:title" content="मानस मनुज • लेखक एवं शोधकर्ता | सनातन दर्शन एवं पौराणिक साहित्य" />
+  <meta property="og:description" content="सनातन दर्शन, पौराणिक साहित्य, वैदिक विज्ञान एवं भारतीय ज्ञान परंपरा पर आधारित पुस्तकों, शोध और लेखों का आधिकारिक मंच।" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://manasmanuj.in/" />
 
@@ -25,8 +25,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- प्राइम सोशल मीडिया बार, वीडियो कार्ड, पॉपअप प्लेयर और ईमेल कार्ड स्टाइलिंग -->
+  <!-- ब्रांडिंग, शोध हाइलाइट, सोशल बार, वीडियो कार्ड, पॉपअप प्लेयर और ईमेल कार्ड स्टाइलिंग -->
   <style>
+    .brand-name-row {
+      display: inline-flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .brand-role {
+      font-size: 0.62em;
+      font-weight: 600;
+      color: var(--saffron, #b45309);
+      letter-spacing: 0.01em;
+    }
+    .research-highlights {
+      margin: 1.15rem 0;
+      padding: 1rem 1.15rem;
+      background: rgba(122, 28, 28, 0.035);
+      border-left: 3px solid var(--maroon, #7a1c1c);
+      border-radius: 0 8px 8px 0;
+    }
+    .research-highlights h4 {
+      margin: 0 0 0.55rem;
+      font-size: 1.04rem;
+      color: var(--maroon, #7a1c1c);
+    }
+    .research-highlights p {
+      margin: 0 0 0.65rem;
+      font-size: 0.95rem;
+    }
+    .research-list {
+      margin: 0;
+      padding-left: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .research-list li {
+      line-height: 1.68;
+      font-size: 0.95rem;
+    }
     .prime-social-bar {
       display: flex;
       flex-wrap: wrap;
@@ -194,7 +233,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 0.75rem;
+      padding: 0.75rem 0.75rem 2.8rem;
     }
     .video-modal-overlay.open {
       display: flex;
@@ -254,7 +293,7 @@
     }
     .video-modal-frame.vertical-video {
       width: min(100%, 420px);
-      height: min(78dvh, 720px);
+      height: min(72dvh, 700px);
       aspect-ratio: 9 / 16;
       margin: 0 auto;
     }
@@ -268,11 +307,12 @@
     .video-modal-footer {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem 1rem;
       color: rgba(255, 255, 255, 0.82);
       font-size: 0.85rem;
+      padding: 0.15rem 0.25rem;
     }
     .video-modal-ext {
       color: #fcd34d;
@@ -301,14 +341,14 @@
 
     @media (max-width: 640px) {
       .video-modal-overlay {
-        padding: 0.35rem;
+        padding: 0.45rem 0.45rem 3.4rem;
       }
       .video-modal-frame {
         border-radius: 6px;
       }
       .video-modal-frame.vertical-video {
         width: 100%;
-        height: 76dvh;
+        height: 70dvh;
       }
     }
   </style>
@@ -319,8 +359,11 @@
   <header>
     <div class="nav-container">
       <a href="#home" class="brand-title">
-        <span data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</span>
-        <span class="brand-sub" data-hi="हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन" data-en="Hindi Literature • Spiritual & Sanatan Thought">हिंदी साहित्य • आध्यात्मिक एवं सनातन चिंतन</span>
+        <span class="brand-name-row">
+          <span data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</span>
+          <span class="brand-role" data-hi="• लेखक एवं शोधकर्ता" data-en="• Author & Researcher">• लेखक एवं शोधकर्ता</span>
+        </span>
+        <span class="brand-sub" data-hi="सनातन दर्शन • पौराणिक साहित्य एवं वैदिक विज्ञान" data-en="Sanatan Philosophy • Pauranik Literature & Vedic Science">सनातन दर्शन • पौराणिक साहित्य एवं वैदिक विज्ञान</span>
       </a>
 
       <div class="lang-switch">
@@ -376,14 +419,14 @@
   <!-- लेखक परिचय (वेबसाइट खुलते ही सबसे पहले) -->
   <section id="about" style="padding-top: 1.2rem;">
     <div class="section-header">
-      <h2 data-hi="लेखक परिचय" data-en="About the Author">लेखक परिचय</h2>
+      <h2 data-hi="लेखक एवं शोधकर्ता परिचय" data-en="About the Author & Researcher">लेखक एवं शोधकर्ता परिचय</h2>
       <div class="divider"></div>
     </div>
 
     <div class="card about-layout">
       <div class="about-sidebar">
         <div class="author-photo-frame">
-          <img src="images/author.jpg" alt="लेखक मानस मनुज (Manas Manuj)" loading="lazy" />
+          <img src="images/author.jpg" alt="मानस मनुज - लेखक एवं सनातन शोधकर्ता (Manas Manuj)" loading="lazy" />
         </div>
 
         <div class="quick-profile">
@@ -414,12 +457,12 @@
               <span class="profile-value" data-hi="लेखांकन एवं वित्त क्षेत्र में 15 वर्षों तक नेतृत्व (2007–2022); वर्ष 2022 से स्वतंत्र व्यवसाय एवं साहित्य साधना" data-en="15 years heading Accounts & Finance roles (2007–2022); Independent Entrepreneur & Author since 2022">लेखांकन एवं वित्त क्षेत्र में 15 वर्षों तक नेतृत्व (2007–2022); वर्ष 2022 से स्वतंत्र व्यवसाय एवं साहित्य साधना</span>
             </li>
             <li>
-              <span class="profile-label" data-hi="लेखन क्षेत्र" data-en="Literary Genres">लेखन क्षेत्र</span>
-              <span class="profile-value" data-hi="सनातन दर्शन, पौराणिक साहित्य, भारतीय संस्कृति एवं विरासत" data-en="Sanatan Philosophy, Pauranik Literature, Indian Culture & Heritage">सनातन दर्शन, पौराणिक साहित्य, भारतीय संस्कृति एवं विरासत</span>
+              <span class="profile-label" data-hi="शोध क्षेत्र" data-en="Research Focus">शोध क्षेत्र</span>
+              <span class="profile-value" data-hi="पौराणिक समन्वय, वैदिक ब्रह्मांड-विज्ञान (Cosmology), काल-गणना, भारतीय ज्ञान परंपरा तथा विज्ञान-अध्यात्म संवाद" data-en="Pauranik Synthesis, Vedic Cosmology, Timekeeping, Indian Knowledge Systems & Science-Spirituality Dialogue">पौराणिक समन्वय, वैदिक ब्रह्मांड-विज्ञान (Cosmology), काल-गणना, भारतीय ज्ञान परंपरा तथा विज्ञान-अध्यात्म संवाद</span>
             </li>
             <li>
               <span class="profile-label" data-hi="प्रमुख कृतियाँ" data-en="Notable Works">प्रमुख कृतियाँ</span>
-              <span class="profile-value" data-hi="शिवशक्ति त्रिदेव गाथा (भारतीय साहित्य संग्रह), सनातन गौरव गाथा (आगामी त्रयी)" data-en="Shivshakti Tridev Gatha (Bhartiya Sahitya Sangrah), Sanatan Gaurav Gatha (Upcoming Trilogy)">शिवशक्ति त्रिदेव गाथा (भारतीय साहित्य संग्रह), सनातन गौरव गाथा (आगामी त्रयी)</span>
+              <span class="profile-value" data-hi="शिवशक्ति त्रिदेव गाथा (भारतीय साहित्य संग्रह, ISBN: 9781613018972); सनातन गौरव गाथा (आगामी त्रयी — 18 खंड, 108 अध्याय)" data-en="ShivShakti Tridev Gatha (Bhartiya Sahitya Sangrah, ISBN: 9781613018972); Sanatan Gaurav Gatha (Upcoming Trilogy — 18 Khands, 108 Chapters)">शिवशक्ति त्रिदेव गाथा (भारतीय साहित्य संग्रह, ISBN: 9781613018972); सनातन गौरव गाथा (आगामी त्रयी — 18 खंड, 108 अध्याय)</span>
             </li>
           </ul>
         </div>
@@ -427,17 +470,38 @@
 
       <div class="about-bio">
         <h3 data-hi="विस्तृत लेखक परिचय" data-en="Detailed Biography">विस्तृत लेखक परिचय</h3>
-        <p data-hi="हिंदी साहित्य एवं सनातन विषयों के लेखक <strong>मानस मनुज</strong> का मूल नाम मनोज कुमार है। वे मूल रूप से हिमाचल प्रदेश के कांगड़ा ज़िले से संबंध रखते हैं और वर्तमान समय में चंडीगढ़ में निवास कर रहे हैं।" data-en="<strong>Manas Manuj</strong> (born Manoj Kumar) is a Hindi literary author and researcher of Sanatan philosophy and Pauranik literature. Originally hailing from the Kangra district of Himachal Pradesh, he currently resides in Chandigarh.">
-          हिंदी साहित्य एवं सनातन विषयों के लेखक <strong>मानस मनुज</strong> का मूल नाम मनोज कुमार है। वे मूल रूप से हिमाचल प्रदेश के कांगड़ा ज़िले से संबंध रखते हैं और वर्तमान समय में चंडीगढ़ में निवास कर रहे हैं।
+
+        <p data-hi="<strong>मानस मनुज</strong> (मूल नाम: मनोज कुमार) समकालीन हिंदी साहित्यकार और सनातन ज्ञान परंपरा के स्वतंत्र शोधकर्ता हैं। हिमाचल प्रदेश के कांगड़ा ज़िले में जन्मे और वर्तमान में चंडीगढ़ में निवास करने वाले मानस मनुज ने हिमाचल प्रदेश विश्वविद्यालय, शिमला से स्नातक की शिक्षा प्राप्त की। वर्ष 2007 से 2022 तक लेखांकन एवं वित्त (Accounts & Finance) क्षेत्र में प्रमुख नेतृत्वकारी भूमिकाएँ निभाने के बाद, वे स्वतंत्र व्यवसाय के साथ पूर्ण समर्पण से साहित्य और शोध कार्य में संलग्न हैं।" data-en="<strong>Manas Manuj</strong> (official name: Manoj Kumar) is a contemporary Hindi author and independent researcher of Sanatan philosophy and Indian Knowledge Systems. Born in the Kangra district of Himachal Pradesh and currently based in Chandigarh, he graduated in Arts from Himachal Pradesh University, Shimla. After leading Accounts and Finance verticals for 15 years (2007–2022), he transitioned to independent entrepreneurship alongside dedicated literary and research pursuits.">
+          <strong>मानस मनुज</strong> (मूल नाम: मनोज कुमार) समकालीन हिंदी साहित्यकार और सनातन ज्ञान परंपरा के स्वतंत्र शोधकर्ता हैं। हिमाचल प्रदेश के कांगड़ा ज़िले में जन्मे और वर्तमान में चंडीगढ़ में निवास करने वाले मानस मनुज ने हिमाचल प्रदेश विश्वविद्यालय, शिमला से स्नातक की शिक्षा प्राप्त की। वर्ष 2007 से 2022 तक लेखांकन एवं वित्त (Accounts & Finance) क्षेत्र में प्रमुख नेतृत्वकारी भूमिकाएँ निभाने के बाद, वे स्वतंत्र व्यवसाय के साथ पूर्ण समर्पण से साहित्य और शोध कार्य में संलग्न हैं।
         </p>
-        <p data-hi="उन्होंने अपनी उच्च शिक्षा हिमाचल प्रदेश विश्वविद्यालय, शिमला से कला संकाय में स्नातक के रूप में पूर्ण की। वर्ष 2007 में वे अपने व्यावसायिक जीवन के लिए चंडीगढ़ आए, जहाँ उन्होंने वर्ष 2007 से 2022 तक 15 वर्षों की अवधि में लेखांकन एवं वित्त के क्षेत्र में प्रमुख पदों पर कार्य करते हुए विभाग का नेतृत्व किया। इसके पश्चात, वर्ष 2022 से वे स्वतंत्र व्यवसाय के साथ-साथ सक्रिय रूप से साहित्य साधना में संलग्न हैं।" data-en="He completed his graduation in Arts from Himachal Pradesh University, Shimla. In 2007, he moved to Chandigarh to pursue his professional career. Over a span of 15 years (2007–2022), he worked in and headed the Accounts and Finance vertical across professional organizations. Since 2022, he has been engaged in independent entrepreneurship alongside his dedicated literary pursuits.">
-          उन्होंने अपनी उच्च शिक्षा हिमाचल प्रदेश विश्वविद्यालय, शिमला से कला संकाय में स्नातक के रूप में पूर्ण की। वर्ष 2007 में वे अपने व्यावसायिक जीवन के लिए चंडीगढ़ आए, जहाँ उन्होंने वर्ष 2007 से 2022 तक 15 वर्षों की अवधि में लेखांकन एवं वित्त के क्षेत्र में प्रमुख पदों पर कार्य करते हुए विभाग का नेतृत्व किया। इसके पश्चात, वर्ष 2022 से वे स्वतंत्र व्यवसाय के साथ-साथ सक्रिय रूप से साहित्य साधना में संलग्न हैं।
+
+        <p data-hi="वित्त और विश्लेषण की सुदीर्घ व्यावसायिक पृष्ठभूमि ने उनके साहित्यिक चिंतन को एक सुव्यवस्थित, तार्किक और तथ्यपरक शोध-दृष्टि प्रदान की है। वर्ष 2017 में प्रारंभ हुई उनकी आठ वर्षों (2017–2025) की निरंतर साधना का परिणाम उनकी प्रथम कृति <strong>'शिवशक्ति त्रिदेव गाथा'</strong> है, जिसका प्रकाशन <em>भारतीय साहित्य संग्रह</em> द्वारा किया जा रहा है। प्रथम चरण (2017–2023) में भगवान श्रीहरि विष्णु के 24 अवतारों को लिपिबद्ध करने के पश्चात, द्वितीय चरण (2023–2025) में उन्होंने सृष्टि की उत्पत्ति, आदिशक्ति के स्वरूप और त्रिदेवों की एकता को एक अखंड धारा में पिरोया। शिव महापुराण, श्रीमद्भागवत महापुराण और देवी भागवत महापुराण के सार को समेटे इस 6 खंडों (109 अध्याय) के काव्य-ग्रंथ में संस्कृत श्लोक, अवधी-हिंदी के गेय दोहा-चौपाई और सरल भावार्थ का संतुलित समन्वय है।" data-en="His long analytical background in finance shaped a structured, research-driven approach to Pauranik and philosophical literature. Culminating eight years of continuous study and writing (2017–2025), his debut poetic treatise, <strong>'ShivShakti Tridev Gatha'</strong> (published by <em>Bhartiya Sahitya Sangrah</em>), synthesizes the core essence of the Shiv Mahapuran, Shrimad Bhagavat Mahapuran, and Devi Bhagavat Mahapuran. Beginning with the 24 incarnations of Lord Vishnu (2017–2023) and expanding into cosmic origins, Adishakti, and the indivisible unity of the Tridev (2023–2025), this six-volume (109-chapter) work weaves together Sanskrit shlokas, rhythmic Awadhi-Hindi Doha-Chaupai verses, and lucid Hindi commentary.">
+          वित्त और विश्लेषण की सुदीर्घ व्यावसायिक पृष्ठभूमि ने उनके साहित्यिक चिंतन को एक सुव्यवस्थित, तार्किक और तथ्यपरक शोध-दृष्टि प्रदान की है। वर्ष 2017 में प्रारंभ हुई उनकी आठ वर्षों (2017–2025) की निरंतर साधना का परिणाम उनकी प्रथम कृति <strong>'शिवशक्ति त्रिदेव गाथा'</strong> है, जिसका प्रकाशन <em>भारतीय साहित्य संग्रह</em> द्वारा किया जा रहा है। प्रथम चरण (2017–2023) में भगवान श्रीहरि विष्णु के 24 अवतारों को लिपिबद्ध करने के पश्चात, द्वितीय चरण (2023–2025) में उन्होंने सृष्टि की उत्पत्ति, आदिशक्ति के स्वरूप और त्रिदेवों की एकता को एक अखंड धारा में पिरोया। शिव महापुराण, श्रीमद्भागवत महापुराण और देवी भागवत महापुराण के सार को समेटे इस 6 खंडों (109 अध्याय) के काव्य-ग्रंथ में संस्कृत श्लोक, अवधी-हिंदी के गेय दोहा-चौपाई और सरल भावार्थ का संतुलित समन्वय है।
         </p>
-        <p data-hi="मानस मनुज ने वर्ष 2017 में अपने साहित्यिक लेखन की शुरुआत की। वित्त और विश्लेषण की सुदीर्घ व्यावसायिक पृष्ठभूमि होने के कारण, उन्होंने पौराणिक संदर्भों और सनातन विषयों का क्रमबद्ध एवं विश्लेषणात्मक दृष्टिकोण से अध्ययन प्रारंभ किया। वर्ष 2017 से 2023 के प्रथम चरण में उन्होंने भगवान श्री हरि विष्णु के 24 अवतारों को शुद्ध हिंदी भाषा में लिपिबद्ध करने का कार्य पूर्ण किया। इसके पश्चात, वर्ष 2023 से 2025 के द्वितीय चरण में उन्होंने सृष्टि की उत्पत्ति, त्रिदेव (ब्रह्मा, विष्णु, महेश) के कार्य-विभाजन और आदिशक्ति के मूल स्वरूप पर कार्य करते हुए आठ वर्षों (2017–2025) के निरंतर प्रयास से अपनी पहली पुस्तक <strong>'शिवशक्ति त्रिदेव गाथा'</strong> पूर्ण की। इस पुस्तक का प्रकाशन 'भारतीय साहित्य संग्रह' द्वारा किया जा रहा है।" data-en="Manas Manuj began his literary journey in 2017. Drawing upon his strong analytical background in finance, he approached Pauranik literature through a structured and research-oriented lens. In the first phase of his work (2017–2023), he documented the 24 incarnations (Avatars) of Lord Vishnu in pure Hindi. Expanding the scope of his research in the second phase (2023–2025), he explored the origins of creation, the cosmic functions of the Tridev (Brahma, Vishnu, and Mahesh), and the supreme essence of Adishakti. Culminating eight years of dedicated writing (2017–2025), his debut book, <strong>'Shivshakti Tridev Gatha'</strong>, is being published by Bhartiya Sahitya Sangrah.">
-          मानस मनुज ने वर्ष 2017 में अपने साहित्यिक लेखन की शुरुआत की। वित्त और विश्लेषण की सुदीर्घ व्यावसायिक पृष्ठभूमि होने के कारण, उन्होंने पौराणिक संदर्भों और सनातन विषयों का क्रमबद्ध एवं विश्लेषणात्मक दृष्टिकोण से अध्ययन प्रारंभ किया। वर्ष 2017 से 2023 के प्रथम चरण में उन्होंने भगवान श्री हरि विष्णु के 24 अवतारों को शुद्ध हिंदी भाषा में लिपिबद्ध करने का कार्य पूर्ण किया। इसके पश्चात, वर्ष 2023 से 2025 के द्वितीय चरण में उन्होंने सृष्टि की उत्पत्ति, त्रिदेव (ब्रह्मा, विष्णु, महेश) के कार्य-विभाजन और आदिशक्ति के मूल स्वरूप पर कार्य करते हुए आठ वर्षों (2017–2025) के निरंतर प्रयास से अपनी पहली पुस्तक <strong>'शिवशक्ति त्रिदेव गाथा'</strong> पूर्ण की। इस पुस्तक का प्रकाशन 'भारतीय साहित्य संग्रह' द्वारा किया जा रहा है।
-        </p>
-        <p data-hi="उनकी इस कृति में शुद्ध हिंदी के साथ-साथ प्रसंग की आवश्यकतानुसार अवधी और संस्कृत के संदर्भों का भी समन्वित समावेश किया गया है। उनके लेखन का मुख्य उद्देश्य पौराणिक ग्रंथों के गूढ़ विषयों को सरल, सुस्पष्ट और तथ्यपरक भाषा के माध्यम से आधुनिक पाठकों तक पहुँचाना है। वर्तमान में वे भारतीय संस्कृति, विज्ञान एवं विरासत पर आधारित तीन-भागों की आगामी पुस्तक श्रृंखला <strong>'सनातन गौरव गाथा'</strong> के लेखन कार्य में संलग्न हैं।" data-en="Written primarily in pure Hindi, the work also incorporates contextual references and verses in Awadhi and Sanskrit. His primary literary objective is to present complex Pauranik and philosophical subjects in a clear, structured, and accessible manner for contemporary readers. He is currently authoring his upcoming three-volume series, <strong>'Sanatan Gaurav Gatha'</strong>, focusing on Indian culture, Vedic science, and Sanatan heritage.">
-          उनकी इस कृति में शुद्ध हिंदी के साथ-साथ प्रसंग की आवश्यकतानुसार अवधी और संस्कृत के संदर्भों का भी समन्वित समावेश किया गया है। उनके लेखन का मुख्य उद्देश्य पौराणिक ग्रंथों के गूढ़ विषयों को सरल, सुस्पष्ट और तथ्यपरक भाषा के माध्यम से आधुनिक पाठकों तक पहुँचाना है। वर्तमान में वे भारतीय संस्कृति, विज्ञान एवं विरासत पर आधारित तीन-भागों की आगामी पुस्तक श्रृंखला <strong>'सनातन गौरव गाथा'</strong> के लेखन कार्य में संलग्न हैं।
+
+        <div class="research-highlights">
+          <h4 data-hi="प्रमुख शोध आयाम (Key Research Areas)" data-en="Key Research Highlights">प्रमुख शोध आयाम (Key Research Areas)</h4>
+          <p data-hi="अपनी आगामी तीन-भागों की महाश्रृंखला <strong>'सनातन गौरव गाथा' (18 खंड, 108 अध्याय)</strong> के माध्यम से वे प्राचीन भारतीय ऋषि-परंपरा और आधुनिक विज्ञान के मध्य एक तार्किक सेतु निर्मित करने पर कार्य कर रहे हैं:" data-en="Through his upcoming three-volume series, <strong>'Sanatan Gaurav Gatha' (18 Khands, 108 Chapters)</strong>, he explores the intersection of ancient Indian wisdom and modern scientific inquiry:">
+            अपनी आगामी तीन-भागों की महाश्रृंखला <strong>'सनातन गौरव गाथा' (18 खंड, 108 अध्याय)</strong> के माध्यम से वे प्राचीन भारतीय ऋषि-परंपरा और आधुनिक विज्ञान के मध्य एक तार्किक सेतु निर्मित करने पर कार्य कर रहे हैं:
+          </p>
+          <ul class="research-list">
+            <li data-hi="<strong>चेतना एवं ब्रह्मांड-विज्ञान:</strong> महाशून्य (Singularity), निराकार परब्रह्म, नाद-ब्रह्म (ॐ), शिव-शक्ति (ऊर्जा एवं पदार्थ का रूपांतरण), बहु-ब्रह्मांड (Multiverse) और 14 लोकों का आयाम-आधारित विश्लेषण।" data-en="<strong>Consciousness & Cosmology:</strong> Conceptual parallels between Vedic cosmology—Mahashunya, Nirakar Parabrahman, Nada-Brahma (Om), Shiv-Shakti (energy-matter equivalence), Multiverse frameworks, and the 14 Lokas—and modern quantum physics.">
+              <strong>चेतना एवं ब्रह्मांड-विज्ञान:</strong> महाशून्य (Singularity), निराकार परब्रह्म, नाद-ब्रह्म (ॐ), शिव-शक्ति (ऊर्जा एवं पदार्थ का रूपांतरण), बहु-ब्रह्मांड (Multiverse) और 14 लोकों का आयाम-आधारित विश्लेषण।
+            </li>
+            <li data-hi="<strong>वैदिक काल-गणना एवं खगोल:</strong> चक्रीय समय (चतुर्युग, मन्वंतर एवं 4.32 अरब वर्षों के कल्प), समय की सापेक्षता (Time Dilation), पृथ्वी के अक्षीय चक्र और 33 कोटि ब्रह्मांडीय बलों का अध्ययन।" data-en="<strong>Vedic Timekeeping & Astronomy:</strong> Analytical study of cyclical time (Chatur-Yuga, Manvantara, and the 4.32-billion-year Kalpa), time dilation narratives, axial precession, and the 33 Koti cosmic forces.">
+              <strong>वैदिक काल-गणना एवं खगोल:</strong> चक्रीय समय (चतुर्युग, मन्वंतर एवं 4.32 अरब वर्षों के कल्प), समय की सापेक्षता (Time Dilation), पृथ्वी के अक्षीय चक्र और 33 कोटि ब्रह्मांडीय बलों का अध्ययन।
+            </li>
+            <li data-hi="<strong>प्राचीन भारतीय विज्ञान, वास्तु एवं चिकित्सा:</strong> मंदिर वास्तुकला (12 ज्योतिर्लिंग, एलोरा, कोणार्क), महर्षि कणाद का परमाणु दर्शन, विमान शास्त्र, आयुर्वेद-शल्य क्रिया (चरक व सुश्रुत), वैदिक गणित और पर्यावरण-दर्शन।" data-en="<strong>Ancient Indian Science, Architecture & Medicine:</strong> Research on temple engineering (12 Jyotirlingas, Ellora, Konark), Maharshi Kanada's atomic theory (Parmanu), Ayurveda and surgery (Charaka & Sushruta), Vedic mathematics, and ecological ethics.">
+              <strong>प्राचीन भारतीय विज्ञान, वास्तु एवं चिकित्सा:</strong> मंदिर वास्तुकला (12 ज्योतिर्लिंग, एलोरा, कोणार्क), महर्षि कणाद का परमाणु दर्शन, विमान शास्त्र, आयुर्वेद-शल्य क्रिया (चरक व सुश्रुत), वैदिक गणित और पर्यावरण-दर्शन।
+            </li>
+            <li data-hi="<strong>संस्कृति, इतिहास एवं समकालीन विमर्श:</strong> पौराणिक प्रतीकों की वैज्ञानिक-मनोवैज्ञानिक व्याख्या, भारतीय ज्ञान प्रणाली (IKS) और आधुनिक पाठकों के लिए तर्कसंगत सांस्कृतिक संवाद।" data-en="<strong>Cultural Heritage & Contemporary Discourse:</strong> Presenting logical, evidence-oriented interpretations of Sanatan traditions and Indian Knowledge Systems for modern and global readers.">
+              <strong>संस्कृति, इतिहास एवं समकालीन विमर्श:</strong> पौराणिक प्रतीकों की वैज्ञानिक-मनोवैज्ञानिक व्याख्या, भारतीय ज्ञान प्रणाली (IKS) और आधुनिक पाठकों के लिए तर्कसंगत सांस्कृतिक संवाद।
+            </li>
+          </ul>
+        </div>
+
+        <p data-hi="उनके लेखन का मूल उद्देश्य पौराणिक ग्रंथों और सनातन दर्शन के गूढ़ सिद्धांतों को रूढ़ियों से परे निकालकर, सरल भाषा और तार्किक प्रमाणों के साथ वैश्विक एवं आधुनिक पाठकों तक पहुँचाना है।" data-en="His core literary mission is to bridge faith and reason—bringing the depth of classical scriptures and Indian heritage to contemporary readers with clarity, authenticity, and analytical rigor.">
+          उनके लेखन का मूल उद्देश्य पौराणिक ग्रंथों और सनातन दर्शन के गूढ़ सिद्धांतों को रूढ़ियों से परे निकालकर, सरल भाषा और तार्किक प्रमाणों के साथ वैश्विक एवं आधुनिक पाठकों तक पहुँचाना है।
         </p>
       </div>
     </div>
@@ -757,8 +821,8 @@
       </div>
       <div class="video-modal-frame" id="homeModalFrame"></div>
       <div class="video-modal-footer">
-        <span id="homeModalDesc"></span>
         <a href="#" id="homeModalOriginalLink" target="_blank" rel="noopener noreferrer" class="video-modal-ext">मूल ऐप में खोलें ↗</a>
+        <span id="homeModalDesc"></span>
       </div>
     </div>
   </div>
@@ -777,7 +841,7 @@
   
   <!-- फुटर -->
   <footer>
-    <div class="brand-title" style="font-size:1.35rem;" data-hi="मानस मनुज" data-en="Manas Manuj">मानस मनुज</div>
+    <div class="brand-title" style="font-size:1.35rem;" data-hi="मानस मनुज • लेखक एवं शोधकर्ता" data-en="Manas Manuj • Author & Researcher">मानस मनुज • लेखक एवं शोधकर्ता</div>
     <div class="footer-links">
       <a href="https://www.youtube.com/@ManasManuj" target="_blank" rel="noopener noreferrer">YouTube</a>
       <a href="https://www.facebook.com/manasmanuj" target="_blank" rel="noopener noreferrer">Facebook</a>
