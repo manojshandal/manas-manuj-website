@@ -2,7 +2,7 @@
 <html lang="hi">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>मानस एडमिन पैनल | मानस मनुज</title>
   <link rel="icon" type="image/jpeg" href="../images/author.jpg" />
@@ -36,8 +36,6 @@
     html, body {
       margin: 0;
       padding: 0;
-      max-width: 100vw;
-      overflow-x: hidden;
       background-color: var(--mm-cream) !important;
       color: var(--mm-text) !important;
       font-family: 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, sans-serif !important;
@@ -51,7 +49,6 @@
       height: auto !important;
       min-height: 58px !important;
       width: 100% !important;
-      max-width: 100vw !important;
     }
 
     [class*="AppHeaderContent"] {
@@ -97,25 +94,18 @@
       color: var(--mm-gold-light) !important;
     }
 
-    [class*="AppHeader"] button:focus,
-    [class*="AppHeader"] a:focus {
-      outline: none !important;
-      box-shadow: 0 0 0 2px var(--mm-gold) !important;
-    }
-
-    /* --- मुख्य पेज कंटेनर और कार्ड्स --- */
+    /* --- मुख्य डैशबोर्ड कंटेनर और कार्ड्स --- */
     [class*="AppMainContainer"] {
       max-width: 1160px !important;
       width: 100% !important;
       margin: 0 auto !important;
-      padding: 18px 14px 48px !important;
+      padding: 18px 14px 72px !important;
     }
 
     [class*="SidebarContainer"],
     [class*="CollectionTopContainer"],
     [class*="ListCard-"],
-    [class*="GridCard-"],
-    [class*="ViewControls"] {
+    [class*="GridCard-"] {
       background: var(--mm-card) !important;
       border: 1px solid var(--mm-border) !important;
       border-radius: 14px !important;
@@ -154,12 +144,12 @@
       color: var(--mm-text) !important;
     }
 
-    /* --- एडिटर टूलबार (Publish बटन हमेशा साफ़ दिखे) --- */
-    [class*="EditorContainer"] {
+    /* --- एडिटर पेज और टूलबार (मोबाइल पर 100% साफ़ दिखे) --- */
+    [class*="EditorContainer"],
+    [class*="Editor-"] {
       min-width: 0 !important;
       width: 100% !important;
-      max-width: 100vw !important;
-      background: var(--mm-cream) !important;
+      background-color: var(--mm-cream) !important;
     }
 
     [class*="ToolbarContainer"] {
@@ -167,16 +157,17 @@
       border-bottom: 2px solid var(--mm-border) !important;
       min-width: 0 !important;
       width: 100% !important;
-      max-width: 100vw !important;
       height: auto !important;
-      min-height: 60px !important;
+      min-height: 58px !important;
       padding: 8px 12px !important;
       display: flex !important;
       flex-wrap: wrap !important;
       align-items: center !important;
       justify-content: space-between !important;
       gap: 8px !important;
-      overflow: visible !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 300 !important;
       box-shadow: 0 4px 12px rgba(107, 20, 26, 0.08) !important;
     }
 
@@ -184,6 +175,7 @@
       border-right: none !important;
       padding: 6px 10px !important;
       min-width: 0 !important;
+      flex: 1 1 200px !important;
       color: var(--mm-maroon) !important;
       background: var(--mm-soft) !important;
       border-radius: 8px !important;
@@ -193,17 +185,22 @@
     [class*="ToolbarSectionMain"] {
       min-width: 0 !important;
       padding: 0 !important;
+      flex: 0 1 auto !important;
       display: flex !important;
       align-items: center !important;
       gap: 8px !important;
       flex-wrap: wrap !important;
     }
 
-    [class*="ToolbarSectionMeta"] {
-      display: none !important;
+    [class*="ToolbarSubSectionFirst"] {
+      min-width: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      flex-wrap: wrap !important;
     }
 
-    /* Publish / Save बटन को आकर्षक भगवा रंग दें */
+    /* Publish / Save और Dropdown बटन */
     [class*="PublishedToolbarButton"],
     [class*="ToolbarDropdown"] button,
     [class*="StyledDropdownButton"] {
@@ -212,37 +209,23 @@
       border-radius: 8px !important;
       font-weight: 700 !important;
       padding: 0 14px !important;
-      height: 38px !important;
-      line-height: 38px !important;
-      box-shadow: 0 3px 10px rgba(217, 107, 22, 0.3) !important;
+      height: 36px !important;
+      line-height: 36px !important;
+      box-shadow: 0 3px 10px rgba(217, 107, 22, 0.28) !important;
     }
 
-    [class*="PublishedToolbarButton"]:hover {
+    [class*="PublishedToolbarButton"]:hover,
+    [class*="StyledDropdownButton"]:hover {
       background: var(--mm-saffron-hover) !important;
     }
 
-    /* --- सिंगल-कॉलम एडिटर फ़ॉर्म --- */
-    [class*="EditorInterface"],
-    [class*="ViewControls"],
-    .SplitPane,
-    .Pane1 {
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 0 !important;
-    }
-
-    .Pane2,
-    .Resizer,
-    [class*="PreviewPaneContainer"],
-    [class*="EditorToggle"] {
-      display: none !important;
-    }
-
+    /* एडिटर फ़ॉर्म कंटेनर */
     [class*="ControlPaneContainer"] {
       width: 100% !important;
       max-width: 820px !important;
       margin: 0 auto !important;
-      padding: 18px 14px 90px !important;
+      padding: 18px 14px 100px !important;
+      background-color: var(--mm-cream) !important;
     }
 
     /* फ़ॉर्म लेबल और इनपुट बॉक्स */
@@ -274,7 +257,7 @@
       border-color: var(--mm-saffron) !important;
     }
 
-    /* लिस्ट आइटम कार्ड्स (Add Video / Article / Review) */
+    /* लिस्ट आइटम कार्ड्स */
     [class*="TopBarContainer"] {
       background: var(--mm-soft) !important;
       border-bottom: 1px solid var(--mm-border) !important;
@@ -317,11 +300,11 @@
       font-weight: 600 !important;
     }
 
-    /* वेबसाइट पर वापस जाने का छोटा फ्लोटिंग बटन */
+    /* वेबसाइट पर वापस जाने का फ्लोटिंग बटन */
     .mm-home-fab {
       position: fixed;
-      bottom: 16px;
-      left: 16px;
+      bottom: 14px;
+      left: 14px;
       z-index: 9999;
       background: var(--mm-maroon);
       color: var(--mm-gold-light);
@@ -341,7 +324,7 @@
       background: var(--mm-maroon-dark);
     }
 
-    /* --- मोबाइल रिस्पॉन्सिव फिक्स (850px से छोटे स्क्रीन के लिए) --- */
+    /* --- मोबाइल रिस्पॉन्सिव लेआउट --- */
     @media (max-width: 850px) {
       [class*="CollectionContainer"] {
         display: flex !important;
@@ -375,12 +358,8 @@
         gap: 8px !important;
       }
 
-      [class*="ToolbarSectionBackLink"] p,
-      [class*="ToolbarSubSectionFirst"] {
-        max-width: 180px !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        white-space: nowrap !important;
+      [class*="ToolbarSectionMeta"] {
+        display: none !important;
       }
 
       [class*="StyledModal"] {
